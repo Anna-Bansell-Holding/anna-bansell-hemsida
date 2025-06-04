@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { TrendingUp, Users, Star } from 'lucide-react';
 
 const VisionSection = () => {
   const values = [
@@ -25,15 +26,18 @@ const VisionSection = () => {
   const outcomes = [
     {
       title: "Överträffa försäljningsmål",
-      description: "Gång på gång har jag sett när säljorganisationen har självförtroende och förståelse för processerna hur försäljningen utvecklas och stärks."
+      description: "Gång på gång har jag sett när säljorganisationen har självförtroende och förståelse för processerna hur försäljningen utvecklas och stärks.",
+      icon: TrendingUp
     },
     {
       title: "Entusiastiska medarbetare",
-      description: "Med tydligt definierade spelregler blir det både roligt och enkelt att axla ett ansvar och utföra sitt uppdrag."
+      description: "Med tydligt definierade spelregler blir det både roligt och enkelt att axla ett ansvar och utföra sitt uppdrag.",
+      icon: Users
     },
     {
       title: "Värdefulla leveranser", 
-      description: "Med en effektiv organisation blir det större marginaler och nöjda kunder vilket leder till en positiv spiral."
+      description: "Med en effektiv organisation blir det större marginaler och nöjda kunder vilket leder till en positiv spiral.",
+      icon: Star
     }
   ];
 
@@ -83,12 +87,13 @@ const VisionSection = () => {
 
           {/* Right column - Outcomes */}
           <div className="space-y-6">
-            {outcomes.map((outcome, index) => (
-              <Card key={index} className="border-warmBrown-200 hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
+            {outcomes.map((outcome, index) => {
+              const IconComponent = outcome.icon;
+              return (
+                <div key={index} className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-bold text-sm">
-                      {index + 1}
+                    <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary">
+                      <IconComponent size={24} />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-primary mb-2">
@@ -99,9 +104,9 @@ const VisionSection = () => {
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
