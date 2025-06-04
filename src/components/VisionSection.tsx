@@ -50,19 +50,22 @@ const VisionSection = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left column */}
-          <div>
-            <h3 className="text-2xl lg:text-3xl font-semibold text-primary mb-6">
-              Nyckeln ligger i den informella strukturen
-            </h3>
-            <p className="text-lg text-warmBrown-700 leading-relaxed mb-8">
-              Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag 
-              sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster 
-              kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att 
-              se de faktiska faktorer som bromsar organisationen och ger kraft åt de människor som tar företaget 
-              till en ny nivå.
-            </p>
+        {/* Two column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left column - Values */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl lg:text-3xl font-semibold text-primary mb-6">
+                Nyckeln ligger i den informella strukturen
+              </h3>
+              <p className="text-lg text-warmBrown-700 leading-relaxed mb-8">
+                Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag 
+                sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster 
+                kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att 
+                se de faktiska faktorer som bromsar organisationen och ger kraft åt de människor som tar företaget 
+                till en ny nivå.
+              </p>
+            </div>
 
             <div className="space-y-6">
               {values.map((value, index) => (
@@ -80,7 +83,7 @@ const VisionSection = () => {
             </div>
           </div>
 
-          {/* Right column */}
+          {/* Right column - Outcomes */}
           <div className="space-y-6">
             {outcomes.map((outcome, index) => (
               <Card key={index} className="border-warmBrown-200 hover:shadow-md transition-shadow">
