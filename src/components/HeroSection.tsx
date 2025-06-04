@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -18,7 +19,7 @@ const HeroSection = () => {
           {/* Left content */}
           <div className="animate-fade-in">
             <div className="mb-8">
-              <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6 leading-tight">Genuin framgångskultur på småländska</h1>
+              <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6 leading-tight">Framgångskultur på småländska</h1>
               <p className="text-lg lg:text-xl text-warmBrown-700 leading-relaxed mb-8">
                 En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba förändringar, 
                 samordna de gemensamma processerna och låta organisationen flyga!
