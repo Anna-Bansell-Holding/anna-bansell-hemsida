@@ -67,18 +67,16 @@ const VisionSection = () => {
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {values.map((value, index) => (
-                <Card key={index} className="border-warmBrown-200 hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <h4 className="text-lg font-semibold text-primary mb-2">
-                      {value.title}
-                    </h4>
-                    <p className="text-warmBrown-700">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div key={index} className="space-y-2">
+                  <h4 className="text-lg font-semibold text-primary">
+                    {value.title}
+                  </h4>
+                  <p className="text-warmBrown-700">
+                    {value.description}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
