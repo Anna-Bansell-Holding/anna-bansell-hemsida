@@ -53,11 +53,11 @@
 
 @layer components {
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+    @apply px-8 sm:px-12 lg:px-16 py-16 lg:py-24;
   }
   
   .container-width {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-6xl mx-auto;
   }
   
   .hero-gradient {
