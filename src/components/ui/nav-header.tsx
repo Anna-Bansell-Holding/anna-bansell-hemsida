@@ -1,4 +1,3 @@
-
 "use client"; 
 
 import React, { useRef, useState, useEffect } from "react";
@@ -34,14 +33,16 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
   useEffect(() => {
     const handleScroll = () => {
       const sections = menuItems.map(item => item.id);
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
+          const { offsetTop } = element;
+          // Activate section when it's just visible at the bottom of the screen
+          if (scrollPosition + windowHeight >= offsetTop + 50) {
+            setActiveSection(sections[i]);
             break;
           }
         }
@@ -49,6 +50,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
