@@ -27,7 +27,8 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     { label: "Turnarounds", href: "#vision", id: "vision" },
     { label: "Småland", href: "#smaland", id: "smaland" },
     { label: "Uppdrag", href: "#cases", id: "cases" },
-    { label: "Metod", href: "#method", id: "method" }
+    { label: "Metod", href: "#method", id: "method" },
+    { label: "Kontakt", href: "#contact", id: "contact" }
   ];
 
   useEffect(() => {
