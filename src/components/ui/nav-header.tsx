@@ -82,7 +82,11 @@ const Tab = ({ children, setPosition, onClick }: TabProps) => {
 const Cursor = ({ position }: { position: Position }) => {
   return (
     <motion.li
-      animate={position}
+      animate={{
+        left: position.left,
+        width: position.width,
+        opacity: position.opacity,
+      }}
       className="absolute z-0 h-7 rounded-full bg-black md:h-12"
     />
   );
