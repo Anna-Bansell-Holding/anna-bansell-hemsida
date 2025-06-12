@@ -68,6 +68,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
       ))}
 
       <Cursor position={position} />
+      <ActiveCursor activeSection={activeSection} menuItems={menuItems} />
     </ul>
   );
 }
@@ -96,9 +97,7 @@ const Tab = ({ children, setPosition, onClick, isActive }: TabProps) => {
         });
       }}
       onClick={onClick}
-      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors ${
-        isActive ? 'text-yellow-400' : 'text-white'
-      }`}
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors"
     >
       {children}
     </li>
@@ -114,6 +113,46 @@ const Cursor = ({ position }: { position: Position }) => {
         opacity: position.opacity,
       }}
       className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+    />
+  );
+};
+
+const ActiveCursor = ({ activeSection, menuItems }: { activeSection: string, menuItems: any[] }) => {
+  const [activePosition, setActivePosition] = useState<Position>({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  useEffect(() => {
+    const activeItem = menuItems.find(item => item.id === activeSection);
+    if (activeItem) {
+      // Find the corresponding tab element
+      const tabs = document.querySelectorAll('li');
+      const activeTab = Array.from(tabs).find(tab => 
+        tab.textContent?.trim() === activeItem.label
+      );
+      
+      if (activeTab) {
+        const { width } = activeTab.getBoundingClientRect();
+        setActivePosition({
+          left: activeTab.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }
+    }
+  }, [activeSection, menuItems]);
+
+  return (
+    <motion.li
+      animate={{
+        left: activePosition.left,
+        width: activePosition.width,
+        opacity: activePosition.opacity,
+      }}
+      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      style={{ pointerEvents: 'none' }}
     />
   );
 };
