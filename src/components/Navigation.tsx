@@ -8,9 +8,10 @@ const Navigation = () => {
 
   const menuItems = [
     { id: 'home', label: 'Hem', href: '#home' },
-    { id: 'turnarounds', label: 'Turnarounds', href: '#vision' },
-    { id: 'uppdrag', label: 'Uppdrag', href: '#cases' },
-    { id: 'metod', label: 'Metod', href: '#method' },
+    { id: 'vision', label: 'Turnarounds', href: '#vision' },
+    { id: 'smaland', label: 'Småland', href: '#smaland' },
+    { id: 'cases', label: 'Uppdrag', href: '#cases' },
+    { id: 'method', label: 'Metod', href: '#method' },
   ];
 
   useEffect(() => {

@@ -25,7 +25,7 @@ const SmalandSection = () => {
   ];
 
   return (
-    <section className="bg-warmBrown-50 section-padding">
+    <section id="smaland" className="bg-warmBrown-50 section-padding">
       <div className="container-width">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">
@@ -33,7 +33,7 @@ const SmalandSection = () => {
           </h2>
           
           {/* Carousel */}
-          <div className="mb-12">
+          <div className="mb-12 relative px-16">
             <Carousel className="w-full max-w-3xl mx-auto">
               <CarouselContent>
                 {messages.map((message, index) => (
@@ -49,8 +49,8 @@ const SmalandSection = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
             </Carousel>
           </div>
           
