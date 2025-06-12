@@ -1,3 +1,4 @@
+
 "use client"; 
 
 import React, { useRef, useState, useEffect } from "react";
@@ -24,7 +25,6 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
   const menuItems = [
     { label: "Hem", href: "#home", id: "home" },
     { label: "Turnarounds", href: "#vision", id: "vision" },
-    { label: "Småland", href: "#smaland", id: "smaland" },
     { label: "Uppdrag", href: "#cases", id: "cases" },
     { label: "Metod", href: "#method", id: "method" },
     { label: "Kontakt", href: "#contact", id: "contact" }
