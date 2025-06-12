@@ -1,7 +1,7 @@
 
 "use client"; 
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface Position {
@@ -20,14 +20,36 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     width: 0,
     opacity: 0,
   });
+  const [activeSection, setActiveSection] = useState('home');
 
   const menuItems = [
-    { label: "Hem", href: "#home" },
-    { label: "Turnarounds", href: "#vision" },
-    { label: "Småland", href: "#smaland" },
-    { label: "Uppdrag", href: "#cases" },
-    { label: "Metod", href: "#method" }
+    { label: "Hem", href: "#home", id: "home" },
+    { label: "Turnarounds", href: "#vision", id: "vision" },
+    { label: "Småland", href: "#smaland", id: "smaland" },
+    { label: "Uppdrag", href: "#cases", id: "cases" },
+    { label: "Metod", href: "#method", id: "method" }
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = menuItems.map(item => item.id);
+      const scrollPosition = window.scrollY + 100;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <ul
@@ -39,6 +61,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
           key={item.label}
           setPosition={setPosition}
           onClick={() => onItemClick?.(item.label, item.href)}
+          isActive={activeSection === item.id}
         >
           {item.label}
         </Tab>
@@ -53,9 +76,10 @@ interface TabProps {
   children: React.ReactNode;
   setPosition: (position: Position | ((prev: Position) => Position)) => void;
   onClick?: () => void;
+  isActive?: boolean;
 }
 
-const Tab = ({ children, setPosition, onClick }: TabProps) => {
+const Tab = ({ children, setPosition, onClick, isActive }: TabProps) => {
   const ref = useRef<HTMLLIElement>(null);
   
   return (
@@ -72,7 +96,9 @@ const Tab = ({ children, setPosition, onClick }: TabProps) => {
         });
       }}
       onClick={onClick}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors ${
+        isActive ? 'text-yellow-400' : 'text-white'
+      }`}
     >
       {children}
     </li>

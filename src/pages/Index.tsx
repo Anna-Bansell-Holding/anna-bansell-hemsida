@@ -1,5 +1,5 @@
+
 import React from 'react';
-import Navigation from '@/components/Navigation';
 import NavHeader from '@/components/ui/nav-header';
 import HeroSection from '@/components/HeroSection';
 import VisionSection from '@/components/VisionSection';
@@ -25,8 +25,6 @@ const Index = () => {
         <NavHeader onItemClick={handleNavClick} />
       </div>
       
-      {/* Keep existing navigation for mobile fallback */}
-      <Navigation />
       <HeroSection />
       <VisionSection />
       <SmalandSection />
