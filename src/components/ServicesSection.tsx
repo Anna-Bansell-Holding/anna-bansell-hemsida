@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const ServicesSection = () => {
   const services = [
     {
-      title: "Konsult",
+      title: "Mentor",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
