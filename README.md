@@ -2,7 +2,7 @@
 
 > **Transform organizational turnaround expertise into scalable business growth through multi-purpose digital engagement serving business evaluation, speaking opportunities, and educational research needs.**
 
-## Strategic Vision
+## [Project Brief](docs/A-Product-Brief/01-Product-Brief.md)
 
 **Market Gap**: Mid-market Swedish companies face organizational challenges but distrust expensive, process-heavy consulting firms from large agencies.
 
@@ -10,7 +10,7 @@
 
 **Unique Differentiation**: "Frugal, religious, hard to fool" Småland values create sustainable competitive advantage against generic consulting approaches while serving diverse stakeholder needs simultaneously.
 
-## Strategic Trigger Map
+## [Trigger Map](docs/B-Trigger-Map/01-Trigger-Map.md)
 
 ```mermaid
 flowchart LR
@@ -69,7 +69,7 @@ flowchart LR
     class C1N,C2N,C3N negativeGoals
 ```
 
-## Strategic Insights from User Research
+## [Strategic conciderations](docs/B-Trigger-Map/01-Trigger-Map.md#persona-analysis)
 
 ### Primary Revenue Drivers
 **Nils Netrepreneur represents 70% development focus** - Business owners with immediate organizational turnaround needs generate direct consulting revenue through interim advisor evaluation and engagement.
@@ -86,7 +86,7 @@ flowchart LR
 
 **Informal Structure Methodology**: Proven "color on the bottom row" approach provides concrete differentiation against generic change management consulting.
 
-## Market Opportunity & Business Case
+## [Market Opportunity & Business Case](docs/A-Product-Brief/01-Product-Brief.md#business-case)
 
 ### Market Gap Analysis
 **Problem**: Swedish mid-market companies distrust large consulting firms due to cultural disconnect and process-heavy approaches, yet organizational transformation needs continue growing 5-8% annually.
@@ -117,7 +117,7 @@ flowchart LR
 **Documentation Excellence**: Professional folder organization with strategic cross-referencing  
 **Brownfield Integration**: Leverages existing React foundation while implementing comprehensive specifications
 
-## Strategic Foundation Documentation
+## [Strategic Foundation Documentation](CHANGELOG.md)
 
 ### Project Foundation
 **[Product Brief](docs/A-Product-Brief/01-Product-Brief.md)** - Technical requirements, platform architecture, and implementation scope with BMad methodology validation framework.
@@ -128,7 +128,7 @@ flowchart LR
 ### Implementation Specifications
 **[StartPage Synopsis](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage-Synopsis.md)** - Page section architecture, content strategy integration, and user interaction specifications.
 
-## Project Status & Methodology Validation
+## [Project Status & Methodology Validation](CHANGELOG.md#session-changes)
 
 ### Current Phase: Strategic Foundation Complete ✅
 - **Product Brief**: Technical scope and strategic alignment established
@@ -145,6 +145,14 @@ This project serves both **Anna's business objectives** and **Whiteport's method
 
 ---
 
-**Created using**: Whiteport Sketch-to-Code BMad Expansion methodology  
+## [Project Progress & Change Log](CHANGELOG.md)
+
+**Latest Updates**: Strategic foundation documentation complete with comprehensive WPS2C implementation  
+**Development Status**: Ready for component specification and implementation planning  
+**Methodology Validation**: Brownfield project demonstrating sophisticated Whiteport integration
+
+---
+
+**Created using**: [Whiteport Sketch-to-Code BMad Expansion](../whiteport-sketch-to-code-bmad-expansion/) methodology  
 **Documentation Standard**: WPS2C professional conventions with enterprise naming standards  
 **Strategic Approach**: Multi-purpose digital presence serving business evaluation, speaking engagement, and educational research stakeholder needs
