@@ -5,8 +5,8 @@
 **Project**: Personal branding website for Anna Bansell, organizational turnaround consultant  
 **Core Problem**: Need for credible digital presence to support business development and referrals  
 **Solution**: Bilingual website for Swedish and English one-page format with expansion links, emphasizing Småland values and informal structure methodology  
-**Target Market**: Mid-market Swedish companies from 50 to 500 employees needing organizational turnaround  
-**Key Value Proposition**: Practical, results-oriented organizational change through informal structure analysis vs. expensive, process-heavy consulting firms  
+**Target Market**: Multi-purpose audience including business owners needing turnaround expertise, event organizers seeking speakers, and researchers studying leadership principles  
+**Key Value Proposition**: Practical, results-oriented organizational change through informal structure analysis, serving business evaluation, speaking engagement, and educational research needs  
 **Business Context**: Capitalize on growing skepticism toward large consulting firms by positioning as trustworthy, culturally-aligned alternative  
 
 ## Key Assumptions
@@ -23,11 +23,9 @@
 - **Content Management**: BMad agent-maintained content more effective than traditional CMS
 - **Bilingual Support**: Swedish-primary with English expansion serves market demands
 
-### User Assumptions
-- **Lars Leader Persona**: Traditional business leaders seek cultural alignment and proven results
-- **Eva Event Persona**: Event organizers prioritize credible expertise and compelling presentation
-- **Stina Student Persona**: Students research leadership principles and need educational content
-- **Engagement Pattern**: One-page format with expansion links matches user research behavior
+### User Assumptions - [Trigger Map Analysis](../B-Trigger-Map/01-Trigger-Map.md#detailed-component-analysis)
+- **Target Personas**: Three distinct user groups with specific motivations and usage goals
+- **Engagement Pattern**: Multi-purpose layout serves business evaluation, speaking opportunities, and educational research needs
 
 ## Problem Statement Development
 
@@ -68,35 +66,14 @@ Professional one-page personal branding website serving as both credibility tool
 - **Results Orientation**: Measurable turnaround outcomes vs. process-focused consulting
 - **Regional Market Focus**: Mid-market Swedish companies underserved by large firms
 
-## Target User Summary
+## Target User Summary - [Strategic Personas](../B-Trigger-Map/01-Trigger-Map.md#target-personas-deep-dive)
 
-### Primary Personas
+**Strategic User Analysis**: Comprehensive persona definitions, usage motivations, and journey triggers are documented in the project Trigger Map.
 
-#### 1. Lars Leader - Traditional Business Leader
-- **Context**: Brick & mortar company needing organizational turnaround
-- **Discovery**: Received referral about Anna, evaluating potential engagement
-- **Goals**: Understand track record, methodology, cultural fit
-- **Trust Factors**: Simple, self-evident approach with proven results
-- **Conversion**: Contact for consultation/interim management
-
-#### 2. Eva Event - Event Organizer  
-- **Context**: Seeking compelling speaker on organizational transformation
-- **Discovery**: Researching experts for conference/event programming
-- **Goals**: Evaluate speaking credentials, expertise demonstration
-- **Trust Factors**: Professional presentation, compelling content
-- **Conversion**: Speaking engagement inquiry
-
-#### 3. Stina Student - Leadership Researcher
-- **Context**: Academic/professional research on leadership principles
-- **Discovery**: Google search for organizational leadership content
-- **Goals**: Educational content, credible methodology information
-- **Trust Factors**: Thoughtful, evidence-based approach
-- **Conversion**: Educational engagement, potential future referral
-
-### User Journey Priority
-1. **Lars Leader**: Primary revenue-generating persona receiving 70% focus
-2. **Eva Event**: Secondary business development receiving 20% focus  
-3. **Stina Student**: Long-term brand building receiving 10% focus
+### Development Priority Framework
+1. **Primary Revenue Focus**: Business evaluation persona receiving 70% development attention
+2. **Secondary Business Development**: Speaking engagement persona receiving 20% focus  
+3. **Long-term Brand Building**: Educational research persona receiving 10% focus
 
 ## Platform Architecture Justification
 
@@ -218,17 +195,21 @@ Professional one-page personal branding website serving as both credibility tool
 
 ## Success Metrics & Validation
 
-### Primary Success Indicators
-1. **Business Impact**: Increase in billable client hours attributable to website
-2. **Referral Confidence**: Anna's comfort level sharing website with prospects
-3. **Lead Generation**: Measurable inquiries through website contact methods
-4. **Professional Positioning**: Enhanced market credibility and brand recognition
+### Primary Success Indicators - [Business Goals](../B-Trigger-Map/01-Trigger-Map.md#business-goals-breakdown)
+
+**Business Goals Alignment**: Success metrics directly correspond to strategic business visions defined in project trigger map.
+
+**Implementation Metrics**:
+1. **Technical Performance**: Core Web Vitals optimization and accessibility compliance
+2. **User Experience**: Multi-persona layout effectiveness and conversion optimization
+3. **Content Strategy**: Swedish/English bilingual content engagement and SEO performance
+4. **BMad Methodology**: Development workflow efficiency and brownfield integration success
 
 ### Measurement Framework
-- **Quantitative**: Website analytics, contact form submissions, LinkedIn profile visits
-- **Qualitative**: User feedback, Anna's confidence assessment, referral partner feedback
-- **Business Metrics**: Conversion from website inquiry to consultation, speaking engagement requests
-- **Long-term**: Brand recognition in Swedish organizational consulting market
+- **Technical Metrics**: Website performance, accessibility compliance, SEO effectiveness, deployment success
+- **User Experience**: Navigation patterns, content engagement, contact form completion rates
+- **Business Integration**: Anna's confidence sharing website, referral partner feedback, professional network growth
+- **Strategic Validation**: Persona-specific conversion patterns detailed in trigger map analysis
 
 ### Failure Prevention
 - **Primary Risk**: Website ignored by target audience
@@ -241,11 +222,11 @@ Professional one-page personal branding website serving as both credibility tool
 ### Strategic Foundation
 This product brief serves as the definitive strategic reference for all subsequent WPS2C workflow activities, ensuring consistent vision alignment throughout development.
 
-### Workflow Integration
-- **Trigger Map Creation**: Business goals and user segments guide customer journey mapping
-- **Persona Development**: Detailed user research builds upon foundational persona framework
-- **Technical Architecture**: Platform decisions inform detailed technical specifications
-- **Content Strategy**: Brand positioning guides all content creation and optimization
+### Workflow Integration - [Strategic Foundation](../B-Trigger-Map/01-Trigger-Map.md)
+- **Strategic Foundation**: Trigger Map provides business goals, personas, and usage patterns
+- **Technical Implementation**: Platform decisions and architecture specifications drive development
+- **Content Strategy**: Bilingual approach and cultural positioning guide content creation
+- **BMad Methodology**: Agent-driven workflow optimization and brownfield integration validation
 
 ### Assumption Validation
 - **Market Research**: Ongoing competitive intelligence and customer feedback collection

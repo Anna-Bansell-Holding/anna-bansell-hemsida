@@ -1,73 +1,231 @@
-# Welcome to your Lovable project
+# Anna Bansell Consulting - Strategic Digital Presence
 
-## Project info
+> **Transform organizational turnaround expertise into scalable business growth through multi-purpose digital engagement serving business evaluation, speaking opportunities, and educational research needs.**
 
-**URL**: https://lovable.dev/projects/61e9bdb2-4da9-4abf-8e1a-093d13ee7026
+## Strategic Vision
 
-## How can I edit this code?
+**Market Gap**: Mid-market Swedish companies face organizational challenges but distrust expensive, process-heavy consulting firms from large agencies.
 
-There are several ways of editing your application.
+**Solution**: Cultural positioning as trusted Småland consultant with informal structure methodology, providing practical results-oriented organizational change through proven regional expertise.
 
-**Use Lovable**
+**Unique Differentiation**: "Frugal, religious, hard to fool" Småland values create sustainable competitive advantage against generic consulting approaches while serving diverse stakeholder needs simultaneously.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/61e9bdb2-4da9-4abf-8e1a-093d13ee7026) and start prompting.
+## Strategic Trigger Map
 
-Changes made via Lovable will be committed automatically to this repo.
+```mermaid
+flowchart LR
+    %% Business Goals (Left Side)
+    B1["💚 Professional Credibility<br/>Trusted Småland Consultant<br/>3-5 monthly inquiries<br/>LinkedIn network growth<br/>Speaking opportunities"]
+    B2["📈 Revenue Growth<br/>Sustainable Business Expansion<br/>20% billable hours increase<br/>Premium pricing capability<br/>Client retention improvement"]
+    B3["🗺️ Regional Leadership<br/>Småland Business Authority<br/>Local business recognition<br/>Media coverage interviews<br/>Peer referrals"]
+    
+    %% Central Platform (Middle)
+    A["🎯 BANSELL.SE<br/>Swedish Consulting Website<br/>Organizational Turnaround Expertise<br/>Småland Regional Focus"]
+    
+    %% Target Groups (Right Side)
+    C1["👔 Nils Netrepreneur<br/>Business Owner/Manager<br/>Organizational Turnaround Needs<br/>Evaluating Interim Solutions"]
+    C2["🎤 Eva Event-Organizer<br/>Conference/Event Coordinator<br/>Seeking Business Speakers<br/>Company Turnaround Focus"]
+    C3["📚 Sam Student<br/>Leadership Researcher<br/>Academic/Professional Learning<br/>Google Search Discovery"]
+    
+    %% Usage Goals
+    C1P["✅ NILS WANTS:<br/>Interim sales manager evaluation<br/>Turnaround expertise validation<br/>Regional business understanding<br/>Proven methodology access"]
+    C1N["❌ NILS FEARS:<br/>Wrong advisor selection<br/>Costly consulting mistakes<br/>Cultural misfit solutions<br/>Unproven approaches"]
+    
+    C2P["✅ EVA WANTS:<br/>Engaging business speakers<br/>Turnaround success stories<br/>Professional presentation skills<br/>Audience-relevant content"]
+    C2N["❌ EVA FEARS:<br/>Boring speaker selection<br/>Irrelevant content delivery<br/>Professional reputation risk<br/>Audience disappointment"]
+    
+    C3P["✅ SAM WANTS:<br/>Leadership principle insights<br/>Research material access<br/>Practical case studies<br/>Academic credibility sources"]
+    C3N["❌ SAM FEARS:<br/>Unreliable information sources<br/>Academic irrelevance<br/>Incomplete research data<br/>Theoretical disconnection"]
 
-**Use your preferred IDE**
+    %% Connections: Business Goals → Platform
+    B1 --> A
+    B2 --> A
+    B3 --> A
+    
+    %% Connections: Platform → Target Groups
+    A --> C1
+    A --> C2
+    A --> C3
+    
+    %% Connections: Target Groups → Usage Goals
+    C1 --> C1P
+    C1 --> C1N
+    C2 --> C2P
+    C2 --> C2N
+    C3 --> C3P
+    C3 --> C3N
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+    %% Professional styling
+    classDef businessGoal fill:#f3f4f6,color:#000000,stroke:#d1d5db,stroke-width:3px
+    classDef platform fill:#e5e7eb,color:#000000,stroke:#d1d5db,stroke-width:4px
+    classDef targetGroup fill:#f9fafb,color:#000000,stroke:#d1d5db,stroke-width:2px
+    classDef positiveGoals fill:#f3f4f6,color:#000000,stroke:#d1d5db,stroke-width:2px
+    classDef negativeGoals fill:#f3f4f6,color:#000000,stroke:#d1d5db,stroke-width:2px
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+    class B1,B2,B3 businessGoal
+    class A platform
+    class C1,C2,C3 targetGroup
+    class C1P,C2P,C3P positiveGoals
+    class C1N,C2N,C3N negativeGoals
 ```
 
-**Edit a file directly in GitHub**
+## Strategic Insights from User Research
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Primary Revenue Drivers
+**Nils Netrepreneur represents 70% development focus** - Business owners with immediate organizational turnaround needs generate direct consulting revenue through interim advisor evaluation and engagement.
 
-**Use GitHub Codespaces**
+### Network Effects and Cross-Pollination
+**Eva Event-Organizer provides credibility amplification** - Speaking engagements build professional authority that strengthens Nils's confidence in Anna's expertise while creating referral opportunities across Swedish business community.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**Sam Student enables thought leadership** - Educational content consumption validates methodology credibility, supporting both business evaluation and speaker assessment processes through research-quality documentation.
 
-## What technologies are used for this project?
+### Competitive Advantages
+**Cultural Positioning**: Småland identity creates trust barriers against large consulting firms while enabling premium pricing through regional expertise specialization.
 
-This project is built with:
+**Multi-Purpose Architecture**: Single website serves three distinct stakeholder types, maximizing reach while maintaining focused messaging for each persona's specific motivations and concerns.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Informal Structure Methodology**: Proven "color on the bottom row" approach provides concrete differentiation against generic change management consulting.
 
-## How can I deploy this project?
+## Market Opportunity & Business Case
 
-Simply open [Lovable](https://lovable.dev/projects/61e9bdb2-4da9-4abf-8e1a-093d13ee7026) and click on Share -> Publish.
+### Market Gap Analysis
+**Problem**: Swedish mid-market companies distrust large consulting firms due to cultural disconnect and process-heavy approaches, yet organizational transformation needs continue growing 5-8% annually.
 
-## Can I connect a custom domain to my Lovable project?
+**Opportunity**: Regional positioning with proven methodology fills gap between expensive enterprise consulting and generic business advice.
 
-Yes, you can!
+### Strategic Advantages
+**Timing**: Growing skepticism toward large consulting firms creates competitive opportunity for culturally-aligned alternatives.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Scalability**: Multi-purpose digital presence enables simultaneous business development, speaking engagement opportunities, and thought leadership positioning without additional marketing infrastructure.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Sustainability**: Cultural positioning and proven methodology create defensible market position while speaking engagements amplify credibility and referral generation.
+
+### Revenue Model Resilience
+**Primary Stream**: Direct consulting from business evaluation engagement through Nils persona targeting.
+
+**Secondary Stream**: Speaking fees and professional recognition through Eva persona engagement.
+
+**Long-term Stream**: Thought leadership and referral generation through educational content engagement via Sam persona.
+
+## Technical Foundation
+
+### Documentation Architecture
+```
+docs/
+├── A-Product-Brief/           # Technical requirements and project scope
+│   └── 01-Product-Brief.md
+├── B-Trigger-Map/            # Strategic analysis and persona definitions
+│   └── 01-Trigger-Map.md
+└── C-Scenarios/              # User interaction specifications
+    └── 01-Browse-Website/
+        └── 1.1-StartPage/
+            ├── 1.1-StartPage-Synopsis.md
+            └── Sketches/
+                └── 01-StartPage_Desktop_Concept.jpg
+```
+
+### Application Structure
+```
+src/
+├── components/               # Page section components
+│   ├── HeroSection.tsx      # Primary landing section
+│   ├── MethodSection.tsx    # Methodology explanation
+│   ├── ServicesSection.tsx  # Service offerings
+│   ├── ContactSection.tsx   # Contact and engagement
+│   └── ui/                  # Reusable UI components
+├── pages/                   # Route components
+└── lib/                     # Utilities and configuration
+```
+
+## Technical Stack
+
+**Frontend Framework**: React 18 with TypeScript  
+**Build Tool**: Vite for optimal development experience  
+**Styling**: Tailwind CSS with shadcn-ui components  
+**Deployment**: Vercel with future serverless capability  
+**Content Strategy**: Manual bilingual implementation for Swedish/English support
+
+## Development Methodology
+
+**Primary Method**: Whiteport Sketch-to-Code WPS2C workflow  
+**Enhancement**: BMad Method expansion pack for AI-assisted development  
+**Architecture**: Section-based design for one-page website implementation  
+**Standards**: Zero Tolerance Parentheses Policy and Title-Case-With-Dashes naming
+
+### WPS2C Workflow Phases
+1. **✅ Product Brief**: Technical scope and strategic alignment - [View Document](docs/A-Product-Brief/01-Product-Brief.md)
+2. **✅ Trigger Map**: Business goals and persona analysis - [View Document](docs/B-Trigger-Map/01-Trigger-Map.md)
+3. **🚧 Scenarios**: User interaction specifications and page section design
+4. **⏳ Implementation**: React component development with BMad acceleration
+5. **⏳ Optimization**: Performance tuning and conversion optimization
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ with npm package manager
+- Git for version control
+- VS Code or preferred IDE with TypeScript support
+
+### Local Development
+```bash
+# Clone the repository
+git clone <repository-url>
+cd anna-bansell-hemsida
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open browser to http://localhost:5173
+```
+
+### Build Commands
+```bash
+# Development build with hot reload
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+```
+
+## Project Context
+
+### Brownfield Integration
+This project leverages an existing React/Vite foundation while implementing comprehensive WPS2C specifications through reverse engineering methodology.
+
+### Methodology Validation
+Serves dual purpose as Anna's business tool and Whiteport's WPS2C methodology validation with BMad Method integration testing.
+
+### Cultural Positioning
+Emphasizes Småland values of "frugal, religious, hard to fool" as competitive differentiation against large consulting firms.
+
+## Documentation Standards
+
+**Naming Convention**: Title-Case-With-Dashes for files and folders  
+**Structure Standards**: Professional folder organization with clear hierarchy  
+**Content Policy**: Zero tolerance for parentheses explanations - use professional alternatives  
+**Link Strategy**: Headlines contain reference links for cross-document navigation
+
+## Success Metrics
+
+**Technical Performance**: Core Web Vitals optimization and accessibility compliance  
+**User Experience**: Multi-persona layout effectiveness and conversion optimization  
+**Business Impact**: Consultation inquiries, speaking engagements, and professional credibility enhancement  
+**Strategic Validation**: Achievement of trigger map business goals and persona engagement
+
+---
+
+**Created by**: Whiteport Business Analyst using BMad Method + Whiteport Sketch-to-Code expansion  
+**Documentation Standard**: WPS2C methodology with professional naming conventions  
+**Last Updated**: Current session with trigger map integration and product brief synchronization
