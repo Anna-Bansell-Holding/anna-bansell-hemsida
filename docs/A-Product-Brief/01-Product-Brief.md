@@ -18,9 +18,9 @@
 - **Trust Building**: Professional website increases credibility and referral confidence significantly
 
 ### Technical Assumptions  
-- **Platform Choice**: React/Vite/TypeScript provides optimal development experience for BMad agents
+- **Platform Choice**: React/Vite/TypeScript provides optimal development experience and modern tooling
 - **Hosting Strategy**: Vercel deployment supports future serverless functionality needs
-- **Content Management**: BMad agent-maintained content more effective than traditional CMS
+- **Content Management**: Direct content maintenance more effective than traditional CMS for current scope
 - **Bilingual Support**: Swedish-primary with English expansion serves market demands
 
 ### User Assumptions - [Trigger Map Analysis](../B-Trigger-Map/01-Trigger-Map.md#detailed-component-analysis)
@@ -46,7 +46,7 @@
 - **Project Revival**: Previously stalled initiative now has design momentum
 - **Market Timing**: Anti-big-consulting sentiment creates competitive opportunity
 - **Business Development**: Anna needs credible digital presence for current networking efforts
-- **BMad Method Validation**: Whiteport requires real-world testing of methodology integration
+- **Methodology Validation**: Project requires real-world testing of design-to-development workflow
 
 ## Solution Overview
 
@@ -56,7 +56,7 @@ Professional one-page personal branding website serving as both credibility tool
 ### Platform Architecture
 - **Frontend**: React + Vite + TypeScript using existing brownfield foundation
 - **Hosting**: Vercel optimal for React with future serverless expansion capability
-- **Content**: BMad agent-maintained without traditional CMS initially
+- **Content**: Direct maintenance without traditional CMS initially
 - **Languages**: Swedish primary, English expansion capability
 - **Architecture**: Static generation with future dynamic functionality planning
 
@@ -78,8 +78,8 @@ Professional one-page personal branding website serving as both credibility tool
 ## Platform Architecture Justification
 
 ### Technical Decisions
-- **React/Vite/TypeScript**: Leverages existing brownfield foundation, optimal for BMad agent workflow
-- **Section-Based Architecture**: Enables systematic page organization following WPS2C methodology
+- **React/Vite/TypeScript**: Leverages existing brownfield foundation with modern development tools
+- **Section-Based Architecture**: Enables systematic page organization following structured design methodology
 - **Static Generation**: Performance optimization for Swedish/international audience
 - **Vercel Hosting**: Seamless deployment with future serverless integration capability
 
@@ -92,7 +92,7 @@ Professional one-page personal branding website serving as both credibility tool
 ### Integration Points
 - **LinkedIn Integration**: Primary professional networking platform for target personas
 - **Analytics Tracking**: User behavior analysis for conversion optimization
-- **Content Management**: BMad agent workflow for ongoing content optimization
+- **Content Management**: Streamlined workflow for ongoing content optimization
 
 ## MVP Scope Definition
 
@@ -164,16 +164,16 @@ Professional one-page personal branding website serving as both credibility tool
 
 #### Content Management System
 - **Implementation Complexity**: High
-- **Future Consideration Rationale**: BMad agent workflow more effective than traditional CMS for current needs
+- **Future Consideration Rationale**: Direct workflow more effective than traditional CMS for current needs
 - **Prerequisites**: Content volume growth, multiple content contributors
 
 ## Constraints & Timeline
 
 ### Development Approach
-- **Methodology**: BMad Method with Claude Code and Cursor IDE integration
-- **Agent-Driven**: Whiteport agents manage development workflow
+- **Methodology**: Modern development workflow with advanced IDE integration
+- **Development-Driven**: Structured development workflow management
 - **Brownfield Enhancement**: Build upon existing React/Vite foundation
-- **WPS2C Documentation**: Complete specification-driven development
+- **Specification-Driven**: Complete specification-driven development
 
 ### Timeline Expectations
 - **Phase 1 MVP**: 4-6 weeks from specification completion
@@ -182,7 +182,7 @@ Professional one-page personal branding website serving as both credibility tool
 - **Launch**: Coordinated with Anna's business development activities
 
 ### Resource Constraints
-- **Development Team**: BMad agents with Whiteport technical resources
+- **Development Team**: Experienced developers with structured methodology
 - **Content Creation**: Anna's input with existing content strategy document
 - **Design Resources**: Existing sketch with ongoing visual design development
 - **Budget**: Internal Whiteport project with methodology validation focus
@@ -203,7 +203,7 @@ Professional one-page personal branding website serving as both credibility tool
 1. **Technical Performance**: Core Web Vitals optimization and accessibility compliance
 2. **User Experience**: Multi-persona layout effectiveness and conversion optimization
 3. **Content Strategy**: Swedish/English bilingual content engagement and SEO performance
-4. **BMad Methodology**: Development workflow efficiency and brownfield integration success
+4. **Development Methodology**: Development workflow efficiency and brownfield integration success
 
 ### Measurement Framework
 - **Technical Metrics**: Website performance, accessibility compliance, SEO effectiveness, deployment success
@@ -220,17 +220,17 @@ Professional one-page personal branding website serving as both credibility tool
 ## Document Application and Usage
 
 ### Strategic Foundation
-This product brief serves as the definitive strategic reference for all subsequent WPS2C workflow activities, ensuring consistent vision alignment throughout development.
+This product brief serves as the definitive strategic reference for all subsequent development activities, ensuring consistent vision alignment throughout the project.
 
 ### Workflow Integration - [Strategic Foundation](../B-Trigger-Map/01-Trigger-Map.md)
 - **Strategic Foundation**: Trigger Map provides business goals, personas, and usage patterns
 - **Technical Implementation**: Platform decisions and architecture specifications drive development
 - **Content Strategy**: Bilingual approach and cultural positioning guide content creation
-- **BMad Methodology**: Agent-driven workflow optimization and brownfield integration validation
+- **Development Methodology**: Structured workflow optimization and brownfield integration validation
 
 ### Assumption Validation
 - **Market Research**: Ongoing competitive intelligence and customer feedback collection
-- **Technical Validation**: BMad Method + Claude Code + Cursor integration effectiveness measurement
+- **Technical Validation**: Modern development workflow and tooling effectiveness measurement
 - **Business Impact**: Quarterly review of success metrics and strategy adjustment
 - **User Experience**: Continuous optimization based on user behavior analysis and feedback
 
@@ -245,20 +245,19 @@ This project serves both Anna's business objectives and Whiteport's methodology 
 - Market positioning against large consulting firms
 
 **Methodology Validation**:
-- Real-world BMad Method application testing
+- Real-world development methodology application testing
 - Claude Code + Cursor IDE integration evaluation
-- WPS2C documentation process refinement
+- Specification documentation process refinement
 - Designer-developer handoff optimization
 
 ### Learning Objectives
-- **Collaborative Documentation**: Effectiveness of systematic WPS2C discovery process
+- **Collaborative Documentation**: Effectiveness of systematic discovery process
 - **Content Strategy Integration**: AI-assisted strategic analysis and implementation
-- **Technical Workflow**: React/Vite enhancement through BMad agent coordination
+- **Technical Workflow**: React/Vite enhancement through structured development coordination
 - **Business Impact**: Measurable outcomes from methodology-driven development
 
 ---
 
-**Created by**: Whiteport Business Analyst (Mary)  
-**Date**: Current WPS2C foundational discovery session  
+**Status**: Foundational requirements and strategic alignment complete  
 **Status**: Strategic foundation complete - ready for trigger map and persona development  
 **Next Steps**: Execute *create-trigger-map task for detailed customer journey analysis**

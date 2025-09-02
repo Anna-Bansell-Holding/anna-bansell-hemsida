@@ -69,7 +69,25 @@ flowchart LR
     class C1N,C2N,C3N negativeGoals
 ```
 
-## [Strategic conciderations](docs/B-Trigger-Map/01-Trigger-Map.md#persona-analysis)
+---
+
+## Quick Navigation
+
+### 📋 **Strategic Foundation**
+→ **[Product Brief](docs/A-Product-Brief/01-Product-Brief.md)** - Technical requirements and business scope  
+→ **[Trigger Map](docs/B-Trigger-Map/01-Trigger-Map.md)** - Persona analysis and business goals  
+
+### 🎯 **User Experience Design**
+→ **[User Journey Scenarios](docs/C-Scenarios/00-User-Scenarios.md)** - Complete persona flow mapping  
+→ **[StartPage Specification](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md)** - Landing page specifications  
+
+### 📊 **Project Management**
+→ **[Change Log](CHANGELOG.md)** - Development impact tracking  
+→ **[Project Progress](CHANGELOG.md#session-changes)** - Current status and next steps
+
+---
+
+## [Strategic Considerations](docs/B-Trigger-Map/01-Trigger-Map.md#persona-analysis)
 
 ### Primary Revenue Drivers
 **Nils Netrepreneur represents 70% development focus** - Business owners with immediate organizational turnaround needs generate direct consulting revenue through interim advisor evaluation and engagement.
@@ -86,36 +104,6 @@ flowchart LR
 
 **Informal Structure Methodology**: Proven "color on the bottom row" approach provides concrete differentiation against generic change management consulting.
 
-## [Market Opportunity & Business Case](docs/A-Product-Brief/01-Product-Brief.md#business-case)
-
-### Market Gap Analysis
-**Problem**: Swedish mid-market companies distrust large consulting firms due to cultural disconnect and process-heavy approaches, yet organizational transformation needs continue growing 5-8% annually.
-
-**Opportunity**: Regional positioning with proven methodology fills gap between expensive enterprise consulting and generic business advice.
-
-### Strategic Advantages
-**Timing**: Growing skepticism toward large consulting firms creates competitive opportunity for culturally-aligned alternatives.
-
-**Scalability**: Multi-purpose digital presence enables simultaneous business development, speaking engagement opportunities, and thought leadership positioning without additional marketing infrastructure.
-
-**Sustainability**: Cultural positioning and proven methodology create defensible market position while speaking engagements amplify credibility and referral generation.
-
-### Revenue Model Resilience
-**Primary Stream**: Direct consulting from business evaluation engagement through Nils persona targeting.
-
-**Secondary Stream**: Speaking fees and professional recognition through Eva persona engagement.
-
-**Long-term Stream**: Thought leadership and referral generation through educational content engagement via Sam persona.
-
-**Architecture**: React/Vite/TypeScript one-page website with section-based design  
-**Methodology**: Whiteport Sketch-to-Code with BMad Method integration  
-**Content Strategy**: Manual bilingual Swedish/English implementation  
-**Deployment**: Vercel hosting with future serverless capability
-
-### Development Standards
-**WPS2C Compliance**: Zero Tolerance Parentheses Policy and Title-Case-With-Dashes naming  
-**Documentation Excellence**: Professional folder organization with strategic cross-referencing  
-**Brownfield Integration**: Leverages existing React foundation while implementing comprehensive specifications
 
 ## [Strategic Foundation Documentation](CHANGELOG.md)
 
@@ -126,7 +114,9 @@ flowchart LR
 **[Trigger Map Analysis](docs/B-Trigger-Map/01-Trigger-Map.md)** - Complete business goals breakdown, persona deep dive with usage motivations, and strategic implementation priorities.
 
 ### Implementation Specifications
-**[StartPage Synopsis](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage-Synopsis.md)** - Page section architecture, content strategy integration, and user interaction specifications.
+**[User Journey Scenarios](docs/C-Scenarios/00-User-Scenarios.md)** - Comprehensive user journey narratives for all three personas with complete value flow mapping and cross-scenario connections.
+
+**[StartPage Specification](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md)** - Detailed page section architecture, content strategy integration, and user interaction specifications for primary landing page.
 
 ## [Project Status & Methodology Validation](CHANGELOG.md#session-changes)
 
@@ -135,9 +125,14 @@ flowchart LR
 - **Trigger Map**: Business goals and persona analysis documented with visual strategy map
 - **Documentation Standards**: WPS2C compliance with professional naming conventions implemented
 
-### Next Phase: Implementation Specifications
-- **Scenario Development**: User interaction specifications for multi-persona layout
+### Current Phase: Scenario Development Complete ✅
+- **User Journey Scenarios**: Complete persona flow mapping with value exchange documentation
+- **Cross-Scenario Connections**: How different user journeys intersect and amplify business value
+- **Technical Implications**: API requirements, performance standards, and security considerations identified
+
+### Next Phase: Component Specifications
 - **Component Architecture**: Section-based design system for one-page implementation
+- **Development Handoff**: Technical specifications for React component implementation
 - **Content Integration**: Swedish content strategy with bilingual expansion planning
 
 ### Dual Purpose Initiative
@@ -147,12 +142,11 @@ This project serves both **Anna's business objectives** and **Whiteport's method
 
 ## [Project Progress & Change Log](CHANGELOG.md)
 
-**Latest Updates**: Strategic foundation documentation complete with comprehensive WPS2C implementation  
+**Latest Updates**: Strategic foundation documentation complete with comprehensive structured implementation  
 **Development Status**: Ready for component specification and implementation planning  
-**Methodology Validation**: Brownfield project demonstrating sophisticated Whiteport integration
+**Methodology Validation**: Brownfield project demonstrating sophisticated development workflow integration
 
 ---
 
-**Created using**: [Whiteport Sketch-to-Code BMad Expansion](../whiteport-sketch-to-code-bmad-expansion/) methodology  
-**Documentation Standard**: WPS2C professional conventions with enterprise naming standards  
+**Documentation Standard**: Professional conventions with enterprise naming standards  
 **Strategic Approach**: Multi-purpose digital presence serving business evaluation, speaking engagement, and educational research stakeholder needs
