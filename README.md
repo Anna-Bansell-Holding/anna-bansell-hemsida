@@ -10,6 +10,14 @@
 
 **Unique Differentiation**: "Frugal, religious, hard to fool" Småland values create sustainable competitive advantage against generic consulting approaches while serving diverse stakeholder needs simultaneously.
 
+## [StartPage Design Concept](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md)
+
+**Visual Foundation**: Desktop concept sketch demonstrates professional one-page architecture with floating navigation, bilingual language switching, and seven-step methodology presentation including Anna's sales organization expertise.
+
+![StartPage Desktop Concept](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/Sketches/01-StartPage_Desktop_Concept.jpg)
+
+**Key Design Elements**: Floating navigation system, integrated language switcher for Swedish-English content management, comprehensive method section with expanded sales organization step, and professional layout optimized for consulting business credibility.
+
 ## [Trigger Map](docs/B-Trigger-Map/01-Trigger-Map.md)
 
 ```mermaid
