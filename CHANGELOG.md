@@ -2,6 +2,12 @@
 
 ## Development Impact Changes - 2025-09-02
 
+### 2025-09-02 13:00: [SPECIFICATION] - Standardized bullet point formatting across 7-step methodology
+Impact: Low - Documentation formatting improvement for better cross-platform rendering  
+Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (converted bullet symbols to markdown hyphens)
+Rationale: Replaced bullet symbols (•) with standard markdown hyphens (-) for consistent rendering and professional appearance across all platforms
+Next Actions: Verify bullet rendering consistency in all documentation viewers
+
 ### 2025-09-02 12:45: [SPECIFICATION] - Updated language detection logic for browser preferences  
 Impact: Medium - Technical specification change affecting language switcher implementation
 Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (updated language detection behavior)
