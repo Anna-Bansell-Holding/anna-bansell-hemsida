@@ -3,6 +3,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import LanguageSelector from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Position {
   left: number;
@@ -21,13 +23,34 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     opacity: 0,
   });
   const [activeSection, setActiveSection] = useState('home');
+  const { currentLanguage, setLanguage } = useLanguage();
 
   const menuItems = [
-    { label: "Hem", href: "#home", id: "home" },
-    { label: "Turnarounds", href: "#vision", id: "vision" },
-    { label: "Uppdrag", href: "#cases", id: "cases" },
-    { label: "Metod", href: "#method", id: "method" },
-    { label: "Kontakt", href: "#contact", id: "contact" }
+    { 
+      label: currentLanguage === 'se' ? "Hem" : "Home", 
+      href: "#home", 
+      id: "home" 
+    },
+    { 
+      label: currentLanguage === 'se' ? "Turnarounds" : "Turnarounds", 
+      href: "#vision", 
+      id: "vision" 
+    },
+    { 
+      label: currentLanguage === 'se' ? "Uppdrag" : "Projects", 
+      href: "#cases", 
+      id: "cases" 
+    },
+    { 
+      label: currentLanguage === 'se' ? "Metod" : "Method", 
+      href: "#method", 
+      id: "method" 
+    },
+    { 
+      label: currentLanguage === 'se' ? "Kontakt" : "Contact", 
+      href: "#contact", 
+      id: "contact" 
+    }
   ];
 
   useEffect(() => {
@@ -55,24 +78,31 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
   }, []);
 
   return (
-    <ul
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
-      onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
-    >
-      {menuItems.map((item) => (
-        <Tab 
-          key={item.label}
-          setPosition={setPosition}
-          onClick={() => onItemClick?.(item.label, item.href)}
-          isActive={activeSection === item.id}
-        >
-          {item.label}
-        </Tab>
-      ))}
+    <div className="flex items-center gap-3">
+      <LanguageSelector 
+        currentLanguage={currentLanguage}
+        onLanguageChange={setLanguage}
+        className="mr-1"
+      />
+      <ul
+        className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+        onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
+      >
+        {menuItems.map((item) => (
+          <Tab 
+            key={item.id}
+            setPosition={setPosition}
+            onClick={() => onItemClick?.(item.label, item.href)}
+            isActive={activeSection === item.id}
+          >
+            {item.label}
+          </Tab>
+        ))}
 
-      <Cursor position={position} />
-      <ActiveCursor activeSection={activeSection} menuItems={menuItems} />
-    </ul>
+        <Cursor position={position} />
+        <ActiveCursor activeSection={activeSection} menuItems={menuItems} />
+      </ul>
+    </div>
   );
 }
 
