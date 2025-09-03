@@ -91,11 +91,11 @@ flowchart LR
 
 ### 📊 **Project Management**
 → **[Change Log](CHANGELOG.md)** - Development impact tracking  
-→ **[Project Progress](CHANGELOG.md#session-changes)** - Current status and next steps
+→ **[Project Progress](CHANGELOG.md#previous-session-documentation---earlier-2025-09-02)** - Current status and next steps
 
 ---
 
-## [Strategic Considerations](docs/B-Trigger-Map/01-Trigger-Map.md#persona-analysis)
+## [Strategic Considerations](docs/B-Trigger-Map/01-Trigger-Map.md#detailed-component-analysis)
 
 ### Primary Revenue Drivers
 **Nils Netrepreneur represents 70% development focus** - Business owners with immediate organizational turnaround needs generate direct consulting revenue through interim advisor evaluation and engagement.
@@ -126,7 +126,7 @@ flowchart LR
 
 **[StartPage Specification](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md)** - Detailed page section architecture, content strategy integration, and user interaction specifications for primary landing page.
 
-## [Project Status & Methodology Validation](CHANGELOG.md#session-changes)
+## [Project Status & Methodology Validation](CHANGELOG.md#previous-session-documentation---earlier-2025-09-02)
 
 ### Current Phase: Strategic Foundation Complete ✅
 - **Product Brief**: Technical scope and strategic alignment established
