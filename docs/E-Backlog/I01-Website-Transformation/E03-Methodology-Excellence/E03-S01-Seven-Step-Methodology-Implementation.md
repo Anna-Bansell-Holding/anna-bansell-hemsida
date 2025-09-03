@@ -17,10 +17,13 @@ Demonstrate the complete methodology framework that differentiates Anna's approa
 
 ### Complete Methodology Implementation
 - [ ] Seven methodology steps displayed instead of current six
-- [ ] Step 7: "Säljorganisation Excellence" added with proper content
-- [ ] Each step includes professional icon, title, and description in both languages
-- [ ] Consistent formatting and presentation across all seven steps
-- [ ] Professional visual design maintaining current step layout enhancement
+- [ ] Step 7: "Sales Organization Excellence" added with proper content and positioning
+- [ ] Step 6: "Sales Organization Excellence" correctly positioned before "Let Organization Fly"
+- [ ] Each step includes icon, title, description, **expansion text**, and **bullet points** in both languages
+- [ ] **Expansion sections** added to all steps with detailed methodology explanations
+- [ ] **"Att tänka på" bullet points** added to all steps for practical guidance
+- [ ] Consistent formatting and presentation across all seven comprehensive steps
+- [ ] Professional visual design supporting expanded content layout
 
 ### Bilingual Content Excellence
 - [ ] Swedish content for all seven steps with professional quality
@@ -40,20 +43,26 @@ Demonstrate the complete methodology framework that differentiates Anna's approa
 
 ### Complete 7-Step Methodology
 
-#### Steps 1-6 (Existing - Enhanced)
-Maintain current content with professional styling enhancement
+#### Steps 1-6 (Enhanced Content Required)
+Each existing step needs expansion with **detailed expansion text** and **practical bullet points**
 
-#### Step 7 (New Implementation)
-
+#### Step 6 (New - Sales Organization Excellence)
 **Swedish Version**:
-- **Title**: "Säljorganisation Excellence"
-- **Icon**: 📈 (professional growth/sales icon)
-- **Description**: "När grunden är lagd och processerna flyter fokuserar vi på försäljningsorganisationens excellence. Här optimerar vi säljprocesser, förstärker kundrelationer och bygger hållbara intäktsströmmar. Målet är en självgående försäljningsmaskin som levererar förutsägbara resultat och kontinuerlig tillväxt."
+- **Title**: "Säljorganisation som levererar"
+- **Icon**: 📈
+- **Description**: "En stark säljorganisation är ofta nyckeln till bestående framgång. När säljteamet har självförtroende, tydliga processer och rätt verktyg blir försäljningen en naturlig del av organisationens tillväxtmotor."
+- **Expansion**: Full paragraph from specification detailing systematic sales culture building
+- **Bullet Points**: "Att tänka på" - practical implementation considerations
 
 **English Version**:
-- **Title**: "Sales Organization Excellence"
-- **Icon**: 📈 (consistent with Swedish version)
-- **Description**: "With foundation established and processes flowing smoothly, we focus on sales organization excellence. Here we optimize sales processes, strengthen customer relationships, and build sustainable revenue streams. The goal is a self-sustaining sales machine that delivers predictable results and continuous growth."
+- **Title**: "Sales Organization Excellence"  
+- **Icon**: 📈
+- **Description**: "A strong sales organization is often the key to lasting success. When the sales team has confidence, clear processes and the right tools, sales becomes a natural part of the organization's growth engine."
+- **Expansion**: Full paragraph detailing systematic sales approach
+- **Bullet Points**: "Things to Consider" - implementation guidance
+
+#### Step 7 (Repositioned - Let Organization Fly)
+Move current "Låt organisationen flyga" to position 7 with enhanced content including expansion text and bullet points
 
 ### Professional Presentation Format
 ```typescript
@@ -62,7 +71,14 @@ interface MethodologyStep {
   icon: string;
   title: BilingualContent;
   description: BilingualContent;
+  expansion: BilingualContent;
+  bulletPoints: BilingualContent[];
   order: number;
+}
+
+interface BilingualContent {
+  se: string;
+  en: string;
 }
 
 const methodologySteps: MethodologyStep[] = [
@@ -74,17 +90,54 @@ const methodologySteps: MethodologyStep[] = [
       se: "Grunden för allt förändringsarbete är en tydlig riktning...",
       en: "The foundation for all change work is a clear direction..."
     },
+    expansion: {
+      se: "Full expansion text from specification...",
+      en: "Complete expansion text for international audience..."
+    },
+    bulletPoints: [
+      { se: "Första praktiska punkten att tänka på", en: "First practical consideration" },
+      { se: "Andra viktiga aspekten", en: "Second important aspect" },
+      { se: "Tredje nyckelfaktorn", en: "Third key factor" }
+    ],
     order: 1
   },
-  // ... steps 2-6 existing content
+  // ... steps 2-5 with enhanced content
+  {
+    id: 6,
+    icon: "📈", 
+    title: { se: "Säljorganisation som levererar", en: "Sales Organization Excellence" },
+    description: {
+      se: "En stark säljorganisation är ofta nyckeln till bestående framgång...",
+      en: "A strong sales organization is often the key to lasting success..."
+    },
+    expansion: {
+      se: "Anna förstår att en effektiv säljorganisation inte bara handlar om individuella säljare...",
+      en: "Anna understands that an effective sales organization is not just about individual salespeople..."
+    },
+    bulletPoints: [
+      { se: "Kartlägg hela kundresan för att hitta var energi går förlorad", en: "Map the entire customer journey to find where energy is lost" },
+      { se: "Bygg system för kunskapsdelning så att framgångsrik säljpraxis sprids naturligt", en: "Build systems for knowledge sharing so successful sales practices spread naturally" },
+      { se: "Säkerställ att hela organisationen förstår sin roll i att stötta säljprocessen", en: "Ensure the entire organization understands their role in supporting the sales process" }
+    ],
+    order: 6
+  },
   {
     id: 7,
-    icon: "📈",
-    title: { se: "Säljorganisation Excellence", en: "Sales Organization Excellence" },
+    icon: "🚀",
+    title: { se: "Låt organisationen flyga", en: "Let the Organization Fly" },
     description: {
-      se: "När grunden är lagd och processerna flyter fokuserar vi på försäljningsorganisationens excellence...",
-      en: "With foundation established and processes flowing smoothly, we focus on sales organization excellence..."
+      se: "Nu gäller det att hålla i och förstärka...",
+      en: "Now it's about holding on and strengthening..."
     },
+    expansion: {
+      se: "I det sjunde och sista steget av Annas metod handlar det om att bygga ihop allt...",
+      en: "In the seventh and final step of Anna's method, it's about building everything together..."
+    },
+    bulletPoints: [
+      { se: "Bygg ledarskap på alla nivåer - kulturen får inte vara beroende av enskilda personer", en: "Build leadership at all levels - culture must not depend on individual people" },
+      { se: "Skapa system som förstärker rätt beteenden automatiskt", en: "Create systems that automatically reinforce the right behaviors" },
+      { se: "Säkerställ att organisationen kan utvecklas vidare även efter konsultinsatsen", en: "Ensure the organization can continue developing after consulting engagement" }
+    ],
     order: 7
   }
 ];
