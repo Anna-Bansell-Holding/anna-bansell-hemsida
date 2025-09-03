@@ -2,6 +2,12 @@
 
 ## Development Impact Changes - 2025-09-02
 
+### 2025-09-02 12:45: [SPECIFICATION] - Updated language detection logic for browser preferences  
+Impact: Medium - Technical specification change affecting language switcher implementation
+Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (updated language detection behavior)
+Rationale: Refined language switcher logic - Swedish browsers default to English, all other languages default to Swedish (primary market)
+Next Actions: Update React language switcher component to reflect new detection logic
+
 ### 2025-09-02 12:30: [FEATURE] - Added floating navigation, language switcher, and 7th method step for sales organization
 Impact: High - Major UI enhancements and expanded methodology with three significant new features
 Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (added floating navigation spec, language switcher component, and Step 7 - Sales Organization Excellence)
