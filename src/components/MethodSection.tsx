@@ -36,69 +36,60 @@ const MethodSection = () => {
   ];
 
   return (
-    <section id="method" className="bg-white section-padding">
+    <section id="method" className="bg-gray-50 section-padding">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-warmBrown-600 font-sans text-sm uppercase tracking-wide mb-4">
-            Metoden för turnaround som funkar
+          <h2 className="heading-lg mb-4">Sju steg till framgång</h2>
+          <p className="body-large max-w-3xl mx-auto">
+            En beprövad metodik för organisatorisk transformation
           </p>
         </div>
 
-        {/* Steps */}
-        <div className="space-y-8">
+        {/* Steps Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              <Card className="border-warmBrown-200 hover:shadow-md transition-shadow">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-2xl">
-                        {step.icon}
-                      </div>
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-xl lg:text-2xl font-semibold text-primary mb-4">
-                        {step.title}
-                      </h3>
-                      <p className="text-warmBrown-700 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              {/* Arrow between steps */}
-              {index < steps.length - 1 && (
-                <div className="flex justify-center py-4">
-                  <div className="w-1 h-8 bg-warmBrown-300"></div>
-                </div>
-              )}
+            <div key={index} className="modern-card modern-card-hover">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-blue-600 font-bold text-lg">{index + 1}</span>
+              </div>
+              <h3 className="heading-md mb-4">{step.title}</h3>
+              <p className="body-text">{step.description}</p>
             </div>
           ))}
         </div>
 
         {/* Final note */}
-        <div className="mt-16 text-center">
-          <Card className="border-primary bg-warmBrown-50">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-primary mb-4">
-                När förändringen är på plats är det dags att släppa taget:
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6 text-warmBrown-700">
-                <div>
-                  <p className="font-medium">Lämna över ansvaret till organisationen</p>
-                </div>
-                <div>
-                  <p className="font-medium">Säkerställa att det nya fungerar utan extern kraft</p>
-                </div>
-                <div>
-                  <p className="font-medium">Resultat: Självdrivande organisation med förnyad riktning och förmåga.</p>
-                </div>
+        <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100">
+          <h3 className="heading-md text-center mb-8">
+            När förändringen är på plats är det dags att släppa taget:
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl">🎯</span>
               </div>
-            </CardContent>
-          </Card>
+              <p className="body-text font-medium">
+                Lämna över ansvaret till organisationen
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-purple-600 text-2xl">⚙️</span>
+              </div>
+              <p className="body-text font-medium">
+                Säkerställa att det nya fungerar utan extern kraft
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-green-600 text-2xl">🚀</span>
+              </div>
+              <p className="body-text font-medium">
+                Resultat: Självdrivande organisation med förnyad riktning och förmåga
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

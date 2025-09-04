@@ -21,7 +21,38 @@ export default {
 		extend: {
 			fontFamily: {
 				'serif': ['Crimson Text', 'serif'],
-				'sans': ['Inter', 'sans-serif'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'display': ['Inter', 'system-ui', 'sans-serif'], // For headings
+			},
+			fontSize: {
+				'xs': ['0.75rem', { lineHeight: '1.5' }],
+				'sm': ['0.875rem', { lineHeight: '1.6' }],
+				'base': ['1rem', { lineHeight: '1.7' }],
+				'lg': ['1.125rem', { lineHeight: '1.7' }],
+				'xl': ['1.25rem', { lineHeight: '1.6' }],
+				'2xl': ['1.5rem', { lineHeight: '1.5' }],
+				'3xl': ['1.875rem', { lineHeight: '1.4' }],
+				'4xl': ['2.25rem', { lineHeight: '1.3' }],
+				'5xl': ['3rem', { lineHeight: '1.2' }],
+				'6xl': ['3.75rem', { lineHeight: '1.1' }],
+			},
+			spacing: {
+				'18': '4.5rem',   // 72px
+				'20': '5rem',     // 80px
+				'24': '6rem',     // 96px
+				'28': '7rem',     // 112px
+				'32': '8rem',     // 128px
+				'36': '9rem',     // 144px
+				'40': '10rem',    // 160px
+				'44': '11rem',    // 176px
+				'48': '12rem',    // 192px
+				'52': '13rem',    // 208px
+				'56': '14rem',    // 224px
+				'60': '15rem',    // 240px
+				'64': '16rem',    // 256px
+				'72': '18rem',    // 288px
+				'80': '20rem',    // 320px
+				'96': '24rem',    // 384px
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,17 +98,41 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				warmBrown: {
-					50: '#fef7ed',
-					100: '#fef1e0',
-					200: '#fde0c2',
-					300: '#fbc898',
-					400: '#f8a866',
-					500: '#f59e0b',
-					600: '#d97706',
-					700: '#b45309',
-					800: '#92400e',
-					900: '#78350f',
+				// Fibery-inspired professional SaaS color system
+				gray: {
+					50: '#fafbfc',   // Ultra light background
+					100: '#f4f6f8',  // Light background  
+					200: '#e6eaed',  // Subtle borders
+					300: '#d0d7de',  // Medium borders
+					400: '#9da7b1',  // Muted text
+					500: '#6c7781',  // Secondary text
+					600: '#4a5568',  // Primary text
+					700: '#2d3748',  // Strong text
+					800: '#1a202c',  // Headings
+					900: '#171923',  // Maximum contrast
+				},
+				blue: {
+					50: '#f0f9ff',   // Very light blue
+					100: '#e0f2fe',  // Light blue bg
+					200: '#bae6fd',  // Soft blue
+					300: '#7dd3fc',  // Medium blue
+					400: '#38bdf8',  // Bright blue
+					500: '#0ea5e9',  // Primary blue
+					600: '#0284c7',  // Dark blue
+					700: '#0369a1',  // Darker blue
+					800: '#075985',  // Very dark blue
+					900: '#0c4a6e',  // Maximum blue
+				},
+				purple: {
+					50: '#faf5ff',   // Very light purple
+					100: '#f3e8ff',  // Light purple
+					500: '#8b5cf6',  // Medium purple for accents
+					600: '#7c3aed',  // Darker purple
+				},
+				green: {
+					50: '#f0fdf4',   // Success background
+					500: '#22c55e',  // Success color
+					600: '#16a34a',  // Darker success
 				}
 			},
 			borderRadius: {
