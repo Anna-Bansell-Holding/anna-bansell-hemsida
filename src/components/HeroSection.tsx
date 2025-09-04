@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 const HeroSection = () => {
+  const { currentLanguage } = useLanguage();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,26 +18,26 @@ const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h1 className="heading-xl">
-                Framgångskultur på småländska
+                {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
               </h1>
               <p className="body-large max-w-xl">
-                En organisation som mår bra, levererar bra. Modern turnaround-metodik 
-                för hållbar organisationsförändring.
+                {currentLanguage === 'se' 
+                  ? 'En organisation som mår bra, levererar bra. Modern turnaround-metodik för hållbar organisationsförändring.'
+                  : 'An organization that feels good, delivers good. Modern turnaround methodology for sustainable organizational transformation.'
+                }
               </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://www.linkedin.com/in/annabansell" target="_blank" rel="noopener noreferrer">
-                <button className="modern-button modern-button-primary button-press px-8 py-4 text-lg">
-                  Låt oss prata
-                </button>
-              </a>
-              <button 
-                onClick={() => scrollToSection('method')}
-                className="modern-button modern-button-secondary button-press px-8 py-4 text-lg"
+              
+              {/* Call-to-Action Question - Clickable */}
+              <a 
+                href="#method"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('method');
+                }}
+                className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer underline decoration-2 underline-offset-4 hover:decoration-4"
               >
-                Se metoden
-              </button>
+                {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
+              </a>
             </div>
           </div>
 

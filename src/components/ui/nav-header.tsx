@@ -142,9 +142,9 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
   };
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center justify-center w-full">
       <ul
-        className="relative mx-auto flex gap-1 w-fit rounded-full border-2 border-black bg-white p-1"
+        className="relative flex gap-1 w-fit rounded-full border-2 border-black bg-white p-1"
         onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
       >
         {menuItems.map((item) => (

@@ -49,8 +49,8 @@ const SmalandSection = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
+              <CarouselPrevious className="left-0 bg-blue-100 border-blue-200 text-blue-600 hover:bg-blue-200 hover:text-blue-700" />
+              <CarouselNext className="right-0 bg-blue-100 border-blue-200 text-blue-600 hover:bg-blue-200 hover:text-blue-700" />
             </Carousel>
           </div>
           

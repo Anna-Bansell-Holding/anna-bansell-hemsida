@@ -20,8 +20,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Sticky animated navigation at top right */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* Centered navigation header */}
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
         <NavHeader onItemClick={handleNavClick} />
       </div>
       
