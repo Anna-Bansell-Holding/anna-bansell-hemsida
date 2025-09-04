@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Linkedin } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Footer7Props {
   logo?: {
@@ -26,32 +27,32 @@ interface Footer7Props {
   }>;
 }
 
-const defaultSections = [
+const getDefaultSections = (currentLanguage: 'se' | 'en') => [
   {
-    title: "Om mig",
+    title: currentLanguage === 'se' ? "Om mig" : "About me",
     links: [
-      { name: "Hem", href: "#home" },
+      { name: currentLanguage === 'se' ? "Hem" : "Home", href: "#home" },
       { name: "Turnarounds", href: "#vision" },
-      { name: "Uppdrag", href: "#cases" },
-      { name: "Metod", href: "#method" },
+      { name: currentLanguage === 'se' ? "Uppdrag" : "Projects", href: "#cases" },
+      { name: currentLanguage === 'se' ? "Metod" : "Method", href: "#method" },
     ],
   },
   {
-    title: "Tjänster",
+    title: currentLanguage === 'se' ? "Tjänster" : "Services",
     links: [
-      { name: "Organisationsutveckling", href: "#" },
-      { name: "Kulturell förändring", href: "#" },
-      { name: "Turnaround-konsultation", href: "#" },
-      { name: "Ledarskapsutveckling", href: "#" },
+      { name: currentLanguage === 'se' ? "Organisationsutveckling" : "Organizational Development", href: "#" },
+      { name: currentLanguage === 'se' ? "Kulturell förändring" : "Cultural Change", href: "#" },
+      { name: currentLanguage === 'se' ? "Turnaround-konsultation" : "Turnaround Consultation", href: "#" },
+      { name: currentLanguage === 'se' ? "Ledarskapsutveckling" : "Leadership Development", href: "#" },
     ],
   },
   {
-    title: "Erbjudanden",
+    title: currentLanguage === 'se' ? "Erbjudanden" : "Offerings",
     links: [
-      { name: "Strategisk rådgivning", href: "#" },
+      { name: currentLanguage === 'se' ? "Strategisk rådgivning" : "Strategic Advisory", href: "#" },
       { name: "Workshops", href: "#" },
-      { name: "Föreläsningar", href: "#" },
-      { name: "Mentorskap", href: "#" },
+      { name: currentLanguage === 'se' ? "Föreläsningar" : "Speaking", href: "#" },
+      { name: currentLanguage === 'se' ? "Mentorskap" : "Mentorship", href: "#" },
     ],
   },
 ];
@@ -64,9 +65,9 @@ const defaultSocialLinks = [
   },
 ];
 
-const defaultLegalLinks = [
-  { name: "Integritetspolicy", href: "#" },
-  { name: "Användarvillkor", href: "#" },
+const getDefaultLegalLinks = (currentLanguage: 'se' | 'en') => [
+  { name: currentLanguage === 'se' ? "Integritetspolicy" : "Privacy Policy", href: "#" },
+  { name: currentLanguage === 'se' ? "Användarvillkor" : "Terms of Service", href: "#" },
 ];
 
 export const Footer7 = ({
@@ -76,12 +77,29 @@ export const Footer7 = ({
     alt: "Anna Bansell logo",
     title: "Anna Bansell",
   },
-  sections = defaultSections,
-  description = "Genuin framgångskultur på småländska. Organisationskonsult specialiserad på turnarounds och kulturell förändring.",
+  sections,
+  description,
   socialLinks = defaultSocialLinks,
-  copyright = "© 2024 Anna Bansell. Alla rättigheter förbehållna.",
-  legalLinks = defaultLegalLinks,
+  copyright,
+  legalLinks,
 }: Footer7Props) => {
+  const { currentLanguage } = useLanguage();
+  
+  const content = {
+    description: {
+      se: "Genuin framgångskultur på småländska. Organisationskonsult specialiserad på turnarounds och kulturell förändring.",
+      en: "Genuine success culture the Småland way. Organizational consultant specialized in turnarounds and cultural change."
+    },
+    copyright: {
+      se: "© 2024 Anna Bansell. Alla rättigheter förbehållna.",
+      en: "© 2024 Anna Bansell. All rights reserved."
+    }
+  };
+  
+  const finalSections = sections || getDefaultSections(currentLanguage);
+  const finalDescription = description || content.description[currentLanguage];
+  const finalCopyright = copyright || content.copyright[currentLanguage];
+  const finalLegalLinks = legalLinks || getDefaultLegalLinks(currentLanguage);
   return (
     <section className="py-32 bg-gray-50">
       <div className="container mx-auto">
@@ -94,7 +112,7 @@ export const Footer7 = ({
               </a>
             </div>
             <p className="max-w-[70%] text-sm text-gray-600">
-              {description}
+              {finalDescription}
             </p>
             <ul className="flex items-center space-x-6 text-gray-500">
               {socialLinks.map((social, idx) => (
@@ -107,7 +125,7 @@ export const Footer7 = ({
             </ul>
           </div>
           <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
-            {sections.map((section, sectionIdx) => (
+            {finalSections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold text-gray-900">{section.title}</h3>
                 <ul className="space-y-3 text-sm text-gray-600">
@@ -125,9 +143,9 @@ export const Footer7 = ({
           </div>
         </div>
         <div className="mt-8 flex flex-col justify-between gap-4 border-t border-gray-200 py-8 text-xs font-medium text-gray-500 md:flex-row md:items-center md:text-left">
-          <p className="order-2 lg:order-1">{copyright}</p>
+          <p className="order-2 lg:order-1">{finalCopyright}</p>
           <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
-            {legalLinks.map((link, idx) => (
+            {finalLegalLinks.map((link, idx) => (
               <li key={idx} className="hover:text-blue-600 transition-colors">
                 <a href={link.href}> {link.name}</a>
               </li>

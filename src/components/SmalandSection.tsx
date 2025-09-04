@@ -7,20 +7,48 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SmalandSection = () => {
+  const { currentLanguage } = useLanguage();
+  
+  const content = {
+    title: {
+      se: "Småland?",
+      en: "Småland?"
+    }
+  };
+
   const messages = [
     {
-      title: "Ihärdighet & Disciplin",
-      text: "Smålänningarna har förstått att framgång nås bäst genom ihärdighet, idogt arbete och disciplin. Vårda tid och resurser är en stabil bas för att få bästa möjliga utfall."
+      title: {
+        se: "Ihärdighet & Disciplin",
+        en: "Persistence & Discipline"
+      },
+      text: {
+        se: "Smålänningarna har förstått att framgång nås bäst genom ihärdighet, idogt arbete och disciplin. Vårda tid och resurser är en stabil bas för att få bästa möjliga utfall.",
+        en: "The people of Småland have understood that success is best achieved through persistence, diligent work and discipline. Caring for time and resources is a stable foundation for achieving the best possible outcome."
+      }
     },
     {
-      title: "Enkelhet & Effektivitet", 
-      text: "I Småland värdesätts enkla lösningar som fungerar. Ingen onödig krångel - bara rak kommunikation och praktiska metoder som ger resultat."
+      title: {
+        se: "Enkelhet & Effektivitet",
+        en: "Simplicity & Efficiency"
+      },
+      text: {
+        se: "I Småland värdesätts enkla lösningar som fungerar. Ingen onödig krångel - bara rak kommunikation och praktiska metoder som ger resultat.",
+        en: "In Småland, simple solutions that work are valued. No unnecessary complications - just straightforward communication and practical methods that deliver results."
+      }
     },
     {
-      title: "Långsiktigt Tänkande",
-      text: "Småländsk affärsfilosofi bygger på hållbara relationer och långsiktiga investeringar. Det handlar om att bygga något som står sig över tid."
+      title: {
+        se: "Långsiktigt Tänkande",
+        en: "Long-term Thinking"
+      },
+      text: {
+        se: "Småländsk affärsfilosofi bygger på hållbara relationer och långsiktiga investeringar. Det handlar om att bygga något som står sig över tid.",
+        en: "Småland business philosophy builds on sustainable relationships and long-term investments. It's about building something that stands the test of time."
+      }
     }
   ];
 
@@ -29,7 +57,7 @@ const SmalandSection = () => {
       <div className="container-width">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="heading-lg mb-8">
-            Småland?
+            {content.title[currentLanguage]}
           </h2>
           
           {/* Carousel */}
@@ -40,10 +68,10 @@ const SmalandSection = () => {
                   <CarouselItem key={index}>
                     <div className="p-6">
                       <h3 className="heading-md mb-4">
-                        {message.title}
+                        {message.title[currentLanguage]}
                       </h3>
                       <p className="body-large">
-                        {message.text}
+                        {message.text[currentLanguage]}
                       </p>
                     </div>
                   </CarouselItem>

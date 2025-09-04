@@ -34,7 +34,7 @@ const HeroSection = () => {
                   e.preventDefault();
                   scrollToSection('method');
                 }}
-                className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer underline decoration-2 underline-offset-4 hover:decoration-4"
+                className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer"
               >
                 {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
               </a>
