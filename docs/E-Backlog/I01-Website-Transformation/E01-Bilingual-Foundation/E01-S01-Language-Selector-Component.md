@@ -277,6 +277,8 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - [x] **Add delayed hover cursor fade-out after language click for better visual continuity**
 - [x] **Display full language names Svenska/English instead of SE/EN initials for better clarity**
 - [x] **Improve visual separation between selected state and hover state for better distinction**
+- [x] **Increase spacing between menu items for better visual separation and easier targeting**
+- [x] **Optimize menu item separation spacing for proper visual balance**
 
 ### Acceptance Testing Required
 - [ ] **PRIORITY**: Verify language selector integrated within navigation header per sketch
@@ -332,5 +334,7 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - **🎯 ENHANCED CURSOR BEHAVIOR**: Added delayed hover cursor fade-out after language click for visual continuity
 - **📏 OPTIMIZED MENU WIDTH**: Increased minimum width constraints to accommodate longer language names
 - **🎨 ENHANCED VISUAL SEPARATION**: Improved distinction between hover state (light gray with border) and selected state (black with shadow) for better user clarity
+- **📐 IMPROVED MENU SPACING**: Added gap-2 spacing between menu items for good visual separation and easier click targeting
+- **⚖️ OPTIMIZED SPACING BALANCE**: Refined spacing from gap-2 to gap-1 for proper visual balance and professional appearance
 
 **Agent Model Used**: Claude Sonnet 4
