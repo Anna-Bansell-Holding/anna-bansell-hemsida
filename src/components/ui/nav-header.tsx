@@ -52,18 +52,18 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
       type: "navigation"
     },
     { 
-      label: currentLanguage === 'se' ? 'Svenska' : 'English', 
-      href: "#", 
-      id: "language",
-      type: "language",
-      icon: Globe
-    },
-    { 
       label: currentLanguage === 'se' ? "Kontakt" : "Contact", 
       href: "#contact", 
       id: "contact",
       type: "navigation",
       icon: Phone
+    },
+    { 
+      label: currentLanguage === 'se' ? 'Svenska' : 'English', 
+      href: "#", 
+      id: "language",
+      type: "language",
+      icon: Globe
     }
   ];
 
@@ -192,7 +192,7 @@ const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps)
         });
       }}
       onClick={onClick}
-      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-all duration-300 ease-in-out min-w-[90px] md:min-w-[140px]"
+      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-all duration-300 ease-in-out"
     >
       {Icon && <Icon size={16} className="md:w-4 md:h-4" />}
       {children}
