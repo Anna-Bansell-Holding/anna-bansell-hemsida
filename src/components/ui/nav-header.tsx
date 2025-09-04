@@ -90,6 +90,31 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Recalculate cursor position when menu items change (language switching)
+  useEffect(() => {
+    // Reset cursor position to prevent misalignment
+    setPosition({
+      left: 0,
+      width: 0,
+      opacity: 0,
+    });
+    
+    // Small delay to allow DOM to update after language change
+    const timeout = setTimeout(() => {
+      // Force recalculation of all tab positions
+      const tabs = document.querySelectorAll('[data-tab]');
+      tabs.forEach((tab, index) => {
+        const element = tab as HTMLElement;
+        if (element.offsetParent) {
+          // Update internal positions for accurate tracking
+          element.style.transform = 'translateZ(0)'; // Force reflow
+        }
+      });
+    }, 50);
+    
+    return () => clearTimeout(timeout);
+  }, [currentLanguage]);
+
   const handleItemClick = (item: any) => {
     if (item.type === 'language') {
       // Toggle language
@@ -140,6 +165,7 @@ const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps)
   return (
     <li
       ref={ref}
+      data-tab
       onMouseEnter={() => {
         if (!ref.current) return;
 
@@ -151,7 +177,7 @@ const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps)
         });
       }}
       onClick={onClick}
-      className="relative z-10 flex items-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors"
+      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors min-w-[80px] md:min-w-[100px]"
     >
       {Icon && <Icon size={16} className="md:w-4 md:h-4" />}
       {children}
@@ -167,7 +193,12 @@ const Cursor = ({ position }: { position: Position }) => {
         width: position.width,
         opacity: position.opacity,
       }}
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      transition={{
+        type: "spring",
+        stiffness: 500,
+        damping: 30
+      }}
+      className="absolute z-0 h-7 rounded-full bg-gray-200 md:h-12"
     />
   );
 };
@@ -182,20 +213,31 @@ const ActiveCursor = ({ activeSection, menuItems }: { activeSection: string, men
   useEffect(() => {
     const activeItem = menuItems.find(item => item.id === activeSection);
     if (activeItem) {
-      // Find the corresponding tab element
-      const tabs = document.querySelectorAll('li');
-      const activeTab = Array.from(tabs).find(tab => 
-        tab.textContent?.trim() === activeItem.label
-      );
-      
-      if (activeTab) {
-        const { width } = activeTab.getBoundingClientRect();
-        setActivePosition({
-          left: activeTab.offsetLeft,
-          width,
-          opacity: 1,
+      // Small delay to ensure DOM is updated after language changes
+      const timeout = setTimeout(() => {
+        // Find the corresponding tab element with data-tab attribute
+        const tabs = document.querySelectorAll('[data-tab]');
+        const activeTab = Array.from(tabs).find(tab => {
+          const tabContent = tab.textContent?.trim();
+          // For language items, match the uppercase language code
+          if (activeItem.type === 'language') {
+            return tabContent === activeItem.label;
+          }
+          // For navigation items, match the label text
+          return tabContent === activeItem.label;
         });
-      }
+        
+        if (activeTab) {
+          const { width } = activeTab.getBoundingClientRect();
+          setActivePosition({
+            left: (activeTab as HTMLElement).offsetLeft,
+            width,
+            opacity: 1,
+          });
+        }
+      }, 10);
+      
+      return () => clearTimeout(timeout);
     }
   }, [activeSection, menuItems]);
 

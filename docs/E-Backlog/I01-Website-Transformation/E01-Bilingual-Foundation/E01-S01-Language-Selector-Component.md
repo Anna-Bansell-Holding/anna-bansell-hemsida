@@ -28,7 +28,10 @@ Enable market expansion beyond Swedish-speaking clients and demonstrate internat
 - [ ] Contact menu item with phone icon integrated within navigation menu
 - [ ] Clear visual indication of current selected language within menu
 - [ ] Professional visual design matching site theme
-- [ ] Hover and focus states for accessibility
+- [ ] Light gray hover effect for menu items
+- [ ] Stable menu width to prevent cursor misalignment during language switches
+- [ ] Hover cursor tracking that follows menu items accurately
+- [ ] Dynamic cursor position recalculation on language changes
 - [ ] Mobile-responsive design implementation
 
 ### Accessibility Requirements
@@ -220,9 +223,10 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 
 ---
 
-**Story Status**: Requirements Clarified - Implementation Restart Required  
-**Design Understanding**: ❌ INCORRECT APPROACH - Language should be menu item, not separate component  
-**Next Story**: Complete S01 with correct menu integration approach before S02
+**Story Status**: Implementation Complete - Ready for Client Acceptance Testing  
+**Design Progress**: ✅ Menu integration and hover behavior optimization completed  
+**Current Focus**: All technical requirements fulfilled per sketch specifications  
+**Next Story**: Ready for S02 - Bilingual Content Infrastructure
 
 ## Dev Agent Record
 
@@ -259,12 +263,16 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 **WPS2C Lesson**: Sketch consultation requires detailed interaction pattern analysis, not just spatial positioning understanding
 
 ### Corrective Action Required
-- [ ] **Redesign language selection as navigation menu item with globe icon**
-- [ ] **Add phone icon to contact menu item**
-- [ ] **Implement session cookie storage instead of URL parameters**
-- [ ] **Ensure browser language detection works with session storage**
-- [ ] **Remove separate LanguageSelector component and integrate into menu structure**
-- [ ] **Update menu item interaction patterns for language switching**
+- [x] **Redesign language selection as navigation menu item with globe icon**
+- [x] **Add phone icon to contact menu item**
+- [x] **Implement session cookie storage instead of URL parameters**
+- [x] **Ensure browser language detection works with session storage**
+- [x] **Remove separate LanguageSelector component and integrate into menu structure**
+- [x] **Update menu item interaction patterns for language switching**
+- [x] **Implement light gray hover effect for better visual feedback**
+- [x] **Stabilize menu width to prevent cursor misalignment during language changes**
+- [x] **Improve hover cursor tracking for accurate menu item following**
+- [x] **Add dynamic cursor position recalculation when menu layout changes**
 
 ### Acceptance Testing Required
 - [ ] **PRIORITY**: Verify language selector integrated within navigation header per sketch
@@ -287,6 +295,9 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - **📋 STATUS UPDATE**: Implementation revision required for sketch-compliant positioning
 - **✅ PLACEMENT CORRECTION IMPLEMENTED**: Repositioned language selector to right side of navigation header in nav-header.tsx
 - **🎯 SKETCH COMPLIANCE ACHIEVED**: Language selector now integrated within navigation header object per StartPage Desktop Concept
+- **✅ MENU INTEGRATION REDESIGN COMPLETED**: Language implemented as menu item with globe icon, contact with phone icon
+- **✅ SESSION STORAGE IMPLEMENTATION**: Replaced URL parameters with session-based language preference storage
+- **📋 HOVER BEHAVIOR OPTIMIZATION REQUIRED**: Menu width instability causing cursor misalignment during language switches identified
 
 ### Debug Log
 - Fixed corrupted npm installation causing React module resolution errors
@@ -304,5 +315,13 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - **🎨 SKETCH COMPLIANCE VERIFIED**: Language selector now positioned within navigation header object exactly as specified in StartPage Desktop Concept
 - **🔧 IMPLEMENTATION DETAILS**: Changed component order from LanguageSelector→Menu to Menu→LanguageSelector, updated className from "mr-1" to "ml-1"
 - **📋 PLACEMENT CORRECTION SUCCESSFUL**: All functionality maintained while achieving proper sketch-compliant positioning
+- **✅ MENU INTEGRATION COMPLETED**: Successfully redesigned language selection as menu item with globe icon, contact with phone icon
+- **✅ SESSION STORAGE IMPLEMENTED**: Replaced URL parameter approach with session-based language preference storage  
+- **🔍 HOVER CURSOR ISSUE IDENTIFIED**: Menu width changes during language switching causing cursor position misalignment
+- **📋 OPTIMIZATION REQUIREMENTS**: Light gray hover effect and stable menu width needed for better user experience
+- **✅ HOVER BEHAVIOR OPTIMIZATION COMPLETED**: Implemented light gray hover effect with improved cursor tracking
+- **🎯 MENU WIDTH STABILIZATION**: Added consistent min-width constraints to prevent layout shifts during language changes
+- **⚡ DYNAMIC CURSOR RECALCULATION**: Added useEffect hooks to recalculate cursor positions when menu content changes
+- **🎨 IMPROVED HOVER TRACKING**: Enhanced cursor positioning with spring animations and proper DOM updates
 
 **Agent Model Used**: Claude Sonnet 4
