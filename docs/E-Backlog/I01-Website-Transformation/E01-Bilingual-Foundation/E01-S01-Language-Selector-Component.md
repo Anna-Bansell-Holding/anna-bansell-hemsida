@@ -224,8 +224,8 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 ---
 
 **Story Status**: Implementation Complete - Ready for Client Acceptance Testing  
-**Design Progress**: ✅ Menu integration and hover behavior optimization completed  
-**Current Focus**: All technical requirements fulfilled per sketch specifications  
+**Design Progress**: ✅ All menu integration, hover behavior, and transition refinements completed  
+**Current Focus**: Full language names, smooth transitions, and enhanced user experience implemented  
 **Next Story**: Ready for S02 - Bilingual Content Infrastructure
 
 ## Dev Agent Record
@@ -273,6 +273,10 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - [x] **Stabilize menu width to prevent cursor misalignment during language changes**
 - [x] **Improve hover cursor tracking for accurate menu item following**
 - [x] **Add dynamic cursor position recalculation when menu layout changes**
+- [x] **Implement smooth language transition animation to prevent content jumping**
+- [x] **Add delayed hover cursor fade-out after language click for better visual continuity**
+- [x] **Display full language names Svenska/English instead of SE/EN initials for better clarity**
+- [x] **Improve visual separation between selected state and hover state for better distinction**
 
 ### Acceptance Testing Required
 - [ ] **PRIORITY**: Verify language selector integrated within navigation header per sketch
@@ -323,5 +327,10 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - **🎯 MENU WIDTH STABILIZATION**: Added consistent min-width constraints to prevent layout shifts during language changes
 - **⚡ DYNAMIC CURSOR RECALCULATION**: Added useEffect hooks to recalculate cursor positions when menu content changes
 - **🎨 IMPROVED HOVER TRACKING**: Enhanced cursor positioning with spring animations and proper DOM updates
+- **🔤 FULL LANGUAGE NAMES**: Updated display from SE/EN initials to full Svenska/English names for better clarity
+- **⚡ SMOOTH LANGUAGE TRANSITIONS**: Implemented delayed language switching with visual transition animations
+- **🎯 ENHANCED CURSOR BEHAVIOR**: Added delayed hover cursor fade-out after language click for visual continuity
+- **📏 OPTIMIZED MENU WIDTH**: Increased minimum width constraints to accommodate longer language names
+- **🎨 ENHANCED VISUAL SEPARATION**: Improved distinction between hover state (light gray with border) and selected state (black with shadow) for better user clarity
 
 **Agent Model Used**: Claude Sonnet 4

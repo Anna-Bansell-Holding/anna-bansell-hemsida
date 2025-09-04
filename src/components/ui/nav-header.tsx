@@ -23,6 +23,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     opacity: 0,
   });
   const [activeSection, setActiveSection] = useState('home');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const { currentLanguage, setLanguage } = useLanguage();
 
   const menuItems = [
@@ -51,7 +52,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
       type: "navigation"
     },
     { 
-      label: currentLanguage.toUpperCase(), 
+      label: currentLanguage === 'se' ? 'Svenska' : 'English', 
       href: "#", 
       id: "language",
       type: "language",
@@ -117,9 +118,23 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
 
   const handleItemClick = (item: any) => {
     if (item.type === 'language') {
-      // Toggle language
-      const newLanguage = currentLanguage === 'se' ? 'en' : 'se';
-      setLanguage(newLanguage);
+      // Start transition
+      setIsTransitioning(true);
+      
+      // Keep hover cursor visible briefly during transition
+      setTimeout(() => {
+        setIsTransitioning(false);
+        // Fade out cursor smoothly after transition
+        setTimeout(() => {
+          setPosition(prev => ({ ...prev, opacity: 0 }));
+        }, 150);
+      }, 300);
+      
+      // Toggle language with slight delay for smooth visual transition
+      setTimeout(() => {
+        const newLanguage = currentLanguage === 'se' ? 'en' : 'se';
+        setLanguage(newLanguage);
+      }, 100);
     } else {
       // Regular navigation
       onItemClick?.(item.label, item.href);
@@ -177,7 +192,7 @@ const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps)
         });
       }}
       onClick={onClick}
-      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors min-w-[80px] md:min-w-[100px]"
+      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-all duration-300 ease-in-out min-w-[90px] md:min-w-[140px]"
     >
       {Icon && <Icon size={16} className="md:w-4 md:h-4" />}
       {children}
@@ -195,10 +210,11 @@ const Cursor = ({ position }: { position: Position }) => {
       }}
       transition={{
         type: "spring",
-        stiffness: 500,
-        damping: 30
+        stiffness: 400,
+        damping: 35,
+        duration: 0.4
       }}
-      className="absolute z-0 h-7 rounded-full bg-gray-200 md:h-12"
+      className="absolute z-0 h-7 rounded-full bg-gray-100 border border-gray-200 md:h-12"
     />
   );
 };
@@ -248,7 +264,7 @@ const ActiveCursor = ({ activeSection, menuItems }: { activeSection: string, men
         width: activePosition.width,
         opacity: activePosition.opacity,
       }}
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      className="absolute z-0 h-7 rounded-full bg-black shadow-sm md:h-12"
       style={{ pointerEvents: 'none' }}
     />
   );
