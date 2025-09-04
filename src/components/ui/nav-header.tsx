@@ -3,8 +3,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Globe, Phone } from "lucide-react";
 
 interface Position {
   left: number;
@@ -29,27 +29,40 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     { 
       label: currentLanguage === 'se' ? "Hem" : "Home", 
       href: "#home", 
-      id: "home" 
+      id: "home",
+      type: "navigation"
     },
     { 
       label: currentLanguage === 'se' ? "Turnarounds" : "Turnarounds", 
       href: "#vision", 
-      id: "vision" 
+      id: "vision",
+      type: "navigation"
     },
     { 
       label: currentLanguage === 'se' ? "Uppdrag" : "Projects", 
       href: "#cases", 
-      id: "cases" 
+      id: "cases",
+      type: "navigation"
     },
     { 
       label: currentLanguage === 'se' ? "Metod" : "Method", 
       href: "#method", 
-      id: "method" 
+      id: "method",
+      type: "navigation"
+    },
+    { 
+      label: currentLanguage.toUpperCase(), 
+      href: "#", 
+      id: "language",
+      type: "language",
+      icon: Globe
     },
     { 
       label: currentLanguage === 'se' ? "Kontakt" : "Contact", 
       href: "#contact", 
-      id: "contact" 
+      id: "contact",
+      type: "navigation",
+      icon: Phone
     }
   ];
 
@@ -77,6 +90,17 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleItemClick = (item: any) => {
+    if (item.type === 'language') {
+      // Toggle language
+      const newLanguage = currentLanguage === 'se' ? 'en' : 'se';
+      setLanguage(newLanguage);
+    } else {
+      // Regular navigation
+      onItemClick?.(item.label, item.href);
+    }
+  };
+
   return (
     <div className="flex items-center gap-3">
       <ul
@@ -87,8 +111,9 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
           <Tab 
             key={item.id}
             setPosition={setPosition}
-            onClick={() => onItemClick?.(item.label, item.href)}
+            onClick={() => handleItemClick(item)}
             isActive={activeSection === item.id}
+            icon={item.icon}
           >
             {item.label}
           </Tab>
@@ -97,11 +122,6 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
         <Cursor position={position} />
         <ActiveCursor activeSection={activeSection} menuItems={menuItems} />
       </ul>
-      <LanguageSelector 
-        currentLanguage={currentLanguage}
-        onLanguageChange={setLanguage}
-        className="ml-1"
-      />
     </div>
   );
 }
@@ -111,9 +131,10 @@ interface TabProps {
   setPosition: (position: Position | ((prev: Position) => Position)) => void;
   onClick?: () => void;
   isActive?: boolean;
+  icon?: React.ComponentType<any>;
 }
 
-const Tab = ({ children, setPosition, onClick, isActive }: TabProps) => {
+const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps) => {
   const ref = useRef<HTMLLIElement>(null);
   
   return (
@@ -130,8 +151,9 @@ const Tab = ({ children, setPosition, onClick, isActive }: TabProps) => {
         });
       }}
       onClick={onClick}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors"
+      className="relative z-10 flex items-center gap-1 cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base transition-colors"
     >
+      {Icon && <Icon size={16} className="md:w-4 md:h-4" />}
       {children}
     </li>
   );

@@ -17,33 +17,26 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   // Initialize language on mount
   useEffect(() => {
     const initializeLanguage = () => {
-      // Check URL parameter first
-      const urlParams = new URLSearchParams(window.location.search);
-      const urlLang = urlParams.get('lang');
-      
-      if (urlLang === 'se' || urlLang === 'en') {
-        setCurrentLanguage(urlLang);
-        localStorage.setItem('preferredLanguage', urlLang);
-        return;
-      }
-
-      // Check localStorage
-      const storedLanguage = localStorage.getItem('preferredLanguage');
+      // Check session storage first
+      const storedLanguage = sessionStorage.getItem('preferredLanguage');
       if (storedLanguage === 'se' || storedLanguage === 'en') {
         setCurrentLanguage(storedLanguage);
         return;
       }
 
-      // Check browser language
+      // Check browser language for initial detection
       const browserLanguage = navigator.language.toLowerCase();
+      let detectedLanguage: 'se' | 'en';
+      
       if (browserLanguage.startsWith('sv') || browserLanguage.startsWith('se')) {
-        setCurrentLanguage('se');
+        detectedLanguage = 'se';
       } else {
-        setCurrentLanguage('en');
+        detectedLanguage = 'en';
       }
       
-      // Store the detected language
-      localStorage.setItem('preferredLanguage', currentLanguage);
+      setCurrentLanguage(detectedLanguage);
+      // Store the detected language in session storage
+      sessionStorage.setItem('preferredLanguage', detectedLanguage);
     };
 
     initializeLanguage();
@@ -52,13 +45,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const setLanguage = useCallback((language: 'se' | 'en') => {
     setCurrentLanguage(language);
     
-    // Persist to localStorage
-    localStorage.setItem('preferredLanguage', language);
-    
-    // Update URL parameter for shareability
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', language);
-    window.history.replaceState({}, '', url.toString());
+    // Persist to session storage
+    sessionStorage.setItem('preferredLanguage', language);
 
     // Announce language change to screen readers
     const announcement = language === 'se' 

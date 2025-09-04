@@ -23,9 +23,9 @@ Establish comprehensive bilingual infrastructure enabling seamless Swedish/Engli
 ### Story Breakdown
 
 #### E01-S01-Language-Selector-Component
-**Focus**: Interactive language selector integrated within navigation header object with instant switching capability
+**Focus**: Language selection integrated as navigation menu item with globe icon and session-based storage
 **Dependencies**: None
-**Design Requirements**: Integration within navigation header as specified in StartPage Desktop Concept sketch
+**Design Requirements**: Language as menu item with globe icon, contact with phone icon, session cookie storage per StartPage Desktop Concept sketch
 
 #### E01-S02-Bilingual-Content-Infrastructure
 **Focus**: Complete content management system for Swedish/English content

@@ -16,19 +16,20 @@ Enable market expansion beyond Swedish-speaking clients and demonstrate internat
 ## Acceptance Criteria
 
 ### Functional Requirements
-- [x] Language selector component displays in top navigation area
-- [x] Toggle between Swedish (SE) and English (EN) options  
-- [x] Instant content switching without page reload
-- [x] Language preference persists during session
-- [x] Default language detection based on browser settings
-- [x] URL parameter support for language sharing
+- [ ] Language selection integrated as navigation menu item with globe icon
+- [ ] Toggle between Swedish (SE) and English (EN) options within menu
+- [ ] Instant content switching without page reload
+- [ ] Language preference persists using session cookie storage
+- [ ] Default language detection based on browser settings
+- [ ] Session-based language preference without URL parameters
 
 ### Design Requirements  
-- [x] Professional visual design matching site theme
-- [x] Clear visual indication of selected language
-- [x] Hover and focus states for accessibility
-- [x] Mobile-responsive design implementation
-- [x] Consistent positioning across all page sections
+- [ ] Language menu item with globe icon integrated within navigation menu
+- [ ] Contact menu item with phone icon integrated within navigation menu
+- [ ] Clear visual indication of current selected language within menu
+- [ ] Professional visual design matching site theme
+- [ ] Hover and focus states for accessibility
+- [ ] Mobile-responsive design implementation
 
 ### Accessibility Requirements
 - [x] Accessible keyboard navigation support
@@ -219,9 +220,9 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 
 ---
 
-**Story Status**: Task Performed - Awaiting Client Acceptance Testing  
-**Placement Correction**: ✅ COMPLETED - Language selector repositioned per StartPage Desktop Concept sketch  
-**Next Story**: E01-S02-Bilingual-Content-Infrastructure
+**Story Status**: Requirements Clarified - Implementation Restart Required  
+**Design Understanding**: ❌ INCORRECT APPROACH - Language should be menu item, not separate component  
+**Next Story**: Complete S01 with correct menu integration approach before S02
 
 ## Dev Agent Record
 
@@ -248,17 +249,22 @@ const trackLanguageChange = (language: 'se' | 'en') => {
 - Mobile-responsive design with touch-friendly 44px minimum touch targets
 - Browser language detection with fallback to Swedish default
 
-### ⚠️ CRITICAL ISSUE IDENTIFIED: Placement Divergence from Sketch
-**Problem**: Language selector positioned separately from navigation header instead of integrated within navigation header object
-**Sketch Reference**: StartPage Desktop Concept shows language selector as part of unified navigation header
-**Impact**: Implementation does not match intended design specifications and visual hierarchy
-**WPS2C Lesson**: Visual design intent cannot be conveyed through written specifications alone - sketch consultation mandatory
+### ⚠️ CRITICAL DESIGN MISUNDERSTANDING IDENTIFIED: Language Selection Implementation Approach
+
+**Problem**: Language selector implemented as separate component instead of integrated navigation menu item
+**Sketch Reference**: StartPage Desktop Concept shows language selection as a MENU ITEM within navigation, not separate component
+**Design Intent**: Language selection should be one of the navigation menu items with globe icon, with contact having phone icon
+**Implementation Gap**: Current approach uses separate LanguageSelector component positioned next to menu
+**Storage Approach**: Should use session cookies for language preference, not URL parameters
+**WPS2C Lesson**: Sketch consultation requires detailed interaction pattern analysis, not just spatial positioning understanding
 
 ### Corrective Action Required
-- [x] **Reposition language selector to integrate within navigation header object**
-- [x] **Verify placement matches StartPage Desktop Concept sketch specifications**
-- [x] **Ensure unified navigation header design as intended**
-- [x] **Maintain all existing functionality while correcting placement**
+- [ ] **Redesign language selection as navigation menu item with globe icon**
+- [ ] **Add phone icon to contact menu item**
+- [ ] **Implement session cookie storage instead of URL parameters**
+- [ ] **Ensure browser language detection works with session storage**
+- [ ] **Remove separate LanguageSelector component and integrate into menu structure**
+- [ ] **Update menu item interaction patterns for language switching**
 
 ### Acceptance Testing Required
 - [ ] **PRIORITY**: Verify language selector integrated within navigation header per sketch
