@@ -79,11 +79,6 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <LanguageSelector 
-        currentLanguage={currentLanguage}
-        onLanguageChange={setLanguage}
-        className="mr-1"
-      />
       <ul
         className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
         onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
@@ -102,6 +97,11 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
         <Cursor position={position} />
         <ActiveCursor activeSection={activeSection} menuItems={menuItems} />
       </ul>
+      <LanguageSelector 
+        currentLanguage={currentLanguage}
+        onLanguageChange={setLanguage}
+        className="ml-1"
+      />
     </div>
   );
 }
