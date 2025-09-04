@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "http-server"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -75,11 +76,27 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "http-server": "^14.1.1",
     "lovable-tagger": "^1.1.7",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/61e9bdb2-4da9-4abf-8e1a-093d13ee7026",
+  "main": "eslint.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anna-Bansell-Holding/anna-bansell-hemsida.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anna-Bansell-Holding/anna-bansell-hemsida/issues"
+  },
+  "homepage": "https://github.com/Anna-Bansell-Holding/anna-bansell-hemsida#readme"
 }
