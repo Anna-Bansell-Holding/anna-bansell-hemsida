@@ -56,7 +56,7 @@ const Navigation = () => {
           variant="outline"
           size="sm"
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-white/90 backdrop-blur-sm border-warmBrown-200"
+          className="bg-white/90 backdrop-blur-sm border-gray-200"
         >
           <svg
             className="w-6 h-6"
@@ -75,7 +75,7 @@ const Navigation = () => {
 
       {/* Desktop sticky navigation */}
       <nav className="hidden lg:block fixed top-8 right-8 z-50">
-        <div className="bg-white/90 backdrop-blur-sm rounded-lg border border-warmBrown-200 shadow-lg p-2">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg border border-gray-200 shadow-lg p-2">
           <ul className="space-y-2">
             {menuItems.map((item) => (
               <li key={item.id}>
@@ -83,8 +83,8 @@ const Navigation = () => {
                   onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
                   className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                     activeSection === item.id
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-warmBrown-700 hover:bg-warmBrown-50'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
                   {item.label}
@@ -99,7 +99,7 @@ const Navigation = () => {
       {isOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setIsOpen(false)} />
-          <div className="absolute top-16 right-4 bg-white rounded-lg border border-warmBrown-200 shadow-xl p-4 min-w-[200px]">
+          <div className="absolute top-16 right-4 bg-white rounded-lg border border-gray-200 shadow-xl p-4 min-w-[200px]">
             <ul className="space-y-2">
               {menuItems.map((item) => (
                 <li key={item.id}>
@@ -107,8 +107,8 @@ const Navigation = () => {
                     onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
                     className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                       activeSection === item.id
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-warmBrown-700 hover:bg-warmBrown-50'
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
                     {item.label}

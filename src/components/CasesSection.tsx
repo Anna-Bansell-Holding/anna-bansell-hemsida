@@ -37,7 +37,7 @@ const CasesSection = () => {
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-warmBrown-600 font-sans text-sm uppercase tracking-wide mb-4">
+          <p className="text-gray-500 font-sans text-sm uppercase tracking-wide mb-4">
             Tre case där metoden skapat värde
           </p>
         </div>
@@ -45,17 +45,17 @@ const CasesSection = () => {
         {/* Cases grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {cases.map((caseItem, index) => (
-            <Card key={index} className="text-center border-warmBrown-200 hover:shadow-lg transition-shadow">
+            <Card key={index} className="text-center border-gray-200 hover:shadow-lg transition-shadow">
               <CardContent className="p-8">
-                <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold text-blue-600">
                     {caseItem.percentage}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4">
+                <h3 className="heading-md mb-4">
                   {caseItem.title}
                 </h3>
-                <p className="text-warmBrown-700">
+                <p className="body-text">
                   {caseItem.description}
                 </p>
               </CardContent>
@@ -66,12 +66,12 @@ const CasesSection = () => {
         {/* Testimonials */}
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-warmBrown-200">
+            <Card key={index} className="border-gray-200">
               <CardContent className="p-6">
-                <blockquote className="text-lg text-warmBrown-700 italic mb-4">
+                <blockquote className="text-lg text-gray-600 italic mb-4">
                   "{testimonial.quote}"
                 </blockquote>
-                <cite className="text-primary font-semibold not-italic">
+                <cite className="text-gray-900 font-semibold not-italic">
                   - {testimonial.author}
                 </cite>
               </CardContent>

@@ -46,10 +46,10 @@ const VisionSection = () => {
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-warmBrown-600 font-sans text-sm uppercase tracking-wide mb-4">
+          <p className="text-gray-500 font-sans text-sm uppercase tracking-wide mb-4">
             Min största insikt:
           </p>
-          <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-8">
+          <h2 className="heading-lg mb-8">
             Det går att vända en organisation!
           </h2>
         </div>
@@ -59,10 +59,10 @@ const VisionSection = () => {
           {/* Left column - Values */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-semibold text-primary mb-6">
+              <h3 className="heading-md mb-6">
                 Nyckeln ligger i den informella strukturen
               </h3>
-              <p className="text-lg text-warmBrown-700 leading-relaxed mb-8">
+              <p className="body-large mb-8">
                 Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag 
                 sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster 
                 kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att 
@@ -74,10 +74,10 @@ const VisionSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {values.map((value, index) => (
                 <div key={index} className="space-y-2">
-                  <h4 className="text-lg font-semibold text-primary">
+                  <h4 className="text-lg font-semibold text-gray-900">
                     {value.title}
                   </h4>
-                  <p className="text-warmBrown-700">
+                  <p className="body-text">
                     {value.description}
                   </p>
                 </div>
@@ -92,14 +92,14 @@ const VisionSection = () => {
               return (
                 <div key={index} className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
                       <IconComponent size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-primary mb-2">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
                         {outcome.title}
                       </h4>
-                      <p className="text-warmBrown-700">
+                      <p className="body-text">
                         {outcome.description}
                       </p>
                     </div>

@@ -25,10 +25,10 @@ const SmalandSection = () => {
   ];
 
   return (
-    <section id="smaland" className="bg-warmBrown-50 section-padding">
+    <section id="smaland" className="bg-blue-50 section-padding">
       <div className="container-width">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">
+          <h2 className="heading-lg mb-8">
             Småland?
           </h2>
           
@@ -39,10 +39,10 @@ const SmalandSection = () => {
                 {messages.map((message, index) => (
                   <CarouselItem key={index}>
                     <div className="p-6">
-                      <h3 className="text-xl lg:text-2xl font-semibold text-primary mb-4">
+                      <h3 className="heading-md mb-4">
                         {message.title}
                       </h3>
-                      <p className="text-lg lg:text-xl text-warmBrown-700 leading-relaxed">
+                      <p className="body-large">
                         {message.text}
                       </p>
                     </div>
@@ -56,9 +56,9 @@ const SmalandSection = () => {
           
           {/* Decorative elements */}
           <div className="flex justify-center space-x-8">
-            <div className="w-3 h-3 bg-warmBrown-400 rounded-full"></div>
-            <div className="w-3 h-3 bg-warmBrown-600 rounded-full"></div>
-            <div className="w-3 h-3 bg-warmBrown-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
           </div>
         </div>
       </div>
