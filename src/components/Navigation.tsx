@@ -1,17 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import BilingualText from './ui/BilingualText';
+import { websiteContent } from '../lib/bilingual-content';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   const menuItems = [
-    { id: 'home', label: 'Hem', href: '#home' },
-    { id: 'vision', label: 'Turnarounds', href: '#vision' },
-    { id: 'smaland', label: 'Småland', href: '#smaland' },
-    { id: 'cases', label: 'Uppdrag', href: '#cases' },
-    { id: 'method', label: 'Metod', href: '#method' },
+    { id: 'home', content: websiteContent.navigation.home, href: '#home' },
+    { id: 'vision', content: websiteContent.navigation.turnarounds, href: '#vision' },
+    { id: 'smaland', content: websiteContent.navigation.turnarounds, href: '#smaland' },
+    { id: 'cases', content: websiteContent.navigation.assignments, href: '#cases' },
+    { id: 'method', content: websiteContent.navigation.method, href: '#method' },
   ];
 
   useEffect(() => {
@@ -87,7 +89,7 @@ const Navigation = () => {
                       : 'text-warmBrown-700 hover:bg-warmBrown-50'
                   }`}
                 >
-                  {item.label}
+                  <BilingualText content={item.content} />
                 </button>
               </li>
             ))}
@@ -111,7 +113,7 @@ const Navigation = () => {
                         : 'text-warmBrown-700 hover:bg-warmBrown-50'
                     }`}
                   >
-                    {item.label}
+                    <BilingualText content={item.content} />
                   </button>
                 </li>
               ))}
