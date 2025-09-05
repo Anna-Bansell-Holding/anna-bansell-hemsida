@@ -36,7 +36,7 @@ const SmalandSection = () => {
         en: "Simplicity & Efficiency"
       },
       text: {
-        se: "I Småland värdesätts enkla lösningar som fungerar. Ingen onödig krångel - bara rak kommunikation och praktiska metoder som ger resultat.",
+        se: "I Småland värdesätts enkla lösningar som fungerar. Inget onödigt krångel - bara rak kommunikation och praktiska metoder som ger resultat.",
         en: "In Småland, simple solutions that work are valued. No unnecessary complications - just straightforward communication and practical methods that deliver results."
       }
     },

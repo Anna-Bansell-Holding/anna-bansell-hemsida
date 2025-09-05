@@ -8,7 +8,7 @@ const CasesSection = () => {
 
   const content = {
     preHeader: {
-      se: "Tre case där metoden skapat värde",
+      se: "Tre tillfällen där metoden skapat värde",
       en: "Three cases where the method created value"
     }
   };
