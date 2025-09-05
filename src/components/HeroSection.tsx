@@ -22,7 +22,7 @@ const HeroSection = () => {
               </h1>
               <p className="body-large max-w-xl">
                 {currentLanguage === 'se' 
-                  ? 'En organisation som mår bra, levererar bra. Modern helomvandlings-metodik för hållbar organisationsförändring.'
+                  ? 'En organisation som mår bra, levererar bra. Modern turnaround-metodik för hållbar organisationsförändring.'
                   : 'An organization that feels good, delivers good. Modern turnaround methodology for sustainable organizational transformation.'
                 }
               </p>
@@ -36,7 +36,7 @@ const HeroSection = () => {
                 }}
                 className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer"
               >
-                {currentLanguage === 'se' ? 'Är du redo för din helomvandling?' : 'Are you ready for your turnaround?'}
+                {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
               </a>
             </div>
           </div>

@@ -9,7 +9,7 @@ const ServicesSection = () => {
 
   const content = {
     header: {
-      se: "Hur kan jag hjälpa dig i din helomvandling",
+      se: "Hur kan jag hjälpa dig i din turnaround",
       en: "How can I help you in your Turnaround"
     },
     subtitle: {
