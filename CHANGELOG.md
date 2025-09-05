@@ -2,6 +2,26 @@
 
 ## Development Impact Changes - 2025-09-02
 
+### 2025-09-02 15:55: [DOCUMENTATION] - Added Missing Structures Section to StartPage Specification
+Impact: Medium - Complete specification now includes all implemented sections
+Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (added Structures Section between Cases and Method sections)
+Rationale: StructuresSection.tsx component was fully implemented but missing from specification documentation
+Content: "Formella & informella strukturer" section with bilingual content, layout design, and technical implementation details
+Section Updates: Renumbered sections 5-8 to accommodate new Structures section as Section 5
+
+### 2025-09-02 15:50: [SPECIFICATION] - Added Anna and Sara Illustration Specification to Vision Section
+Impact: Low - Enhanced visual specification for accurate implementation 
+Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (added illustration detail to Vision section)
+Rationale: User identified missing specification detail for Anna and Sara illustration placement in Vision section
+Content: Added layout specification and illustration positioning for right side of Vision section
+
+### 2025-09-02 15:45: [DOCUMENTATION] - Added Missing Cases/Testimonials Section to StartPage Specification
+Impact: Medium - Complete specification now includes all implemented sections
+Files: [1.1-StartPage.md](docs/C-Scenarios/01-Browse-Website/1.1-StartPage/1.1-StartPage.md) (added Cases Section between Småland and Method sections)
+Rationale: Cases/Testimonials section was fully implemented in CasesSection.tsx component but missing from specification documentation
+Content: Three case studies with detailed testimonials, achievement cards, and visual design specifications matching actual implementation
+Technical Details: Documented responsive grid layout, bilingual content structure, and component integration
+
 ### 2025-09-02 14:35: [FEATURE PLANNING] - Consolidated F-Ticket 002 with Fibery-Inspired Design System Implementation
 Impact: High - Replaced neural theme ticket with comprehensive Fibery.io-inspired design system approach
 Files: [002-ticket.md](docs/F-Tickets/002-Fibery-Inspired-Design-System/002-ticket.md) (consolidated feature ticket)
