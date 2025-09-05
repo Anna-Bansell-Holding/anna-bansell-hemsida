@@ -34,7 +34,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
       type: "navigation"
     },
     { 
-      label: currentLanguage === 'se' ? "Turnarounds" : "Turnarounds", 
+      label: currentLanguage === 'se' ? "Helomvandlingar" : "Omvändningar", 
       href: "#vision", 
       id: "vision",
       type: "navigation"

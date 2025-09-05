@@ -257,7 +257,7 @@ const MethodSection = () => {
         </p>
         
         <h2 className="heading-lg mb-6">
-          {currentLanguage === 'se' ? 'Metoden för turnaround som funkar' : 'The Method for Turnaround that Works'}
+          {currentLanguage === 'se' ? 'Metoden för helomvandling som funkar' : 'The Method for Turnaround that Works'}
         </h2>
         <p className="body-large max-w-4xl mx-auto text-gray-600">
           {currentLanguage === 'se' 

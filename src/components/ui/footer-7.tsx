@@ -32,7 +32,7 @@ const getDefaultSections = (currentLanguage: 'se' | 'en') => [
     title: currentLanguage === 'se' ? "Om mig" : "About me",
     links: [
       { name: currentLanguage === 'se' ? "Hem" : "Home", href: "#home" },
-      { name: "Turnarounds", href: "#vision" },
+      { name: "Helomvandlingar", href: "#vision" },
       { name: currentLanguage === 'se' ? "Uppdrag" : "Projects", href: "#cases" },
       { name: currentLanguage === 'se' ? "Metod" : "Method", href: "#method" },
     ],
@@ -42,7 +42,7 @@ const getDefaultSections = (currentLanguage: 'se' | 'en') => [
     links: [
       { name: currentLanguage === 'se' ? "Organisationsutveckling" : "Organizational Development", href: "#" },
       { name: currentLanguage === 'se' ? "Kulturell förändring" : "Cultural Change", href: "#" },
-      { name: currentLanguage === 'se' ? "Turnaround-konsultation" : "Turnaround Consultation", href: "#" },
+      { name: currentLanguage === 'se' ? "Helomvandlings-konsultation" : "Turnaround Consultation", href: "#" },
       { name: currentLanguage === 'se' ? "Ledarskapsutveckling" : "Leadership Development", href: "#" },
     ],
   },
@@ -87,7 +87,7 @@ export const Footer7 = ({
   
   const content = {
     description: {
-      se: "Genuin framgångskultur på småländska. Organisationskonsult specialiserad på turnarounds och kulturell förändring.",
+      se: "Genuin framgångskultur på småländska. Organisationskonsult specialiserad på helomvandlingar och kulturell förändring.",
       en: "Genuine success culture the Småland way. Organizational consultant specialized in turnarounds and cultural change."
     },
     copyright: {

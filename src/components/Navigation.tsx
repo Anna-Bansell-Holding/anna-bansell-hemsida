@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const menuItems = [
     { id: 'home', label: 'Hem', href: '#home' },
-    { id: 'vision', label: 'Omvändningar', href: '#vision' },
+    { id: 'vision', label: 'Helomvandlingar', href: '#vision' },
     { id: 'smaland', label: 'Småland', href: '#smaland' },
     { id: 'cases', label: 'Uppdrag', href: '#cases' },
     { id: 'method', label: 'Metod', href: '#method' },
