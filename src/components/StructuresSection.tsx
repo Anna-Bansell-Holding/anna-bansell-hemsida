@@ -11,7 +11,7 @@ const StructuresSection = () => {
       en: "Formal & informal structures"
     },
     text: {
-      se: "De mesta framgångsrika och snabbaste helomvändningar jag har upplevt kommer när vi har lyckats säkerställa att informella och formella strukturen går hand i hand.",
+      se: "De mesta framgångsrika och snabbaste helomvandlingar jag har upplevt kommer när vi har lyckats säkerställa att informella och formella strukturen går hand i hand.",
       en: "The most successful and fastest turnarounds I have experienced come when we have managed to ensure that informal and formal structures go hand in hand."
     }
   };
