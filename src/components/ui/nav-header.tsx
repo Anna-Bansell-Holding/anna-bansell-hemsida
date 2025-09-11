@@ -142,9 +142,9 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="nav-header-container">
       <ul
-        className="relative flex gap-1 w-fit rounded-full border-2 border-black bg-white p-1"
+        className="nav-header-list"
         onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
       >
         {menuItems.map((item) => (
@@ -192,9 +192,9 @@ const Tab = ({ children, setPosition, onClick, isActive, icon: Icon }: TabProps)
         });
       }}
       onClick={onClick}
-      className="relative z-10 flex items-center justify-center gap-1 cursor-pointer px-3 py-2.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3.5 md:text-base transition-all duration-300 ease-in-out leading-none"
+      className="nav-tab"
     >
-      {Icon && <Icon size={16} className="md:w-4 md:h-4" />}
+      {Icon && <Icon size={16} className="nav-tab-icon" />}
       {children}
     </li>
   );
@@ -214,7 +214,7 @@ const Cursor = ({ position }: { position: Position }) => {
         damping: 35,
         duration: 0.4
       }}
-      className="absolute z-0 h-9 rounded-full bg-gray-100 border border-gray-200 md:h-14"
+      className="nav-cursor"
     />
   );
 };
@@ -264,7 +264,7 @@ const ActiveCursor = ({ activeSection, menuItems }: { activeSection: string, men
         width: activePosition.width,
         opacity: activePosition.opacity,
       }}
-      className="absolute z-0 h-9 rounded-full bg-black shadow-sm md:h-14"
+      className="nav-cursor-active"
       style={{ pointerEvents: 'none' }}
     />
   );
