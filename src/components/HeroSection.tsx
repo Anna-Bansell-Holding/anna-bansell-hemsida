@@ -1,5 +1,11 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+// Figma assets
+const imgAnnaBansellHero = "/anna-bansell-hero.png";
+const imgBasilPhoneSolid = "/ico-navbar-phone.svg";
+const imgFlowbiteGlobeOutline = "/ico-navbar-globe.png";
+
 const HeroSection = () => {
   const { currentLanguage } = useLanguage();
   
@@ -11,50 +17,69 @@ const HeroSection = () => {
       });
     }
   };
-  return <section id="home" className="hero-gradient min-h-screen flex items-center section-padding">
-      <div className="container-width">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
-              <h1 className="heading-xl">
-                {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
-              </h1>
-              <p className="body-large max-w-xl">
-                {currentLanguage === 'se' 
-                  ? 'En organisation som mår bra, levererar bra. Modern turnaround-metodik för hållbar organisationsförändring.'
-                  : 'An organization that feels good, delivers good. Modern turnaround methodology for sustainable organizational transformation.'
-                }
-              </p>
-              
-              {/* Call-to-Action Question - Clickable */}
-              <a 
-                href="#method"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('method');
-                }}
-                className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer"
-              >
-                {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
-              </a>
-            </div>
-          </div>
 
-          {/* Right content - Portrait */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 bg-gray-100 rounded-2xl flex items-center justify-center border border-gray-200">
-                <span className="text-gray-400 text-lg">Anna Bansell Portrait</span>
-              </div>
-              
-              {/* Decorative background elements */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-100 rounded-full opacity-60 -z-10"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-100 rounded-full opacity-40 -z-10"></div>
-            </div>
+  return (
+    <section id="home" className="hero-section">
+      {/* Forest Background */}
+      <div className="hero-background"></div>
+      <div className="hero-overlay"></div>
+      <div className="hero-overlay-2"></div>
+      <div className="hero-overlay-3"></div>
+      
+      {/* Navigation */}
+      <div className="nav-container">
+        <div className="nav-logo">
+          <img src="/anna-bansell-logo.svg" alt="Anna Bansell" className="w-full h-full" />
+        </div>
+        <nav className="nav-menu">
+          <a href="#home" className="nav-item active">Hem</a>
+          <a href="#turnarounds" className="nav-item">TurnaRounds</a>
+          <a href="#uppdrag" className="nav-item">Uppdrag</a>
+          <a href="#method" className="nav-item">Metod</a>
+          <a href="#contact" className="nav-item">
+            <img src={imgBasilPhoneSolid} alt="Phone" />
+            Contact
+          </a>
+          <a href="#language" className="nav-item">
+            <img src={imgFlowbiteGlobeOutline} alt="Globe" />
+            English
+          </a>
+        </nav>
+      </div>
+      
+      {/* Spacer to push content to bottom */}
+      <div className="hero-spacer"></div>
+      
+      {/* Hero Content */}
+      <div className="hero-content">
+        {/* Left - Profile Picture */}
+        <div className="hero-profile-container">
+          <div className="hero-profile">
+            <img src={imgAnnaBansellHero} alt="Anna Bansell" />
           </div>
         </div>
+        
+        {/* Right - Text Content */}
+        <div className="hero-text">
+          <h1 className="hero-title">
+            {currentLanguage === 'se' ? 'Genuin framgångskultur på småländska.' : 'Genuine success culture the Småland way.'}
+          </h1>
+          <p className="hero-description">
+            {currentLanguage === 'se' 
+              ? 'En organisation som mår bra, levererar bra. Jag hjälper gärna till när det är dags att höja blicken, få fram snabba förändringar och samordna de gemensamma processerna för att organisationen ska flyga!'
+              : 'An organization that feels good, delivers good. I am happy to help when it\'s time to raise the bar, create rapid changes and coordinate the common processes so that the organization can fly!'
+            }
+          </p>
+          <button 
+            onClick={() => scrollToSection('method')}
+            className="hero-button"
+          >
+            {currentLanguage === 'se' ? 'Är det dags för din turnaround?' : 'Is it time for your turnaround?'}
+          </button>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { Footer7 } from '@/components/ui/footer-7';
+import { FooterFigma } from '@/components/ui/footer-figma';
 
 const ContactSection = () => {
   return (
     <section id="contact">
-      <Footer7 />
+      <FooterFigma />
     </section>
   );
 };

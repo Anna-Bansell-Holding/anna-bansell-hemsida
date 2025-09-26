@@ -1,54 +1,66 @@
-
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+// Local assets downloaded from Figma
+const imgFlowbiteCheckOutline = "/1627f3a870e9b56d751d07f53392d7a84aa55817.png";
+const imgFlowbiteCheckOutline1 = "/d9295352fc08a04c070e415a77ae8cfe609bab92.png";
+const imgFlowbiteCheckOutline2 = "/d973b17b466355ffd7ff2084d3977dcc86ddbc11.png";
+const imgGroup = "/34088c1b58f28c5cf1f9a99ecd3274f2ceb48e34.svg";
+const imgQuote = "/c5d35b30613d0d606ea1db4de147c492c1970d55.svg";
 
 const CasesSection = () => {
   const { currentLanguage } = useLanguage();
 
   const content = {
-    preHeader: {
-      se: "Tre tillfällen där metoden skapat värde",
+    subtitle: {
+      se: "Frangingov fröm tidym",
+      en: "Real results delivered"
+    },
+    title: {
+      se: "Tre case där metoden skapat värde",
       en: "Three cases where the method created value"
     }
   };
 
-  const achievements = [
+  const cases = [
     {
-      icon: "🎯",
+      icon: imgGroup,
       title: {
-        se: "Transformerad organisationskultur",
+        se: "Transformed organizational culture",
         en: "Transformed organizational culture"
       },
       description: {
-        se: "Lyckad omstrukturering av 200-personers organisation med 75% förbättring av medarbetarengagemang inom 6 månader.",
+        se: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months.",
         en: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months."
       },
       testimonial: {
+        image: imgFlowbiteCheckOutline,
         quote: {
-          se: "Anna hjälpte oss att skapa en helt ny dynamik i organisationen. Hennes metodiska approach gav oss verktyg som vi fortfarande använder idag.",
+          se: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today.",
           en: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today."
         },
         author: "Maria Lindström",
         position: {
-          se: "VD, Växjö Energi",
+          se: "VD, Växjö Energy",
           en: "CEO, Växjö Energy"
         }
       }
     },
     {
-      icon: "📈",
+      icon: imgGroup,
+      iconRotation: "180deg",
       title: {
-        se: "Effektiviserad försäljningsprocess",
+        se: "Streamlined sales process",
         en: "Streamlined sales process"
       },
       description: {
-        se: "Utvecklade ny försäljningsstrategi som resulterade i 40% ökning av konverteringsgraden och förkortade säljcykeln med 60%.",
+        se: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%.",
         en: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%."
       },
       testimonial: {
+        image: imgFlowbiteCheckOutline1,
         quote: {
-          se: "Annas fokus på både människor och processer gav oss genombrottet vi behövde. Resultaten talade för sig själva.",
+          se: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves.",
           en: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves."
         },
         author: "Lars Persson",
@@ -59,18 +71,20 @@ const CasesSection = () => {
       }
     },
     {
-      icon: "⚡",
+      icon: imgGroup,
+      iconRotation: "270deg",
       title: {
-        se: "Accelererad digital transformation",
+        se: "Accelerated digital transformation",
         en: "Accelerated digital transformation"
       },
       description: {
-        se: "Ledde förändringsarbete som möjliggjorde snabb digitalisering av nyckelprocesser med 90% minskning av manuellt arbete.",
+        se: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work.",
         en: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work."
       },
       testimonial: {
+        image: imgFlowbiteCheckOutline2,
         quote: {
-          se: "Anna förstod att teknisk förändring handlar om människor. Hon fick hela teamet att omfamna den digitala resan.",
+          se: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey.",
           en: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey."
         },
         author: "Elisabeth Andersson",
@@ -83,57 +97,65 @@ const CasesSection = () => {
   ];
 
   return (
-    <section id="cases" className="bg-gray-50 section-padding">
-      <div className="container-width">
+    <section id="cases" className="cases-section">
+      <div className="cases-container">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-gray-500 font-sans text-sm uppercase tracking-wide mb-4">
-            {content.preHeader[currentLanguage]}
+        <div className="cases-header">
+          <p className="cases-subtitle">
+            {content.subtitle[currentLanguage]}
           </p>
+          <h2 className="cases-title">
+            {content.title[currentLanguage]}
+          </h2>
         </div>
 
-        {/* Achievements grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {achievements.map((achievement, index) => (
-            <div key={index} className="text-center">
-              {/* Achievement card */}
-              <Card className="bg-white border-gray-200 hover:shadow-lg transition-shadow mb-6">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl">
-                      {achievement.icon}
-                    </span>
+        {/* Cases Grid */}
+        <div className="cases-grid">
+          {cases.map((caseItem, index) => (
+            <div key={index} className="case-column">
+              {/* Main Case Card */}
+              <div className="case-card">
+                <div className="case-header">
+                  <div className="case-icon-container">
+                    <div 
+                      className="case-icon"
+                      style={{ transform: `rotate(${caseItem.iconRotation || '0deg'})` }}
+                    >
+                      <img src={caseItem.icon} alt="Success icon" className="case-icon-image" />
+                    </div>
                   </div>
-                  <h3 className="heading-md mb-4">
-                    {achievement.title[currentLanguage]}
+                  <h3 className="case-title">
+                    {caseItem.title[currentLanguage]}
                   </h3>
-                  <p className="body-text">
-                    {achievement.description[currentLanguage]}
+                </div>
+                <div className="case-description-container">
+                  <p className="case-description">
+                    {caseItem.description[currentLanguage]}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              {/* Testimonial below each achievement */}
-              <Card className="bg-white border-gray-200">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-500 text-sm">👤</span>
-                    </div>
-                    <div className="text-left">
-                      <blockquote className="text-sm text-gray-600 italic mb-3">
-                        "{achievement.testimonial.quote[currentLanguage]}"
-                      </blockquote>
-                      <cite className="text-gray-900 font-semibold not-italic text-sm">
-                        {achievement.testimonial.author}
-                      </cite>
-                      <p className="text-gray-500 text-xs">
-                        {achievement.testimonial.position[currentLanguage]}
-                      </p>
-                    </div>
+              {/* Testimonial Card */}
+              <div className="testimonial-card">
+                <div className="testimonial-profile">
+                  <img src={caseItem.testimonial.image} alt="Profile" className="testimonial-image" />
+                </div>
+                <div className="testimonial-content">
+                  <div className="testimonial-quote-container">
+                    <p className="testimonial-quote">
+                      {caseItem.testimonial.quote[currentLanguage]}
+                    </p>
                   </div>
-                </CardContent>
-              </Card>
+                  <p className="testimonial-attribution">
+                    <span className="testimonial-author">{caseItem.testimonial.author}</span>
+                    <br />
+                    <span className="testimonial-position">{caseItem.testimonial.position[currentLanguage]}</span>
+                  </p>
+                </div>
+                <div className="testimonial-quote-mark">
+                  <img src={imgQuote} alt="Quote" className="quote-icon" />
+                </div>
+              </div>
             </div>
           ))}
         </div>

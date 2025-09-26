@@ -1,6 +1,5 @@
 
 import React from 'react';
-import NavHeader from '@/components/ui/nav-header';
 import HeroSection from '@/components/HeroSection';
 import VisionSection from '@/components/VisionSection';
 import SmalandSection from '@/components/SmalandSection';
@@ -11,20 +10,8 @@ import ServicesSection from '@/components/ServicesSection';
 import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
-  const handleNavClick = (item: string, href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen">
-      {/* Centered navigation header */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <NavHeader onItemClick={handleNavClick} />
-      </div>
-      
       <HeroSection />
       <VisionSection />
       <SmalandSection />

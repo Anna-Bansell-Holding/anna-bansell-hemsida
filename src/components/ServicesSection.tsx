@@ -1,75 +1,62 @@
-
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+// Local assets downloaded from Figma
+const imgA05MZi = "/cd3e534288cb5682546290fc04bd4811739f479f.svg";
+const imgGroup = "/f4fe96202059242bc987ff58da16a3741ed1330f.svg";
+const img0 = "/e13a2a6b10eb5717662dd462e57f07f84dbbc314.svg";
 
 const ServicesSection = () => {
   const { currentLanguage } = useLanguage();
 
   const content = {
-    header: {
-      se: "Hur kan jag hjälpa dig i din turnaround",
+    subtitle: {
+      se: "Nu är det din tur",
+      en: "Now it's your turn"
+    },
+    title: {
+      se: "Hur kan jag hjälpa dig i din Turnaround",
       en: "How can I help you in your Turnaround"
     },
-    subtitle: {
-      se: "Anpassade lösningar för hållbar organisationsförändring",
-      en: "Customized solutions for sustainable organizational change"
-    },
     ctaButton: {
-      se: "Kontakta mig",
-      en: "Contact me"
+      se: "Kontakta mig!",
+      en: "Contact me!"
     }
   };
 
   const services = [
     {
+      icon: imgA05MZi,
       title: {
         se: "Mentor",
         en: "Mentor"
       },
       description: {
-        se: "Långsiktig utvecklingspartner för ledningsgrupper som vill bygga hållbar förändring. Tillsammans skapar vi strategier och verktyg för att stärka organisationens informella strukturer.",
-        en: "Long-term development partner for management teams wanting to build sustainable change. Together we create strategies and tools to strengthen the organization's informal structures."
-      },
-      benefit: {
-        se: "Perfekt när du behöver kontinuerlig stöttning genom hela förändringsresan.",
-        en: "Perfect when you need continuous support throughout the entire change journey."
-      },
-      icon: "👥",
-      color: "blue"
+        se: "Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque.",
+        en: "Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque."
+      }
     },
     {
+      icon: imgGroup,
       title: {
         se: "Interim",
         en: "Interim"
       },
       description: {
-        se: "Operativ ledare som kliver in och driver förändringsarbetet inifrån organisationen. Jag tar ansvar för genomförandet medan jag bygger intern kapacitet för framtiden.",
-        en: "Operational leader who steps in and drives change work from within the organization. I take responsibility for implementation while building internal capacity for the future."
-      },
-      benefit: {
-        se: "Rätt val när du behöver snabba resultat och samtidigt utveckla ditt team.",
-        en: "Right choice when you need rapid results while developing your team."
-      },
-      icon: "⚡",
-      color: "purple"
+        se: "In morbi at facilisis tortor integer malesuada a euismod rutrum. Etiam neque eget eros amet.",
+        en: "In morbi at facilisis tortor integer malesuada a euismod rutrum. Etiam neque eget eros amet."
+      }
     },
     {
+      icon: img0,
       title: {
-        se: "Föreläsare",
+        se: "Speaker",
         en: "Speaker"
       },
       description: {
-        se: "Inspirerande föredrag om organisationsförändring med fokus på praktiska metoder och småländska värderingar. Delar verkliga case och konkreta verktyg.",
-        en: "Inspiring presentations on organizational change focusing on practical methods and Småland values. Shares real cases and concrete tools."
-      },
-      benefit: {
-        se: "Ideal för konferenser, ledningsgrupper och utbildningsprogram som vill ha äkta innehåll.",
-        en: "Ideal for conferences, management teams and training programs that want authentic content."
-      },
-      icon: "🎯",
-      color: "green"
+        se: "Etiam neque eget eros amet facilisis proin purus at. Vitae aqu morbi at facilitis.",
+        en: "Etiam neque eget eros amet facilisis proin purus at. Vitae aqu morbi at facilitis."
+      }
     }
   ];
 
@@ -80,54 +67,47 @@ const ServicesSection = () => {
     }
   };
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'blue':
-        return { bg: 'bg-blue-100', text: 'text-blue-600' };
-      case 'purple':
-        return { bg: 'bg-purple-100', text: 'text-purple-600' };
-      case 'green':
-        return { bg: 'bg-green-100', text: 'text-green-600' };
-      default:
-        return { bg: 'bg-gray-100', text: 'text-gray-600' };
-    }
-  };
-
   return (
-    <section className="bg-white section-padding">
-      <div className="container-width">
+    <section className="services-section">
+      <div className="services-container">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="heading-lg mb-4">
-            {content.header[currentLanguage]}
-          </h2>
-          <p className="body-large max-w-3xl mx-auto">
+        <div className="services-header">
+          <p className="services-subtitle">
             {content.subtitle[currentLanguage]}
           </p>
+          <h2 className="services-title">
+            {content.title[currentLanguage]}
+          </h2>
         </div>
 
-        {/* Services grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => {
-            const colorClasses = getColorClasses(service.color);
-            return (
-              <div key={index} className="modern-card text-center">
-                <div className={`w-16 h-16 ${colorClasses.bg} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
-                  <span className={`${colorClasses.text} text-2xl`}>{service.icon}</span>
+        {/* Services Grid */}
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              <div className="service-content">
+                <div className="service-header">
+                  <div className="service-icon-container">
+                    <img src={service.icon} alt={service.title[currentLanguage]} className="service-icon" />
+                  </div>
+                  <h3 className="service-title">
+                    {service.title[currentLanguage]}
+                  </h3>
                 </div>
-                <h3 className="heading-md mb-4">{service.title[currentLanguage]}</h3>
-                <p className="body-text mb-3">{service.description[currentLanguage]}</p>
-                <p className="text-sm text-gray-600 italic">{service.benefit[currentLanguage]}</p>
+                <div className="service-description-container">
+                  <p className="service-description">
+                    {service.description[currentLanguage]}
+                  </p>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
+        {/* CTA Button */}
+        <div className="services-cta">
           <button 
             onClick={scrollToContact}
-            className="modern-button modern-button-primary button-press px-8 py-4 text-lg"
+            className="services-button"
           >
             {content.ctaButton[currentLanguage]}
           </button>
