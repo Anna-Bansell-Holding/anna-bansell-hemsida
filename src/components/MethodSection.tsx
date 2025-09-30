@@ -18,16 +18,16 @@ const MethodSection = () => {
 
   const content = {
     subtitle: {
-      se: "Gä fröm rud fill handing",
-      en: "From insight to action"
+      se: "Från ord till handling",
+      en: "Let's get things done"
     },
     title: {
       se: "Metoden för turnaround som funkar",
       en: "The turnaround method that works"
     },
     description: {
-      se: "Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag sker genom att modifiera och styra.",
-      en: "Do changes reach all the way down to the informal structures? Most changes in companies occur by modifying and controlling."
+      se: "En systematisk approach för hållbar organisationsförändring",
+      en: "A systematic approach for sustainable organizational transformation"
     }
   };
 
@@ -37,7 +37,7 @@ const MethodSection = () => {
       icon: imgWeywgy,
       title: { 
         se: "Höja blicken", 
-        en: "Raise the perspective"
+        en: "Raise the Gaze"
       },
       description: { 
         se: "Grunden för allt förändringsarbete är en tydlig riktning. Här formuleras en gemensam bild av vart vi ska. Tillsammans utforskar vi, tänker dynamiskt, skapar samsyn och mening för att slutligen identifiera nyckelfrågor och mål.",
@@ -49,16 +49,16 @@ const MethodSection = () => {
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Håll målen konkreta och mätbara",
+          en: "Keep goals concrete and measurable"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Förankra riktningen i verkligheten",
+          en: "Anchor direction in reality"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Skapa delaktighet i visionsarbetet",
+          en: "Create participation in vision work"
         }
       ]
     },
@@ -74,56 +74,26 @@ const MethodSection = () => {
         en: "To understand what is required to succeed, we need to understand the current situation – for real, and this is done through in-depth analysis of both hard and soft signals (e.g. energy, engagement, bullying), shared information and insight. We also clarify roles and responsibilities."
       },
       expandedContent: {
-        se: "Lorem ipsum dolor sit amet consectetur. Rhoncus a a porttitor non. Volutpat enim consectetur fusce pellentesque justo. Venenatis pretium in nibh volutpat duis eget fermentum. Justo lobortis sit eu sed mauris urna. Id turpis libero sagittis egestas. Vestibulum blandit maecenas cras porta amet vitae congue. Lobortis diam eu dolor porttitor velit id consequat varius amet. Rhoncus a a porttitor non. Volutpat enim consectetur fusce pellentesque justo. Venenatis pretium in nibh volutpat duis eget fermentum. Justo lobortis sit eu sed mauris urna. Id turpis libero sagittis egestas. Vestibulum blandit maecenas cras porta amet vitae congue. Lobortis diam eu dolor porttitor velit id consequat varius amet.",
-        en: "Lorem ipsum dolor sit amet consectetur. Rhoncus a a porttitor non. Volutpat enim consectetur fusce pellentesque justo. Venenatis pretium in nibh volutpat duis eget fermentum. Justo lobortis sit eu sed mauris urna. Id turpis libero sagittis egestas. Vestibulum blandit maecenas cras porta amet vitae congue. Lobortis diam eu dolor porttitor velit id consequat varius amet. Rhoncus a a porttitor non. Volutpat enim consectetur fusce pellentesque justo. Venenatis pretium in nibh volutpat duis eget fermentum. Justo lobortis sit eu sed mauris urna. Id turpis libero sagittis egestas. Vestibulum blandit maecenas cras porta amet vitae congue. Lobortis diam eu dolor porttitor velit id consequat varius amet."
+        se: "Anna förstår att verklig förändring börjar med att förstå nuläget på riktigt, inte som man önskar att det vore. Hon gräver djupt i organisationen för att förstå både de hårda fakta och de mjuka signalerna som berättar sanningen om vad som faktiskt händer. Detta inkluderar allt från energinivåer och engagemang till dolda konflikter och informella maktstrukturer som kan bromsa eller driva utvecklingen.\n\nGenom systematisk analys kartlägger Anna hela organisationens tillstånd. Hon lyssnar inte bara på vad som sägs officiellt, utan förstår vad som händer i korridorerna, vid kaffemaskinen och i de informella nätverken. Med sin erfarenhet av småländsk rakt-på-sak-kommunikation skapar hon trygghet för människor att berätta sanningen, även när den är obehaglig.\n\nDetta djupa lyssnande resulterar i en komplett nulägesanalys som ger rätt grund för alla kommande förändringar. Anna tydliggör också roller och ansvar så att alla vet vad som förväntas av dem. Genom att skapa gemensam information och insikt bygger hon den transparens som krävs för att människor ska våga engagera sig i förändringsarbetet.",
+        en: "Anna understands that real change begins with understanding the current situation for real, not as one wishes it were. She digs deep into the organization to understand both the hard facts and the soft signals that tell the truth about what is actually happening. This includes everything from energy levels and engagement to hidden conflicts and informal power structures that can slow down or drive development.\n\nThrough systematic analysis, Anna maps the entire organization's condition. She doesn't just listen to what is said officially, but understands what happens in the corridors, at the coffee machine, and in the informal networks. With her experience of Småland straight-talking communication, she creates safety for people to tell the truth, even when it's uncomfortable.\n\nThis deep listening results in a complete current state analysis that provides the right foundation for all upcoming changes. Anna also clarifies roles and responsibilities so everyone knows what is expected of them. By creating shared information and insight, she builds the transparency required for people to dare engage in the change work."
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Lyssna efter det som inte sägs",
+          en: "Listen to what is not said"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Kartlägg informella maktstrukturer",
+          en: "Map informal power structures"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Ge exakt samma information till alla",
+          en: "Share the same picture to everyone"
         }
       ]
     },
     {
       id: 3,
-      icon: imgGroup,
-      title: { 
-        se: "Forma en gemenskap",
-        en: "Form a community"
-      },
-      description: { 
-        se: "Här sker det strategiska skiftet: Vi identifierar tillväxtpotential och bromsklossar för att kunna behålla de som bär energi och potential. Samlar insikter för att kunna forma konkreta åtgärder.",
-        en: "Here the strategic shift occurs: We identify growth potential and obstacles to be able to retain those who carry energy and potential. We gather insights to be able to form concrete measures."
-      },
-      expandedContent: {
-        se: "Vi bygger en stark gemenskap genom att identifiera och stärka de informella nätverk som redan finns. Genom fokusgrupper och teambuilding-aktiviteter skapar vi sammanhållning och gemensamma värderingar. Vi arbetar systematiskt med att eliminera silos och bygga broar mellan olika delar av organisationen.",
-        en: "We build a strong community by identifying and strengthening the informal networks that already exist. Through focus groups and team-building activities, we create cohesion and shared values. We work systematically to eliminate silos and build bridges between different parts of the organization."
-      },
-      tips: [
-        {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
-        },
-        {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
-        },
-        {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
-        }
-      ]
-    },
-    {
-      id: 4,
       icon: imgZDi38M,
       title: { 
         se: "Snabba självklara förändringar",
@@ -139,16 +109,46 @@ const MethodSection = () => {
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Välj enkla förändringar med stor effekt",
+          en: "Choose simple changes with big impact"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Fokusera på självklara förbättringar",
+          en: "Focus on obvious improvements"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Kommunicera framsteg tydligt",
+          en: "Communicate progress clearly"
+        }
+      ]
+    },
+    {
+      id: 4,
+      icon: imgGroup,
+      title: { 
+        se: "Forma en gemenskap",
+        en: "Form a community"
+      },
+      description: { 
+        se: "Här sker det strategiska skiftet: Vi identifierar tillväxtpotential och bromsklossar för att kunna behålla de som bär energi och potential. Samlar insikter för att kunna forma konkreta åtgärder.",
+        en: "Here the strategic shift occurs: We identify growth potential and obstacles to be able to retain those who carry energy and potential. We gather insights to be able to form concrete measures."
+      },
+      expandedContent: {
+        se: "Vi bygger en stark gemenskap genom att identifiera och stärka de informella nätverk som redan finns. Genom fokusgrupper och teambuilding-aktiviteter skapar vi sammanhållning och gemensamma värderingar. Vi arbetar systematiskt med att eliminera silos och bygga broar mellan olika delar av organisationen.",
+        en: "We build a strong community by identifying and strengthening the informal networks that already exist. Through focus groups and team-building activities, we create cohesion and shared values. We work systematically to eliminate silos and build bridges between different parts of the organization."
+      },
+      tips: [
+        {
+          se: "Identifiera energibärare och bromsare",
+          en: "Identify energy drivers and blockers"
+        },
+        {
+          se: "Våga fatta svåra personalbeslut",
+          en: "Dare to make difficult people decisions"
+        },
+        {
+          se: "Bygg stöttande strukturer",
+          en: "Build supporting structures"
         }
       ]
     },
@@ -169,16 +169,16 @@ const MethodSection = () => {
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Skapa processer människor vill använda",
+          en: "Create processes people want to use"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Automatisera rutinuppgifter",
+          en: "Automate routine tasks"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Bygg in framgångsfirande",
+          en: "Build in success celebration"
         }
       ]
     },
@@ -187,7 +187,7 @@ const MethodSection = () => {
       icon: imgGroup1,
       title: { 
         se: "Säljorganisation som levererar", 
-        en: "Sales organization that delivers"
+        en: "Sales Organization Excellence"
       },
       description: {
         se: "En stark säljorganisation är ofta nyckeln till bestående framgång. När säljteamet har självförtroende, tydliga processer och rätt verktyg blir försäljningen en naturlig del av organisationens tillväxtmotor.",
@@ -199,16 +199,16 @@ const MethodSection = () => {
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Kartlägg hela kundresan",
+          en: "Map the entire customer journey"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Bygg kunskapsdelningssystem",
+          en: "Build knowledge sharing systems"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Engagera hela organisationen",
+          en: "Engage the entire organization"
         }
       ]
     },
@@ -229,16 +229,16 @@ const MethodSection = () => {
       },
       tips: [
         {
-          se: "Gång på gång har jag sett",
-          en: "Time and again I have seen"
+          se: "Bygg ledarskap på alla nivåer",
+          en: "Build leadership at all levels"
         },
         {
-          se: "Har självförtroende och",
-          en: "Have confidence and"
+          se: "Skapa system som förstärker beteenden",
+          en: "Create behavior-reinforcing systems"
         },
         {
-          se: "Förståelse för processerna",
-          en: "Understanding of the processes"
+          se: "Säkerställ fortsatt utveckling",
+          en: "Ensure continued development"
         }
       ]
     }

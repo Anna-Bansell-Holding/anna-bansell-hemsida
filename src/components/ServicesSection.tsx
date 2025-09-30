@@ -15,12 +15,12 @@ const ServicesSection = () => {
       en: "Now it's your turn"
     },
     title: {
-      se: "Hur kan jag hjälpa dig i din Turnaround",
-      en: "How can I help you in your Turnaround"
+      se: "Hur kan jag hjälpa dig i din turnaround",
+      en: "How can I help you in your turnaround"
     },
     ctaButton: {
-      se: "Kontakta mig!",
-      en: "Contact me!"
+      se: "Kontakta mig",
+      en: "Contact me"
     }
   };
 
@@ -32,8 +32,12 @@ const ServicesSection = () => {
         en: "Mentor"
       },
       description: {
-        se: "Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque.",
-        en: "Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque."
+        se: "Långsiktig utvecklingspartner för ledningsgrupper som vill bygga hållbar förändring. Tillsammans skapar vi strategier och verktyg för att stärka organisationens informella strukturer.",
+        en: "Long-term development partner for management teams wanting to build sustainable change. Together we create strategies and tools to strengthen the organization's informal structures."
+      },
+      details: {
+        se: "Perfekt när du behöver kontinuerlig stöttning genom hela förändringsresan.",
+        en: "Perfect when you need continuous support throughout the entire change journey."
       }
     },
     {
@@ -43,19 +47,27 @@ const ServicesSection = () => {
         en: "Interim"
       },
       description: {
-        se: "In morbi at facilisis tortor integer malesuada a euismod rutrum. Etiam neque eget eros amet.",
-        en: "In morbi at facilisis tortor integer malesuada a euismod rutrum. Etiam neque eget eros amet."
+        se: "Operativ ledare som kliver in och driver förändringsarbetet inifrån organisationen. Jag tar ansvar för genomförandet medan jag bygger intern kapacitet för framtiden.",
+        en: "Operational leader who steps in and drives change work from within the organization. I take responsibility for implementation while building internal capacity for the future."
+      },
+      details: {
+        se: "Rätt val när du behöver snabba resultat och samtidigt utveckla ditt team.",
+        en: "Right choice when you need rapid results while developing your team."
       }
     },
     {
       icon: img0,
       title: {
-        se: "Speaker",
+        se: "Föreläsare",
         en: "Speaker"
       },
       description: {
-        se: "Etiam neque eget eros amet facilisis proin purus at. Vitae aqu morbi at facilitis.",
-        en: "Etiam neque eget eros amet facilisis proin purus at. Vitae aqu morbi at facilitis."
+        se: "Inspirerande föredrag om organisationsförändring med fokus på praktiska metoder och småländska värderingar. Delar verkliga case och konkreta verktyg.",
+        en: "Inspiring presentations on organizational change focusing on practical methods and Småland values. Shares real cases and concrete tools."
+      },
+      details: {
+        se: "Ideal för konferenser, ledningsgrupper och utbildningsprogram som vill ha äkta innehåll.",
+        en: "Ideal for conferences, management teams and training programs that want authentic content."
       }
     }
   ];
@@ -63,7 +75,14 @@ const ServicesSection = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Calculate offset to account for fixed navigation
+      const navHeight = 80; // Approximate height of navigation
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -97,6 +116,11 @@ const ServicesSection = () => {
                   <p className="service-description">
                     {service.description[currentLanguage]}
                   </p>
+                  {service.details && (
+                    <p className="service-details">
+                      {service.details[currentLanguage]}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -14,8 +14,8 @@ const VisionSection = () => {
 
   const content = {
     header: {
-      se: 'Min största insikt',
-      en: 'My biggest insight'
+      se: 'Min största insikt:',
+      en: 'My greatest insight:'
     },
     title: {
       se: 'Det går att vända en organisation!',
@@ -26,8 +26,8 @@ const VisionSection = () => {
       en: 'The key lies in the informal structure'
     },
     description: {
-      se: 'Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att se de faktiska faktorer som bromsar organisationen och ger kraft åt de människor som tar företaget till en ny nivå.',
-      en: 'Do the changes reach all the way down to the informal structures? Most changes in companies occur by modifying and redirecting the formal structure. The risk is that old patterns remain and no major changes occur. To achieve lasting change, you need the courage to see the actual factors that are holding back the organization and give power to the people who take the company to a new level.'
+      se: 'Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att se de faktiska faktorer som bromsar organisationen och ge kraft och utrymme åt de människor som tar företaget till en ny nivå.',
+      en: 'Do changes reach all the way down to the informal structures? Most changes in companies occur by modifying and redirecting the formal structure. The risk is then that old patterns remain and no major changes occur. To achieve lasting change, we need the courage to see the actual factors that slow down the organization and empower and give space to the people who take the company to the next level.'
     },
     principles: [
       {
@@ -46,28 +46,28 @@ const VisionSection = () => {
           en: 'Action instead of fear'
         },
         description: {
-          se: 'När vi fattar beslut som är långsiktigt hållbara och genomför dem skapas förtroende och trygghet i för alla.',
-          en: 'When we make decisions that are long-term sustainable and implement them, trust and security are created for everyone.'
+          se: 'När vi fattar beslut som är långsiktigt hållbara och genomför dem med kraft skapas förtroende och trygghet i organisationen.',
+          en: 'When we make long-term sustainable decisions and implement them with force, trust and security are created in the organization.'
         }
       },
       {
         title: {
           se: 'Värdera varje person',
-          en: 'Value each person'
+          en: 'Value every person'
         },
         description: {
           se: 'Se bortom det uppenbara och se potentialen i varje person utifrån arbetsmiljö och individens egna drivkrafter.',
-          en: 'Look beyond the obvious and see the potential in each person based on the work environment and the individual\'s own drivers.'
+          en: 'See beyond the obvious and see the potential in each person based on work environment and individual motivations.'
         }
       },
       {
         title: {
           se: 'Samma bild till alla',
-          en: 'Same picture for everyone'
+          en: 'Same picture to everyone'
         },
         description: {
           se: 'När alla har tillgång till samma information samtidigt, kan vi bygga gemensamma värderingar och kraften kan frigöras för tillväxt.',
-          en: 'When everyone has access to the same information at the same time, we can build common values and the power can be released for growth.'
+          en: 'When everyone has access to the same information simultaneously, we can build common values and power can be released for growth.'
         }
       }
     ],
@@ -88,8 +88,8 @@ const VisionSection = () => {
           en: 'Enthusiastic employees'
         },
         description: {
-          se: 'Med tydligt definierade spelregler blir det både roligt och enkelt att axla ett ansvar och utföra sitt uppdrag. Add some text',
-          en: 'With clearly defined rules of the game, it becomes both fun and easy to take on responsibility and perform your mission. Add some text'
+          se: 'Med tydligt definierade spelregler blir det både roligt och enkelt att axla ett ansvar och utföra sitt uppdrag.',
+          en: 'With clearly defined rules of the game, it becomes both fun and easy to shoulder responsibility and carry out your mission.'
         }
       },
       {
@@ -98,18 +98,18 @@ const VisionSection = () => {
           en: 'Valuable deliveries'
         },
         description: {
-          se: 'Med en effektiv organisation blir det större marginaler och nöjda kunder vilket leder till en positiv spiral. Add som text',
-          en: 'With an efficient organization, there are larger margins and satisfied customers which leads to a positive spiral. Add som text'
+          se: 'Med en effektiv organisation blir det större marginaler och nöjda kunder vilket leder till en positiv spiral.',
+          en: 'With an efficient organization, there are greater margins and satisfied customers which leads to a positive spiral.'
         }
       },
       {
         title: {
-          se: 'Let\'s have a cup of coffee!',
-          en: 'Let\'s have a cup of coffee!'
+          se: 'Låt oss ta en fika',
+          en: 'Let\'s have a cup of coffee'
         },
         description: {
-          se: 'Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque. add some text add some te',
-          en: 'Lorem ipsum dolor sit amet consectetur. Bibendum enim massa ut urna scelerisque. add some text add some te'
+          se: 'Varje framgångsrik turnaround börjar med ett öppet samtal. Låt oss träffas över en kopp kaffe och prata om din situation utan förpliktelser.',
+          en: 'Every successful turnaround starts with an open conversation. Let\'s meet over a cup of coffee and discuss your situation without commitments.'
         }
       }
     ]

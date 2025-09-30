@@ -2,7 +2,6 @@
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import VisionSection from '@/components/VisionSection';
-import SmalandSection from '@/components/SmalandSection';
 import CasesSection from '@/components/CasesSection';
 import StructuresSection from '@/components/StructuresSection';
 import MethodSection from '@/components/MethodSection';
@@ -14,7 +13,6 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <VisionSection />
-      <SmalandSection />
       <CasesSection />
       <StructuresSection />
       <MethodSection />

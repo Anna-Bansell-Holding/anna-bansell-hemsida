@@ -1,39 +1,17 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   const menuItems = [
     { id: 'home', label: 'Hem', href: '#home' },
-    { id: 'vision', label: 'Turnarounds', href: '#vision' },
-    { id: 'smaland', label: 'Småland', href: '#smaland' },
+    { id: 'vision', label: 'Turnaround', href: '#vision' },
     { id: 'cases', label: 'Uppdrag', href: '#cases' },
     { id: 'method', label: 'Metod', href: '#method' },
+    { id: 'contact', label: 'Kontakt', href: '#contact' },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = menuItems.map(item => item.id);
-      const scrollPosition = window.scrollY + 100;
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,7 +21,14 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Calculate offset to account for fixed navigation
+      const navHeight = 80; // Approximate height of navigation
+      const elementPosition = (element as HTMLElement).offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
     setIsOpen(false);
   };
@@ -81,11 +66,7 @@ const Navigation = () => {
               <li key={item.id}>
                 <button
                   onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
-                  className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeSection === item.id
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
+                  className="w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
                 >
                   {item.label}
                 </button>
@@ -105,11 +86,7 @@ const Navigation = () => {
                 <li key={item.id}>
                   <button
                     onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
-                    className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                      activeSection === item.id
-                        ? 'bg-blue-600 text-white'
-                        : 'text-gray-700 hover:bg-gray-50'
-                    }`}
+                    className="w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
                   >
                     {item.label}
                   </button>

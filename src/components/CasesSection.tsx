@@ -13,8 +13,8 @@ const CasesSection = () => {
 
   const content = {
     subtitle: {
-      se: "Frangingov fröm tidym",
-      en: "Real results delivered"
+      se: "Tre case där metoden skapat värde",
+      en: "Three cases where the method created value"
     },
     title: {
       se: "Tre case där metoden skapat värde",
@@ -26,22 +26,22 @@ const CasesSection = () => {
     {
       icon: imgGroup,
       title: {
-        se: "Transformed organizational culture",
+        se: "Transformerad organisationskultur",
         en: "Transformed organizational culture"
       },
       description: {
-        se: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months.",
+        se: "Lyckad omstrukturering av 200-personers organisation med 75% förbättring av medarbetarengagemang inom 6 månader.",
         en: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline,
         quote: {
-          se: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today.",
+          se: "Anna hjälpte oss att skapa en helt ny dynamik i organisationen. Hennes metodiska approach gav oss verktyg som vi fortfarande använder idag.",
           en: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today."
         },
         author: "Maria Lindström",
         position: {
-          se: "VD, Växjö Energy",
+          se: "VD, Växjö Energi",
           en: "CEO, Växjö Energy"
         }
       }
@@ -50,17 +50,17 @@ const CasesSection = () => {
       icon: imgGroup,
       iconRotation: "180deg",
       title: {
-        se: "Streamlined sales process",
+        se: "Effektiviserad försäljningsprocess",
         en: "Streamlined sales process"
       },
       description: {
-        se: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%.",
+        se: "Utvecklade ny försäljningsstrategi som resulterade i 40% ökning av konverteringsgraden och förkortade säljcykeln med 60%.",
         en: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline1,
         quote: {
-          se: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves.",
+          se: "Annas fokus på både människor och processer gav oss genombrottet vi behövde. Resultaten talade för sig själva.",
           en: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves."
         },
         author: "Lars Persson",
@@ -74,17 +74,17 @@ const CasesSection = () => {
       icon: imgGroup,
       iconRotation: "270deg",
       title: {
-        se: "Accelerated digital transformation",
+        se: "Accelererad digital transformation",
         en: "Accelerated digital transformation"
       },
       description: {
-        se: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work.",
+        se: "Ledde förändringsarbete som möjliggjorde snabb digitalisering av nyckelprocesser med 90% minskning av manuellt arbete.",
         en: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline2,
         quote: {
-          se: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey.",
+          se: "Anna förstod att teknisk förändring handlar om människor. Hon fick hela teamet att omfamna den digitala resan.",
           en: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey."
         },
         author: "Elisabeth Andersson",

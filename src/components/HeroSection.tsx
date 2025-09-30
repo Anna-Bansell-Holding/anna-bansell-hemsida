@@ -7,16 +7,68 @@ const imgBasilPhoneSolid = "/ico-navbar-phone.svg";
 const imgFlowbiteGlobeOutline = "/ico-navbar-globe.png";
 
 const HeroSection = () => {
-  const { currentLanguage } = useLanguage();
-  
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
+  const { currentLanguage, setLanguage } = useLanguage();
+  const [activeSection, setActiveSection] = React.useState('home');
+
+  // Update active section based on URL hash
+  React.useEffect(() => {
+    const updateActiveSection = () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      setActiveSection(hash);
+    };
+
+    // Update on hash change
+    window.addEventListener('hashchange', updateActiveSection);
+    
+    // Update on initial load
+    updateActiveSection();
+
+    return () => window.removeEventListener('hashchange', updateActiveSection);
+  }, []);
+
+  // Update active section based on scroll position
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'vision', 'cases', 'method', 'contact'];
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Special case: if user is at the bottom of the page, always show contact
+      if (scrollPosition + windowHeight >= documentHeight - 10) {
+        setActiveSection('contact');
+        if (window.location.hash !== '#contact') {
+          window.history.replaceState(null, '', '#contact');
+        }
+        return;
+      }
+      
+      // Find which section is currently in view
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const { offsetTop } = element;
+          // Check if we've scrolled past the top of this section
+          if (scrollPosition >= offsetTop - 100) { // 100px offset for better UX
+            setActiveSection(sections[i]);
+            // Update URL hash without triggering page jump
+            if (window.location.hash !== `#${sections[i]}`) {
+              window.history.replaceState(null, '', `#${sections[i]}`);
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Run once on mount
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section id="home" className="hero-section">
@@ -32,18 +84,31 @@ const HeroSection = () => {
           <img src="/anna-bansell-logo.svg" alt="Anna Bansell" className="w-full h-full" />
         </div>
         <nav className="nav-menu">
-          <a href="#home" className="nav-item active">Hem</a>
-          <a href="#turnarounds" className="nav-item">TurnaRounds</a>
-          <a href="#uppdrag" className="nav-item">Uppdrag</a>
-          <a href="#method" className="nav-item">Metod</a>
-          <a href="#contact" className="nav-item">
+          <a href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Hem' : 'Home'}
+          </a>
+          <a href="#vision" className={`nav-item ${activeSection === 'vision' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
+          </a>
+          <a href="#cases" className={`nav-item ${activeSection === 'cases' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
+          </a>
+          <a href="#method" className={`nav-item ${activeSection === 'method' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Metod' : 'Method'}
+          </a>
+          <a href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
             <img src={imgBasilPhoneSolid} alt="Phone" />
-            Contact
+            {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
           </a>
-          <a href="#language" className="nav-item">
+          <button 
+            onClick={() => setLanguage(currentLanguage === 'se' ? 'en' : 'se')} 
+            className="nav-item nav-item-button"
+            type="button"
+            aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
+          >
             <img src={imgFlowbiteGlobeOutline} alt="Globe" />
-            English
-          </a>
+            {currentLanguage === 'se' ? 'Svenska' : 'English'}
+          </button>
         </nav>
       </div>
       
@@ -62,19 +127,19 @@ const HeroSection = () => {
         {/* Right - Text Content */}
         <div className="hero-text">
           <h1 className="hero-title">
-            {currentLanguage === 'se' ? 'Genuin framgångskultur på småländska.' : 'Genuine success culture the Småland way.'}
+            {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
           </h1>
           <p className="hero-description">
             {currentLanguage === 'se' 
-              ? 'En organisation som mår bra, levererar bra. Jag hjälper gärna till när det är dags att höja blicken, få fram snabba förändringar och samordna de gemensamma processerna för att organisationen ska flyga!'
-              : 'An organization that feels good, delivers good. I am happy to help when it\'s time to raise the bar, create rapid changes and coordinate the common processes so that the organization can fly!'
+              ? 'En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba och långsiktiga förändringar, samordna de gemensamma processerna och låta organisationen flyga! Som vi gör hemma i Småland!'
+              : 'An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!'
             }
           </p>
           <button 
-            onClick={() => scrollToSection('method')}
+            onClick={() => scrollToSection('contact')}
             className="hero-button"
           >
-            {currentLanguage === 'se' ? 'Är det dags för din turnaround?' : 'Is it time for your turnaround?'}
+            {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
           </button>
         </div>
       </div>

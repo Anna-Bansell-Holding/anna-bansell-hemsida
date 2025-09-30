@@ -18,42 +18,42 @@ export const FooterFigma = () => {
       en: "About"
     },
     contact: {
-      se: "Kontakt Oss", 
-      en: "Contact Us"
+      se: "Kontakt", 
+      en: "Contact"
     },
     copyright: {
-      se: "© 2025 Copyright. AnnaBansell. Alla rättigheter förbehållna",
-      en: "© 2025 Copyright. AnnaBansell. All rights reserved"
+      se: "© 2024 Anna Bansell. Alla rättigheter förbehållna.",
+      en: "© 2024 Anna Bansell. All rights reserved."
     }
   };
 
   const aboutLinks = {
     se: [
       "Hem",
-      "Turnarounds", 
+      "Turnaround", 
       "Uppdrag",
       "Metod"
     ],
     en: [
       "Home",
-      "Turnarounds",
-      "Projects", 
+      "Turnaround",
+      "Services", 
       "Method"
     ]
   };
 
   const contactLinks = {
     se: [
-      "Organisationsutveckling",
-      "Kulturell förändring",
-      "Turnaround-konsultation",
-      "Ledarskapsutveckling"
+      "Mentorskap",
+      "Interim-uppdrag",
+      "Föreläsningar",
+      "LinkedIn"
     ],
     en: [
-      "Organizational Development",
-      "Cultural Change", 
-      "Turnaround Consultation",
-      "Leadership Development"
+      "Mentoring",
+      "Interim Assignments", 
+      "Speaking",
+      "LinkedIn"
     ]
   };
 
@@ -119,3 +119,4 @@ export const FooterFigma = () => {
     </footer>
   );
 };
+

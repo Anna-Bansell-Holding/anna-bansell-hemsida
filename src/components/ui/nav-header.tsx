@@ -67,29 +67,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = menuItems.map(item => item.id);
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element) {
-          const { offsetTop } = element;
-          // Activate section when it's just visible at the bottom of the screen
-          if (scrollPosition + windowHeight >= offsetTop + 50) {
-            setActiveSection(sections[i]);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Run once on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Static navigation - no scroll tracking
 
   // Recalculate cursor position when menu items change (language switching)
   useEffect(() => {
@@ -116,6 +94,20 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     return () => clearTimeout(timeout);
   }, [currentLanguage]);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Calculate offset to account for fixed navigation
+      const navHeight = 80; // Approximate height of navigation
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const handleItemClick = (item: any) => {
     if (item.type === 'language') {
       // Start transition
@@ -136,8 +128,13 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
         setLanguage(newLanguage);
       }, 100);
     } else {
-      // Regular navigation
-      onItemClick?.(item.label, item.href);
+      // Regular navigation with smooth scrolling
+      if (onItemClick) {
+        onItemClick(item.label, item.href);
+      } else {
+        // Default smooth scroll behavior
+        scrollToSection(item.id);
+      }
     }
   };
 

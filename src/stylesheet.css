@@ -167,7 +167,7 @@
 
 /* Navigation */
 .nav-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -225,6 +225,44 @@
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
+}
+
+/* Ensure buttons with nav-item class look identical to anchor nav-items */
+button.nav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  /* All other styles inherited from .nav-item above */
+}
+
+button.nav-item:focus {
+  outline: none;
+}
+
+button.nav-item:hover {
+  background: rgba(235, 113, 0, 0.1);
+}
+
+button.nav-item.active {
+  background: var(--anna-orange);
+  color: var(--white);
+  border: 1px solid #d93a00;
+}
+
+/* Make nav-item buttons look identical to nav-item links */
+.nav-item-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 
 .nav-logo img {
@@ -1211,6 +1249,18 @@
   text-align: center;
   width: 100%;
   margin: 0;
+}
+
+.service-details {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #666;
+  text-align: center;
+  width: 100%;
+  margin: 8px 0 0 0;
+  font-style: italic;
 }
 
 .services-cta {
