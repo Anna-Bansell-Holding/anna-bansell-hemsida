@@ -167,7 +167,7 @@
 
 /* Navigation */
 .nav-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -190,7 +190,10 @@
   padding: 8px 10px;
   display: flex;
   gap: 4px;
-  align-items: center;
+  align-items: right;
+  position: fixed;
+  top: 24px;
+  right: 40px;
 }
 
 .nav-item {
