@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // Local assets downloaded from Figma
 const imgA05MZi = "/cd3e534288cb5682546290fc04bd4811739f479f.svg";
-const imgGroup = "/f4fe96202059242bc987ff58da16a3741ed1330f.svg";
+const imgGroup = "/f4fe96202059242bc987ff58da16a3741ed1330f.png";
 const img0 = "/e13a2a6b10eb5717662dd462e57f07f84dbbc314.svg";
 
 const ServicesSection = () => {

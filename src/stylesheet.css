@@ -98,12 +98,12 @@
   align-items: end;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem 2rem;
+  padding: 0 2rem 0;
 }
 
 .hero-profile-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: end;
   height: 100%;
   padding-bottom: 0;
@@ -127,6 +127,7 @@
 
 .hero-text {
   color: var(--white);
+  padding: 0 0 2rem;
 }
 
 .hero-title {

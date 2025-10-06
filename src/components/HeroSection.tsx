@@ -70,6 +70,20 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Calculate offset to account for fixed navigation
+      const navHeight = 80; // Approximate height of navigation
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="home" className="hero-section">
       {/* Forest Background */}
@@ -136,7 +150,7 @@ const HeroSection = () => {
             }
           </p>
           <button 
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection('method')}
             className="hero-button"
           >
             {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
