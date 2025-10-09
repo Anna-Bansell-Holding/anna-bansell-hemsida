@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Language Selector Prototype - Anna Bansell Consulting</title>
+    <link rel="stylesheet" href="1.2-Desktop-Language-Selector-Prototype.css">
+</head>
+<body>
+    <div class="prototype-container">
+        <h1>Desktop Language Selector Prototype</h1>
+        <p>Testing three-state language selector: Default → Activated → Collapsed</p>
+        
+        <!-- Navigation Menu Prototype -->
+        <div class="nav-header-container">
+            <ul class="nav-header-list" id="navList">
+                <!-- Navigation Items -->
+                <li class="nav-tab" data-tab data-type="navigation" data-id="home">
+                    <span>Hem</span>
+                </li>
+                <li class="nav-tab" data-tab data-type="navigation" data-id="turnarounds">
+                    <span>Turnarounds</span>
+                </li>
+                <li class="nav-tab" data-tab data-type="navigation" data-id="uppdrag">
+                    <span>Uppdrag</span>
+                </li>
+                <li class="nav-tab" data-tab data-type="navigation" data-id="metod">
+                    <span>Metod</span>
+                </li>
+                <li class="nav-tab" data-tab data-type="navigation" data-id="contact">
+                    <span>Kontakt</span>
+                </li>
+                
+                <!-- Language Selector -->
+                <li class="nav-tab language-selector" data-tab data-type="language" data-id="language" id="languageSelector">
+                    <span class="globe-icon">🌐</span>
+                    <span class="current-language">Svenska</span>
+                    <span class="dropdown-arrow">▼</span>
+                </li>
+            </ul>
+            
+            <!-- Language Dropdown (Hidden by default) -->
+            <div class="language-dropdown" id="languageDropdown">
+                <div class="language-option" data-lang="se">
+                    <span class="globe-icon">🌐</span>
+                    <span>Svenska</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="globe-icon">🌐</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="hr">
+                    <span class="globe-icon">🌐</span>
+                    <span>Croatian</span>
+                </div>
+            </div>
+            
+            <!-- Cursor Elements -->
+            <div class="nav-cursor" id="hoverCursor"></div>
+            <div class="nav-cursor-active" id="activeCursor"></div>
+        </div>
+        
+        <!-- Debug Console -->
+        <div class="debug-console">
+            <h3>Debug Console</h3>
+            <div id="consoleOutput"></div>
+            <button onclick="clearConsole()">Clear Console</button>
+        </div>
+        
+        <!-- State Indicator -->
+        <div class="state-indicator">
+            <h3>Current State</h3>
+            <div id="currentState">Default</div>
+            <div id="selectedLanguage">Language: Svenska</div>
+        </div>
+    </div>
+    
+    <script src="1.2-Desktop-Language-Selector-Prototype.js"></script>
+</body>
+</html>

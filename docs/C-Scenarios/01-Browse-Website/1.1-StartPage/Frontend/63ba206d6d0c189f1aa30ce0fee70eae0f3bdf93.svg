@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="fa6-brands:square-x-twitter" clip-path="url(#clip0_69_52)">
+<path id="Vector" d="M4.57143 0C2.05 0 0 2.05 0 4.57143V27.4286C0 29.95 2.05 32 4.57143 32H27.4286C29.95 32 32 29.95 32 27.4286V4.57143C32 2.05 29.95 0 27.4286 0H4.57143Z" fill="var(--fill-0, #EB7100)"/>
+<g id="basil:linkedin-solid">
+<path id="Vector_2" d="M23 11.604H9V13.495H23V11.604ZM9 15.208V24L16 20.074L23 24V15.208H9ZM23 8H9V9.89H23V8Z" fill="var(--fill-0, white)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_69_52">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
