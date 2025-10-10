@@ -4,8 +4,7 @@ import BilingualText from './ui/BilingualText';
 import { websiteContent } from '../lib/bilingual-content';
 
 const HeroSection = () => {
-<<<<<<< Updated upstream
-=======
+
   const { currentLanguage, setLanguage } = useLanguage();
   const [activeSection, setActiveSection] = React.useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
