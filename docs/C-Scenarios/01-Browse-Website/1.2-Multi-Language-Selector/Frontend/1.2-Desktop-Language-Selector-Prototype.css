@@ -1,5 +1,7 @@
-/* Desktop Language Selector Prototype Styles */
-/* Based on Anna Bansell Consulting navigation design */
+/* ===========================================
+   DESKTOP LANGUAGE SELECTOR PROTOTYPE
+   Styled according to Figma design
+   =========================================== */
 
 * {
     margin: 0;
@@ -8,32 +10,13 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    padding: 40px 20px;
     min-height: 100vh;
-    padding: 20px;
-}
-
-.prototype-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #1a1a1a;
-    margin-bottom: 10px;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-p {
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 /* ===========================================
@@ -44,57 +27,110 @@ p {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
-    margin-bottom: 40px;
 }
 
 .nav-header-list {
     position: relative;
     display: flex;
-    gap: 0.25rem;
+    gap: 4px;
     width: fit-content;
-    border-radius: 9999px;
-    border: 2px solid #1a1a1a;
-    background-color: white;
-    padding: 0.25rem;
-    overflow: hidden;
+    min-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #22396a;
+    border-radius: 40px;
+    padding: 8px 10px;
+    overflow: visible;
     list-style: none;
+}
+
+/* Navigation Group */
+.nav-tab[data-id="home"],
+.nav-tab[data-id="turnarounds"],
+.nav-tab[data-id="uppdrag"],
+.nav-tab[data-id="metod"],
+.nav-tab[data-id="contact"] {
+    /* Navigation items - no special styling needed */
+}
+
+/* Language Group */
+.nav-tab[data-id="language"] {
+    /* Margin will be set dynamically by JavaScript based on measured width */
 }
 
 .nav-tab {
     position: relative;
-    z-index: 10;
+    z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 10px;
     cursor: pointer;
-    padding: 0.875rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 12px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
     font-weight: 500;
+    line-height: 24px;
     text-transform: uppercase;
-    color: #1a1a1a;
+    color: #22396a;
     transition: all 0.3s ease-in-out;
-    line-height: 1;
-    border-radius: 9999px;
+    border-radius: 50px;
     user-select: none;
-    margin: 0 2px;
+    flex-shrink: 0;
 }
 
 .nav-tab:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    /* Background handled by JavaScript hover cursor */
 }
 
 .nav-tab.active {
-    background-color: #1a1a1a;
+    background-color: #eb7100;
+    border: 1px solid #d93a00;
     color: white;
+    font-weight: 700;
     z-index: 20;
+}
+
+/* Contact and Language Items */
+.contact-item,
+.language-selector {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-content,
+.language-content {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    width: 100%;
+}
+
+.icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.icon {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    transition: filter 0.2s ease;
+}
+
+/* Make icons white when active/selected only */
+.nav-tab.active .icon {
+    filter: brightness(0) invert(1);
 }
 
 /* Language Selector Specific Styles */
 .language-selector {
     position: relative;
+    transition: width 0.3s ease-in-out;
 }
 
 .language-selector .dropdown-arrow {
@@ -106,10 +142,6 @@ p {
     transform: rotate(180deg);
 }
 
-.globe-icon {
-    font-size: 1rem;
-}
-
 /* Language Dropdown - Horizontal Expansion Inside Navigation */
 .language-dropdown {
     position: absolute;
@@ -117,48 +149,51 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
-    border-radius: 9999px;
-    padding: 0.25rem;
+    background-color: #f3f4f6;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 6px;
+    padding: 8px 10px;
     opacity: 0;
-    visibility: hidden;
     transform: scaleX(0);
     transform-origin: right;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 15;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    pointer-events: none;
     overflow: hidden;
 }
 
 .language-dropdown.show {
     opacity: 1;
-    visibility: visible;
     transform: scaleX(1);
+    pointer-events: auto;
 }
 
 .language-option {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    gap: 6px;
+    padding: 12px 18px;
+    border-radius: 50px;
     cursor: pointer;
-    border-radius: 9999px;
     transition: background-color 0.2s ease;
-    font-size: 0.875rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
     font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #22396a;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .language-option:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(35, 57, 106, 0.1);
 }
 
 .language-option.selected {
-    background-color: #1a1a1a;
+    background-color: #22396a;
     color: white;
 }
 
@@ -166,11 +201,10 @@ p {
 .nav-cursor {
     position: absolute;
     z-index: 12;
-    top: 0.25rem;
-    height: calc(100% - 0.5rem);
-    border-radius: 9999px;
+    top: 8px;
+    height: calc(100% - 16px);
+    border-radius: 50px;
     background-color: #f3f4f6;
-    border: 1px solid #e5e7eb;
     opacity: 0;
     left: 0px;
     width: 0px;
@@ -185,11 +219,10 @@ p {
 .nav-cursor-active {
     position: absolute;
     z-index: 12;
-    top: 0.25rem;
-    height: calc(100% - 0.5rem);
-    border-radius: 9999px;
-    background-color: #1a1a1a;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    top: 8px;
+    height: calc(100% - 16px);
+    border-radius: 50px;
+    background-color: #eb7100;
     pointer-events: none;
     opacity: 0;
     left: 0px;
@@ -199,141 +232,4 @@ p {
 
 .nav-cursor-active.show {
     opacity: 1;
-}
-
-/* ===========================================
-   DEBUG CONSOLE STYLES
-   =========================================== */
-
-.debug-console {
-    background: #1a1a1a;
-    color: #00ff00;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-family: 'Courier New', monospace;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.debug-console h3 {
-    color: #00ff00;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-#consoleOutput {
-    background: #000;
-    padding: 15px;
-    border-radius: 4px;
-    min-height: 150px;
-    white-space: pre-wrap;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.debug-console button {
-    background: #00ff00;
-    color: #000;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.debug-console button:hover {
-    background: #00cc00;
-}
-
-/* ===========================================
-   STATE INDICATOR STYLES
-   =========================================== */
-
-.state-indicator {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.state-indicator h3 {
-    color: #495057;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-#currentState {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #dee2e6;
-}
-
-#selectedLanguage {
-    font-size: 1.1rem;
-    color: #6c757d;
-    padding: 8px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #dee2e6;
-}
-
-/* ===========================================
-   RESPONSIVE DESIGN
-   =========================================== */
-
-@media (max-width: 768px) {
-    .prototype-container {
-        padding: 20px;
-    }
-    
-    .nav-tab {
-        padding: 0.75rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .language-dropdown {
-        min-width: 180px;
-    }
-}
-
-/* ===========================================
-   ANIMATION KEYFRAMES
-   =========================================== */
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
-
-.language-dropdown.slide-in {
-    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.language-dropdown.slide-out {
-    animation: slideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

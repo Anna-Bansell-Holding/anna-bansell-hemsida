@@ -1,7 +1,6 @@
 /**
  * Desktop Language Selector Prototype
- * Anna Bansell Consulting - Three-State Language Selector
- * 
+ * Simplified version - clean navigation menu with smooth animations
  * States: Default → Activated → Collapsed
  * Languages: Swedish (Svenska), English, Croatian
  */
@@ -22,25 +21,89 @@ class LanguageSelectorPrototype {
         this.languageDropdown = document.getElementById('languageDropdown');
         this.hoverCursor = document.getElementById('hoverCursor');
         this.activeCursor = document.getElementById('activeCursor');
-        this.consoleOutput = document.getElementById('consoleOutput');
-        this.currentStateDisplay = document.getElementById('currentState');
-        this.selectedLanguageDisplay = document.getElementById('selectedLanguage');
         
-        // Language mappings
+        // Language mappings - using local language names
         this.languageMap = {
-            'se': { name: 'Svenska', flag: '🇸🇪' },
-            'en': { name: 'English', flag: '🇬🇧' },
-            'hr': { name: 'Croatian', flag: '🇭🇷' }
+            'se': { name: 'Svenska', localName: 'Svenska' },
+            'en': { name: 'English', localName: 'English' },
+            'hr': { name: 'Croatian', localName: 'Hrvatski' }
         };
         
         this.init();
     }
     
     init() {
-        this.log('🚀 Language Selector Prototype Initialized');
         this.setupEventListeners();
-        this.updateDisplay();
-        this.log('✅ All event listeners attached');
+        this.setDefaultActiveState();
+        this.measureLanguageSelector();
+        // Delay the activated state to ensure measurement is complete
+        setTimeout(() => {
+            this.showActivatedState();
+        }, 100);
+    }
+    
+    measureLanguageSelector() {
+        // Temporarily show the language dropdown to measure its width
+        this.languageDropdown.style.position = 'absolute';
+        this.languageDropdown.style.visibility = 'hidden';
+        this.languageDropdown.style.opacity = '1';
+        this.languageDropdown.style.transform = 'scaleX(1)';
+        this.languageDropdown.style.display = 'flex';
+        
+        // Force a reflow to ensure the element is rendered
+        this.languageDropdown.offsetHeight;
+        
+        // Measure the expanded width
+        const expandedWidth = this.languageDropdown.offsetWidth;
+        
+        // Reset the dropdown to hidden state
+        this.languageDropdown.style.position = '';
+        this.languageDropdown.style.visibility = '';
+        this.languageDropdown.style.opacity = '0';
+        this.languageDropdown.style.transform = 'scaleX(0)';
+        this.languageDropdown.style.display = '';
+        
+        // Calculate the required margin (expanded width + some padding)
+        const requiredMargin = expandedWidth + 20; // 20px padding
+        
+        // Apply the dynamic margin to the language selector
+        this.languageSelector.style.marginLeft = `${requiredMargin}px`;
+        
+        console.log(`Language selector measured: ${expandedWidth}px expanded width, setting margin to ${requiredMargin}px`);
+        
+        // Return the margin for use in activated state
+        return requiredMargin;
+    }
+    
+    showActivatedState() {
+        // Show the language selector in activated state for demonstration
+        this.currentState = 'activated';
+        this.isTransitioning = false;
+        
+        // Add expanded class for arrow rotation
+        this.languageSelector.classList.add('expanded');
+        
+        // Hide the current language text and show dropdown
+        const currentLangSpan = this.languageSelector.querySelector('.current-language');
+        const dropdownArrow = this.languageSelector.querySelector('.dropdown-arrow');
+        
+        currentLangSpan.style.opacity = '0';
+        dropdownArrow.style.opacity = '0';
+        
+        // Force the dropdown to be visible with proper styling
+        this.languageDropdown.style.opacity = '1';
+        this.languageDropdown.style.transform = 'scaleX(1)';
+        this.languageDropdown.style.pointerEvents = 'auto';
+        this.languageDropdown.classList.add('show');
+        
+        // Debug: Check if dropdown is visible
+        console.log("Language selector activated state shown");
+        console.log("Dropdown element:", this.languageDropdown);
+        console.log("Dropdown classes:", this.languageDropdown.className);
+        console.log("Dropdown computed style:", window.getComputedStyle(this.languageDropdown).display);
+        console.log("Language options count:", this.languageDropdown.children.length);
+        console.log("Dropdown opacity:", window.getComputedStyle(this.languageDropdown).opacity);
+        console.log("Dropdown transform:", window.getComputedStyle(this.languageDropdown).transform);
     }
     
     setupEventListeners() {
@@ -61,7 +124,6 @@ class LanguageSelectorPrototype {
         const languageOptions = document.querySelectorAll('.language-option');
         languageOptions.forEach(option => {
             option.addEventListener('click', (e) => this.handleLanguageSelect(e));
-            option.addEventListener('mouseenter', (e) => this.handleOptionHover(e));
         });
         
         // Close dropdown when clicking outside
@@ -71,6 +133,14 @@ class LanguageSelectorPrototype {
         document.addEventListener('keydown', (e) => this.handleKeydown(e));
     }
     
+    setDefaultActiveState() {
+        // Set the first navigation tab as active by default (it already has active class in HTML)
+        const firstTab = document.querySelector('.nav-tab.active');
+        if (firstTab) {
+            this.updateActiveCursor(firstTab);
+        }
+    }
+    
     handleTabHover(e) {
         if (this.isTransitioning) return;
         
@@ -78,15 +148,13 @@ class LanguageSelectorPrototype {
         const rect = tab.getBoundingClientRect();
         const containerRect = this.navList.getBoundingClientRect();
         
-        // Calculate position relative to the navigation container
+        // Calculate position relative to the navigation list
         const leftPosition = rect.left - containerRect.left;
         const width = rect.width;
         
         // Smooth transition using requestAnimationFrame
         this.animateCursorTo(leftPosition, width);
         this.hoverCursor.classList.add('show');
-        
-        this.log(`🖱️ Hover: ${tab.textContent.trim()} (left: ${leftPosition}px, width: ${width}px)`);
     }
     
     animateCursorTo(targetLeft, targetWidth) {
@@ -125,9 +193,7 @@ class LanguageSelectorPrototype {
     
     handleTabLeave() {
         if (this.isTransitioning) return;
-        
         this.hoverCursor.classList.remove('show');
-        this.log('🖱️ Leave: Navigation tab');
     }
     
     handleTabClick(e) {
@@ -135,10 +201,11 @@ class LanguageSelectorPrototype {
         const tab = e.currentTarget;
         const tabId = tab.dataset.id;
         
-        this.log(`🖱️ Click: Navigation tab - ${tabId}`);
-        
-        // Update active state
-        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        // Update active state and reset text colors
+        document.querySelectorAll('.nav-tab').forEach(t => {
+            t.classList.remove('active');
+            t.style.color = '#1a1a1a'; // Reset to black
+        });
         tab.classList.add('active');
         
         // Update active cursor with smooth animation
@@ -152,34 +219,23 @@ class LanguageSelectorPrototype {
         const rect = tab.getBoundingClientRect();
         const containerRect = this.navList.getBoundingClientRect();
         
-        // Calculate position relative to the navigation container
+        // Calculate position relative to the navigation list
         const leftPosition = rect.left - containerRect.left;
         const width = rect.width;
         
         // Smooth transition using requestAnimationFrame
         this.animateCursorTo(leftPosition, width);
         this.hoverCursor.classList.add('show');
-        
-        this.log(`🖱️ Hover: Language selector (left: ${leftPosition}px, width: ${width}px)`);
     }
     
     handleLanguageLeave() {
         if (this.isTransitioning) return;
-        
         this.hoverCursor.classList.remove('show');
-        this.log('🖱️ Leave: Language selector');
     }
     
     handleLanguageClick(e) {
         e.preventDefault();
         e.stopPropagation();
-        
-        if (this.isTransitioning) {
-            this.log('⚠️ Click ignored: Transition in progress');
-            return;
-        }
-        
-        this.log(`🖱️ Click: Language selector (Current state: ${this.currentState})`);
         
         if (this.currentState === 'default') {
             this.activateDropdown();
@@ -194,22 +250,13 @@ class LanguageSelectorPrototype {
         
         const option = e.currentTarget;
         const language = option.dataset.lang;
-        
-        this.log(`🖱️ Select: Language option - ${this.languageMap[language].name}`);
-        
         this.selectLanguage(language);
-    }
-    
-    handleOptionHover(e) {
-        const option = e.currentTarget;
-        this.log(`🖱️ Hover: Language option - ${option.textContent.trim()}`);
     }
     
     handleOutsideClick(e) {
         if (!this.languageSelector.contains(e.target) && 
             !this.languageDropdown.contains(e.target)) {
             if (this.currentState === 'activated') {
-                this.log('🖱️ Click: Outside dropdown - collapsing');
                 this.collapseDropdown();
             }
         }
@@ -217,7 +264,6 @@ class LanguageSelectorPrototype {
     
     handleKeydown(e) {
         if (e.key === 'Escape' && this.currentState === 'activated') {
-            this.log('⌨️ Key: Escape - collapsing dropdown');
             this.collapseDropdown();
         }
     }
@@ -227,8 +273,6 @@ class LanguageSelectorPrototype {
         
         this.isTransitioning = true;
         this.currentState = 'activated';
-        
-        this.log('🔄 State Change: Default → Activated');
         
         // Add expanded class for arrow rotation
         this.languageSelector.classList.add('expanded');
@@ -243,13 +287,9 @@ class LanguageSelectorPrototype {
         // Show dropdown with horizontal expansion
         this.languageDropdown.classList.add('show');
         
-        // Update display
-        this.updateDisplay();
-        
         // Reset transition flag
         setTimeout(() => {
             this.isTransitioning = false;
-            this.log('✅ Transition Complete: Activated state');
         }, 300);
     }
     
@@ -259,55 +299,38 @@ class LanguageSelectorPrototype {
         this.isTransitioning = true;
         this.currentState = 'collapsed';
         
-        this.log('🔄 State Change: Activated → Collapsed');
-        
         // Remove expanded class
         this.languageSelector.classList.remove('expanded');
         
         // Hide dropdown
         this.languageDropdown.classList.remove('show');
         
-        // Show the current language text and arrow again
+        // Show the current language text
         const currentLangSpan = this.languageSelector.querySelector('.current-language');
         const dropdownArrow = this.languageSelector.querySelector('.dropdown-arrow');
         
         currentLangSpan.style.opacity = '1';
         dropdownArrow.style.opacity = '1';
         
-        // Update display
-        this.updateDisplay();
-        
         // Reset transition flag
         setTimeout(() => {
             this.isTransitioning = false;
             this.currentState = 'default';
-            this.log('✅ Transition Complete: Default state');
-            this.updateDisplay();
         }, 300);
     }
     
     selectLanguage(language) {
-        if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
         this.selectedLanguage = language;
         
-        this.log(`🌐 Language Change: ${this.languageMap[language].name}`);
-        
-        // Update current language display
+        // Update the current language display using local language name
         const currentLangSpan = this.languageSelector.querySelector('.current-language');
-        currentLangSpan.textContent = this.languageMap[language].name;
+        currentLangSpan.textContent = this.languageMap[language].localName;
         
-        // Update selected option in dropdown
+        // Update selected state in dropdown
         document.querySelectorAll('.language-option').forEach(option => {
             option.classList.remove('selected');
-            if (option.dataset.lang === language) {
-                option.classList.add('selected');
-            }
         });
-        
-        // Update display
-        this.updateDisplay();
+        document.querySelector(`[data-lang="${language}"]`).classList.add('selected');
         
         // Collapse dropdown after selection
         setTimeout(() => {
@@ -319,11 +342,9 @@ class LanguageSelectorPrototype {
         const rect = tab.getBoundingClientRect();
         const containerRect = this.navList.getBoundingClientRect();
         
-        // Calculate position relative to the navigation container
+        // Calculate position relative to the navigation list
         const leftPosition = rect.left - containerRect.left;
         const width = rect.width;
-        
-        this.log(`📍 Active Cursor: Starting animation to ${tab.textContent.trim()} (left: ${leftPosition}px, width: ${width}px)`);
         
         // Always animate, but if cursor is not visible, start from 0,0
         if (!this.activeCursor.classList.contains('show')) {
@@ -331,6 +352,9 @@ class LanguageSelectorPrototype {
             this.activeCursor.style.width = '0px';
             this.activeCursor.classList.add('show');
         }
+        
+        // Change text color immediately when animation starts
+        tab.style.color = 'white';
         
         // Always animate to new position
         this.animateActiveCursorTo(leftPosition, width);
@@ -347,8 +371,6 @@ class LanguageSelectorPrototype {
         const duration = 500; // 500ms - longer for more visible animation
         const startTime = performance.now();
         
-        this.log(`🎬 Active Cursor Animation: From (${startLeft}px, ${startWidth}px) to (${targetLeft}px, ${targetWidth}px)`);
-        
         const animate = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
@@ -362,57 +384,18 @@ class LanguageSelectorPrototype {
             this.activeCursor.style.left = `${currentLeft}px`;
             this.activeCursor.style.width = `${currentWidth}px`;
             
-            // Log every 10th frame for debugging
-            if (Math.floor(progress * 10) % 2 === 0) {
-                this.log(`🎬 Frame: ${Math.floor(progress * 100)}% - (${currentLeft.toFixed(1)}px, ${currentWidth.toFixed(1)}px)`);
-            }
-            
             if (progress < 1) {
                 this.activeCursorAnimationId = requestAnimationFrame(animate);
             } else {
                 this.activeCursorAnimationId = null;
-                this.log(`✅ Active Cursor Animation Complete: Final position (${currentLeft}px, ${currentWidth}px)`);
             }
         };
         
         this.activeCursorAnimationId = requestAnimationFrame(animate);
     }
-    
-    updateDisplay() {
-        this.currentStateDisplay.textContent = this.currentState.charAt(0).toUpperCase() + this.currentState.slice(1);
-        this.selectedLanguageDisplay.textContent = `Language: ${this.languageMap[this.selectedLanguage].name}`;
-    }
-    
-    log(message) {
-        const timestamp = new Date().toLocaleTimeString();
-        const logMessage = `[${timestamp}] ${message}`;
-        
-        console.log(logMessage);
-        
-        // Update console display
-        this.consoleOutput.textContent += logMessage + '\n';
-        this.consoleOutput.scrollTop = this.consoleOutput.scrollHeight;
-    }
 }
 
-// Global functions for HTML buttons
-function clearConsole() {
-    const consoleOutput = document.getElementById('consoleOutput');
-    consoleOutput.textContent = '';
-    console.clear();
-    console.log('🧹 Console cleared');
-}
-
-// Initialize prototype when DOM is loaded
+// Initialize the prototype when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    window.languageSelector = new LanguageSelectorPrototype();
-    
-    // Add some initial logging
-    console.log('🎯 Desktop Language Selector Prototype Ready');
-    console.log('📋 Available Commands:');
-    console.log('  - Click language selector to activate dropdown');
-    console.log('  - Select language option to change language');
-    console.log('  - Click outside to close dropdown');
-    console.log('  - Press Escape to close dropdown');
-    console.log('  - Hover over navigation items to see cursor effects');
+    new LanguageSelectorPrototype();
 });
