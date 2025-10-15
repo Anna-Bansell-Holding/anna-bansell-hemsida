@@ -205,6 +205,11 @@
   width: 270px;
   pointer-events: none;
   visibility: hidden;
+  transition: height 0.3s ease;
+}
+
+.nav-logo-spacer.inactive {
+  height: 0;
 }
 
 .nav-menu {

@@ -29,11 +29,23 @@ const HeroSection = () => {
 
   // Update active section based on scroll position
   React.useEffect(() => {
+    let throttleTimeout: NodeJS.Timeout | null = null;
+    
     const handleScroll = () => {
       const sections = ['home', 'vision', 'cases', 'method', 'contact'];
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
+      
+      // Handle nav-logo-spacer inactive class
+      const navLogoSpacer = document.querySelector('.nav-logo-spacer');
+      if (navLogoSpacer) {
+        if (scrollPosition >= 72) {
+          navLogoSpacer.classList.add('inactive');
+        } else {
+          navLogoSpacer.classList.remove('inactive');
+        }
+      }
       
       // Special case: if user is at the bottom of the page, always show contact
       if (scrollPosition + windowHeight >= documentHeight - 10) {
@@ -62,13 +74,29 @@ const HeroSection = () => {
       }
     };
 
+    const throttledHandleScroll = () => {
+      if (throttleTimeout) {
+        return;
+      }
+      
+      throttleTimeout = setTimeout(() => {
+        handleScroll();
+        throttleTimeout = null;
+      }, 100);
+    };
+
     // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     
     // Run once on mount
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
