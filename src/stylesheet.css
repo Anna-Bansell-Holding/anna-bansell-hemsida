@@ -100,6 +100,7 @@
   align-items: center;
   width: 50%;
   padding: 0 2rem;
+  max-width: 880px;
 }
 
 .hero-profile-container {
@@ -135,15 +136,15 @@
 
 .hero-title {
   font-family: 'Romans Story', serif;
-  font-size: 60px;
-  line-height: 70px;
+  font-size: clamp(20px, 4.17vw, 60px);
+  line-height: clamp(24px, 4.86vw, 70px);
   font-weight: 400;
   margin-bottom: 2rem;
 }
 
 .hero-description {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 24px;
+  font-size: clamp(16px, 1.67vw, 24px);
   font-weight: 300;
   line-height: 1.45;
   margin-bottom: 2.5rem;
@@ -156,7 +157,7 @@
   border-radius: 70px;
   padding: 20px 44px;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 24px;
+  font-size: clamp(16px, 1.67vw, 24px);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1605,13 +1606,10 @@ button.nav-item.active {
   }
   
   .hero-title {
-    font-size: 48px;
-    line-height: 56px;
     width: 100%;
   }
   
   .hero-description {
-    font-size: 20px;
     width: 100%;
   }
 
@@ -1698,17 +1696,7 @@ button.nav-item.active {
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 36px;
-    line-height: 44px;
-  }
-  
-  .hero-description {
-    font-size: 18px;
-  }
-  
   .hero-button {
-    font-size: 20px;
     padding: 16px 36px;
   }
   
