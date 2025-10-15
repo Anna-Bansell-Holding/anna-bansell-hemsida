@@ -1604,7 +1604,7 @@ button.nav-item.active {
 
 
 /* Responsive Design */
-@media (max-width: 1280px) {
+@media (max-width: 1240px) {
   .cases-grid {
     max-width: 580px;
     margin: 0 auto;
