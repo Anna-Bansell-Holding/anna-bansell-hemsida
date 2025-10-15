@@ -4,11 +4,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 // Figma assets
 const imgAnnaBansellHero = "/anna-bansell-hero.png";
 const imgBasilPhoneSolid = "/ico-navbar-phone.svg";
-const imgFlowbiteGlobeOutline = "/ico-navbar-globe.png";
+const imgFlowbiteGlobeOutline = "/ico-navbar-globe.svg";
 
 const HeroSection = () => {
   const { currentLanguage, setLanguage } = useLanguage();
   const [activeSection, setActiveSection] = React.useState('home');
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false);
 
   // Update active section based on URL hash
   React.useEffect(() => {
@@ -84,6 +85,33 @@ const HeroSection = () => {
     }
   };
 
+  const handleLanguageSelect = (language: 'se' | 'en') => {
+    setLanguage(language);
+    setIsLanguageDropdownOpen(false);
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isLanguageDropdownOpen && !target.closest('.language-selector')) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageDropdownOpen]);
+
   return (
     <section id="home" className="hero-section">
       {/* Forest Background */}
@@ -114,15 +142,45 @@ const HeroSection = () => {
             <img src={imgBasilPhoneSolid} alt="Phone" />
             {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
           </a>
-          <button 
-            onClick={() => setLanguage(currentLanguage === 'se' ? 'en' : 'se')} 
-            className="nav-item nav-item-button"
-            type="button"
-            aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
-          >
-            <img src={imgFlowbiteGlobeOutline} alt="Globe" />
-            {currentLanguage === 'se' ? 'Svenska' : 'English'}
-          </button>
+          <div className="language-selector">
+            <button 
+              onClick={toggleLanguageDropdown}
+              className="nav-item nav-item-button language-button"
+              type="button"
+              aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
+              aria-expanded={isLanguageDropdownOpen}
+              aria-haspopup="listbox"
+            >
+              <img src={imgFlowbiteGlobeOutline} alt="Globe" />
+              <span className="language-text">
+                {currentLanguage === 'se' ? 'Svenska' : 'English'}
+              </span>
+            </button>
+            <div 
+              className={`language-dropdown ${isLanguageDropdownOpen ? 'open' : ''}`}
+              role="listbox"
+              aria-label="Language options"
+            >
+              <button
+                onClick={() => handleLanguageSelect('se')}
+                className={`language-option ${currentLanguage === 'se' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'se'}
+                type="button"
+              >
+                Svenska
+              </button>
+              <button
+                onClick={() => handleLanguageSelect('en')}
+                className={`language-option ${currentLanguage === 'en' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'en'}
+                type="button"
+              >
+                English
+              </button>
+            </div>
+          </div>
         </nav>
       </div>
       
