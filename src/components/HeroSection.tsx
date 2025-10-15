@@ -187,16 +187,14 @@ const HeroSection = () => {
       {/* Spacer to push content to bottom */}
       <div className="hero-spacer"></div>
       
+      {/* Profile Picture - Positioned independently */}
+      <div className="hero-profile-container">
+        <img className="hero-profile" src={imgAnnaBansellHero} alt="Anna Bansell" />
+      </div>
+
       {/* Hero Content */}
       <div className="hero-content">
-        {/* Left - Profile Picture */}
-        <div className="hero-profile-container">
-          <div className="hero-profile">
-            <img src={imgAnnaBansellHero} alt="Anna Bansell" />
-          </div>
-        </div>
-        
-        {/* Right - Text Content */}
+        {/* Text Content */}
         <div className="hero-text">
           <h1 className="hero-title">
             {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}

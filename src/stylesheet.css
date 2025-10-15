@@ -90,39 +90,42 @@
 
 /* Hero Content */
 .hero-content {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
   z-index: 10;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: end;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 2rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  padding: 0 2rem;
 }
 
 .hero-profile-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: flex-start;
   align-items: end;
-  height: 100%;
-  padding-bottom: 0;
+  padding: 0 2rem;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .hero-profile {
   position: relative;
-  width: 500px;
-  height: 600px;
+  width: 45vw;
+  height: 80vh;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.hero-profile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  pointer-events: auto;
+  
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .hero-text {
@@ -1570,24 +1573,37 @@ button.nav-item.active {
   width: 100%;
 }
 
+/* Large screens - center hero content */
+@media (min-width: 1400px) {
+  .hero-content {
+    min-height: calc(100vh - 150px);
+    align-content: center;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    padding: 2rem;
+    justify-content: center;
   }
   
   .hero-profile-container {
+    position: relative;
     justify-content: center;
     align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
   }
 
   .hero-profile {
-    width: 100%;
-    height: 500px;
-    max-width: 400px;
-    margin: 0 auto;
+    width: min(45vw, 400px);
+    height: min(80vh, 500px);
   }
   
   .hero-title {
@@ -1709,9 +1725,8 @@ button.nav-item.active {
   }
 
   .hero-profile {
-    width: 100%;
-    height: 400px;
-    max-width: 300px;
+    width: min(45vw, 300px);
+    height: min(80vh, 400px);
   }
 
   .smaland-section {
@@ -1840,9 +1855,8 @@ button.nav-item.active {
 
 @media (max-width: 480px) {
   .hero-profile {
-    width: 100%;
-    height: 350px;
-    max-width: 250px;
+    width: min(45vw, 250px);
+    height: min(80vh, 350px);
   }
 
   .structures-section {
