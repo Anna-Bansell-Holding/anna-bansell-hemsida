@@ -184,7 +184,7 @@
 }
 
 .nav-logo {
-  position: fixed;
+  position: absolute;
   display: flex;
   align-items: center;
   top: 24px;
