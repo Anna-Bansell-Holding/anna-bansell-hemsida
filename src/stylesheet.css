@@ -170,20 +170,41 @@
 
 /* Navigation */
 .nav-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 20;
   padding: 24px 40px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .nav-logo {
-  height: 30.44px;
-  width: 270.027px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 24px;
+  left: 40px;
+  height: 72px;
+  width: 270px;
+  z-index: 21;
+}
+
+.nav-logo img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.nav-logo-spacer {
+  height: 72px;
+  width: 270px;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .nav-menu {
@@ -195,9 +216,7 @@
   flex-direction: row;
   gap: 4px;
   align-items: center;
-  position: fixed;
-  top: 24px;
-  right: 40px;
+  flex-shrink: 0;
 }
 
 .nav-item {

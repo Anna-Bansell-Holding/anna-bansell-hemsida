@@ -121,10 +121,11 @@ const HeroSection = () => {
       <div className="hero-overlay-3"></div>
       
       {/* Navigation */}
+      <div className="nav-logo">
+        <img src="/anna-bansell-logo.svg" alt="Anna Bansell" />
+      </div>
       <div className="nav-container">
-        <div className="nav-logo">
-          <img src="/anna-bansell-logo.svg" alt="Anna Bansell" className="w-full h-full" />
-        </div>
+        <div className="nav-logo-spacer"></div>
         <nav className="nav-menu">
           <a href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Hem' : 'Home'}
