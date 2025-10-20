@@ -4,11 +4,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 // Figma assets
 const imgAnnaBansellHero = "/anna-bansell-hero.png";
 const imgBasilPhoneSolid = "/ico-navbar-phone.svg";
-const imgFlowbiteGlobeOutline = "/ico-navbar-globe.png";
+const imgFlowbiteGlobeOutline = "/ico-navbar-globe.svg";
 
 const HeroSection = () => {
   const { currentLanguage, setLanguage } = useLanguage();
   const [activeSection, setActiveSection] = React.useState('home');
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false);
 
   // Update active section based on URL hash
   React.useEffect(() => {
@@ -28,11 +29,23 @@ const HeroSection = () => {
 
   // Update active section based on scroll position
   React.useEffect(() => {
+    let throttleTimeout: NodeJS.Timeout | null = null;
+    
     const handleScroll = () => {
       const sections = ['home', 'vision', 'cases', 'method', 'contact'];
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
+      
+      // Handle nav-logo-spacer inactive class
+      const navLogoSpacer = document.querySelector('.nav-logo-spacer');
+      if (navLogoSpacer) {
+        if (scrollPosition >= 72) {
+          navLogoSpacer.classList.add('inactive');
+        } else {
+          navLogoSpacer.classList.remove('inactive');
+        }
+      }
       
       // Special case: if user is at the bottom of the page, always show contact
       if (scrollPosition + windowHeight >= documentHeight - 10) {
@@ -61,13 +74,29 @@ const HeroSection = () => {
       }
     };
 
+    const throttledHandleScroll = () => {
+      if (throttleTimeout) {
+        return;
+      }
+      
+      throttleTimeout = setTimeout(() => {
+        handleScroll();
+        throttleTimeout = null;
+      }, 100);
+    };
+
     // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     
     // Run once on mount
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -84,6 +113,33 @@ const HeroSection = () => {
     }
   };
 
+  const handleLanguageSelect = (language: 'se' | 'en') => {
+    setLanguage(language);
+    setIsLanguageDropdownOpen(false);
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isLanguageDropdownOpen && !target.closest('.language-selector')) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageDropdownOpen]);
+
   return (
     <section id="home" className="hero-section">
       {/* Forest Background */}
@@ -93,10 +149,11 @@ const HeroSection = () => {
       <div className="hero-overlay-3"></div>
       
       {/* Navigation */}
+      <div className="nav-logo">
+        <img src="/anna-bansell-logo.svg" alt="Anna Bansell" />
+      </div>
       <div className="nav-container">
-        <div className="nav-logo">
-          <img src="/anna-bansell-logo.svg" alt="Anna Bansell" className="w-full h-full" />
-        </div>
+        <div className="nav-logo-spacer"></div>
         <nav className="nav-menu">
           <a href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Hem' : 'Home'}
@@ -114,31 +171,59 @@ const HeroSection = () => {
             <img src={imgBasilPhoneSolid} alt="Phone" />
             {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
           </a>
-          <button 
-            onClick={() => setLanguage(currentLanguage === 'se' ? 'en' : 'se')} 
-            className="nav-item nav-item-button"
-            type="button"
-            aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
-          >
-            <img src={imgFlowbiteGlobeOutline} alt="Globe" />
-            {currentLanguage === 'se' ? 'Svenska' : 'English'}
-          </button>
+          <div className="language-selector">
+            <button 
+              onClick={toggleLanguageDropdown}
+              className="nav-item nav-item-button language-button"
+              type="button"
+              aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
+              aria-expanded={isLanguageDropdownOpen}
+              aria-haspopup="listbox"
+            >
+              <img src={imgFlowbiteGlobeOutline} alt="Globe" />
+              <span className="language-text">
+                {currentLanguage === 'se' ? 'Svenska' : 'English'}
+              </span>
+            </button>
+            <div 
+              className={`language-dropdown ${isLanguageDropdownOpen ? 'open' : ''}`}
+              role="listbox"
+              aria-label="Language options"
+            >
+              <button
+                onClick={() => handleLanguageSelect('se')}
+                className={`language-option ${currentLanguage === 'se' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'se'}
+                type="button"
+              >
+                Svenska
+              </button>
+              <button
+                onClick={() => handleLanguageSelect('en')}
+                className={`language-option ${currentLanguage === 'en' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'en'}
+                type="button"
+              >
+                English
+              </button>
+            </div>
+          </div>
         </nav>
       </div>
       
       {/* Spacer to push content to bottom */}
       <div className="hero-spacer"></div>
       
+      {/* Profile Picture - Positioned independently */}
+      <div className="hero-profile-container">
+        <img className="hero-profile" src={imgAnnaBansellHero} alt="Anna Bansell" />
+      </div>
+
       {/* Hero Content */}
       <div className="hero-content">
-        {/* Left - Profile Picture */}
-        <div className="hero-profile-container">
-          <div className="hero-profile">
-            <img src={imgAnnaBansellHero} alt="Anna Bansell" />
-          </div>
-        </div>
-        
-        {/* Right - Text Content */}
+        {/* Text Content */}
         <div className="hero-text">
           <h1 className="hero-title">
             {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
