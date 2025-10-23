@@ -23,6 +23,10 @@ const VisionSection = () => {
       se: 'Nyckeln ligger i den informella strukturen',
       en: 'The key lies in the informal structure'
     },
+    readMore: {
+      se: 'Läs mer',
+      en: 'Read more'
+    },
     description: {
       se: 'Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att se de faktiska faktorer som bromsar organisationen och ge kraft och utrymme åt de människor som tar företaget till en ny nivå.',
       en: 'Do changes reach all the way down to the informal structures? Most changes in companies occur by modifying and redirecting the formal structure. The risk is then that old patterns remain and no major changes occur. To achieve lasting change, we need the courage to see the actual factors that slow down the organization and empower and give space to the people who take the company to the next level.'
@@ -148,7 +152,7 @@ const VisionSection = () => {
                       {content.principles[0].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
+                      <span className="vision-read-more-text">{content.readMore[currentLanguage]}</span>
                     </div>
                   </div>
                 </div>
@@ -162,7 +166,7 @@ const VisionSection = () => {
                       {content.principles[1].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
+                      <span className="vision-read-more-text">{content.readMore[currentLanguage]}</span>
                     </div>
                   </div>
                 </div>
@@ -178,7 +182,7 @@ const VisionSection = () => {
                       {content.principles[2].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
+                      <span className="vision-read-more-text">{content.readMore[currentLanguage]}</span>
                     </div>
                   </div>
                 </div>
@@ -192,7 +196,7 @@ const VisionSection = () => {
                       {content.principles[3].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
+                      <span className="vision-read-more-text">{content.readMore[currentLanguage]}</span>
                     </div>
                   </div>
                 </div>
