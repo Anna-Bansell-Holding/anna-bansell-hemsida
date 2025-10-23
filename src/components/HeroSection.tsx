@@ -64,7 +64,7 @@ const HeroSection = () => {
         if (element) {
           const { offsetTop } = element;
           // Check if we've scrolled past the top of this section
-          if (scrollPosition >= offsetTop - 100) { // 100px offset for better UX
+          if (scrollPosition >= offsetTop - 128) { // 100px offset for better UX
             setActiveSection(sections[i]);
             // Update URL hash without triggering page jump
             if (window.location.hash !== `#${sections[i]}`) {
