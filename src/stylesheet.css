@@ -1454,6 +1454,8 @@ button.nav-item.active {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 64px;
   width: 100%;
   padding: 0 104px;
   box-sizing: border-box;
@@ -1465,7 +1467,6 @@ button.nav-item.active {
   gap: 12px;
   align-items: flex-start;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .footer-company-name {
@@ -1608,6 +1609,7 @@ button.nav-item.active {
   .vision-content {
     grid-template-columns: 1.5fr 1fr;
   }
+
   .method-step-content {
     grid-template-columns: auto 1fr;
     grid-template-areas: "icon main" "tips tips";
@@ -1630,6 +1632,10 @@ button.nav-item.active {
   .vision-right {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-content {
+    justify-content: center;
   }
 }
 
@@ -1707,6 +1713,7 @@ button.nav-item.active {
     grid-template-areas: "icon main" "tips tips";
     row-gap: 16px;
   }
+
   .method-step-tips {
     width: 100%;
   }
@@ -1890,6 +1897,11 @@ button.nav-item.active {
     width: 220px;
     height: 65px;
     font-size: 20px;
+  }
+
+  .footer-content {
+    justify-content: start;
+    padding: 0 40px;
   }
 }
 
