@@ -1888,8 +1888,24 @@ button.nav-item.active {
     height: min(80vh, 350px);
   }
 
+  .vision-title {
+    font-size: 32px;
+  }
+
   .vision-principles-row {
     flex-direction: column;
+  }
+
+  .vision-description,
+  .vision-principle-text,
+  .vision-result-text {
+    font-size: 16px;
+  }
+
+  .vision-subtitle-text,
+  .vision-principle-title,
+  .vision-result-title {
+    font-size: 20px;
   }
 
   .structures-section {
