@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { scrollToSection } from '@/lib/utils';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,18 +19,9 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      // Calculate offset to account for fixed navigation
-      const navHeight = 80; // Approximate height of navigation
-      const elementPosition = (element as HTMLElement).offsetTop - navHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+  const handleScrollToSection = (href: string) => {
+    const sectionId = href.replace('#', '');
+    scrollToSection(sectionId);
     setIsOpen(false);
   };
 
@@ -65,7 +57,7 @@ const Navigation = () => {
             {menuItems.map((item) => (
               <li key={item.id}>
                 <button
-                  onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
+                  onClick={item.id === 'home' ? scrollToTop : () => handleScrollToSection(item.href)}
                   className="w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
                 >
                   {item.label}
@@ -85,7 +77,7 @@ const Navigation = () => {
               {menuItems.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={item.id === 'home' ? scrollToTop : () => scrollToSection(item.href)}
+                    onClick={item.id === 'home' ? scrollToTop : () => handleScrollToSection(item.href)}
                     className="w-full text-left px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
                   >
                     {item.label}

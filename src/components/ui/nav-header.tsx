@@ -5,6 +5,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Globe, Phone } from "lucide-react";
+import { scrollToSection } from "@/lib/utils";
 
 interface Position {
   left: number;
@@ -94,20 +95,6 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
     return () => clearTimeout(timeout);
   }, [currentLanguage]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Calculate offset to account for fixed navigation
-      const navHeight = 80; // Approximate height of navigation
-      const elementPosition = element.offsetTop - navHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   const handleItemClick = (item: any) => {
     if (item.type === 'language') {
       // Start transition
@@ -132,7 +119,7 @@ function NavHeader({ onItemClick }: NavHeaderProps) {
       if (onItemClick) {
         onItemClick(item.label, item.href);
       } else {
-        // Default smooth scroll behavior
+        // Default smooth scroll behavior using shared function
         scrollToSection(item.id);
       }
     }
