@@ -24,19 +24,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         return;
       }
 
-      // Check browser language for initial detection
-      const browserLanguage = navigator.language.toLowerCase();
-      let detectedLanguage: 'se' | 'en';
-      
-      if (browserLanguage.startsWith('sv') || browserLanguage.startsWith('se')) {
-        detectedLanguage = 'se';
-      } else {
-        detectedLanguage = 'en';
-      }
-      
-      setCurrentLanguage(detectedLanguage);
-      // Store the detected language in session storage
-      sessionStorage.setItem('preferredLanguage', detectedLanguage);
+      // Default to Swedish as specified in requirements
+      // Swedish is the primary language for Anna's consulting business
+      setCurrentLanguage('se');
+      // Store the default language in session storage
+      sessionStorage.setItem('preferredLanguage', 'se');
     };
 
     initializeLanguage();

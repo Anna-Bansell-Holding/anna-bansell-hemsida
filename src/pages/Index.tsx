@@ -1,9 +1,7 @@
 
 import React from 'react';
-import NavHeader from '@/components/ui/nav-header';
 import HeroSection from '@/components/HeroSection';
 import VisionSection from '@/components/VisionSection';
-import SmalandSection from '@/components/SmalandSection';
 import CasesSection from '@/components/CasesSection';
 import StructuresSection from '@/components/StructuresSection';
 import MethodSection from '@/components/MethodSection';
@@ -28,14 +26,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Centered navigation header */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <NavHeader onItemClick={handleNavClick} />
-      </div>
-      
       <HeroSection />
       <VisionSection />
-      <SmalandSection />
       <CasesSection />
       <StructuresSection />
       <MethodSection />

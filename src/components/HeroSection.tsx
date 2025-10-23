@@ -1,60 +1,249 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+// Figma assets
+const imgAnnaBansellHero = "/anna-bansell-hero.png";
+const imgBasilPhoneSolid = "/ico-navbar-phone.svg";
+const imgFlowbiteGlobeOutline = "/ico-navbar-globe.svg";
+
 const HeroSection = () => {
-  const { currentLanguage } = useLanguage();
-  
+  const { currentLanguage, setLanguage } = useLanguage();
+  const [activeSection, setActiveSection] = React.useState('home');
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false);
+
+  // Update active section based on URL hash
+  React.useEffect(() => {
+    const updateActiveSection = () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      setActiveSection(hash);
+    };
+
+    // Update on hash change
+    window.addEventListener('hashchange', updateActiveSection);
+    
+    // Update on initial load
+    updateActiveSection();
+
+    return () => window.removeEventListener('hashchange', updateActiveSection);
+  }, []);
+
+  // Update active section based on scroll position
+  React.useEffect(() => {
+    let throttleTimeout: NodeJS.Timeout | null = null;
+    
+    const handleScroll = () => {
+      const sections = ['home', 'vision', 'cases', 'method', 'contact'];
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Handle nav-logo-spacer inactive class
+      const navLogoSpacer = document.querySelector('.nav-logo-spacer');
+      if (navLogoSpacer) {
+        if (scrollPosition >= 72) {
+          navLogoSpacer.classList.add('inactive');
+        } else {
+          navLogoSpacer.classList.remove('inactive');
+        }
+      }
+      
+      // Special case: if user is at the bottom of the page, always show contact
+      if (scrollPosition + windowHeight >= documentHeight - 10) {
+        setActiveSection('contact');
+        if (window.location.hash !== '#contact') {
+          window.history.replaceState(null, '', '#contact');
+        }
+        return;
+      }
+      
+      // Find which section is currently in view
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const { offsetTop } = element;
+          // Check if we've scrolled past the top of this section
+          if (scrollPosition >= offsetTop - 100) { // 100px offset for better UX
+            setActiveSection(sections[i]);
+            // Update URL hash without triggering page jump
+            if (window.location.hash !== `#${sections[i]}`) {
+              window.history.replaceState(null, '', `#${sections[i]}`);
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    const throttledHandleScroll = () => {
+      if (throttleTimeout) {
+        return;
+      }
+      
+      throttleTimeout = setTimeout(() => {
+        handleScroll();
+        throttleTimeout = null;
+      }, 100);
+    };
+
+    // Add scroll listener
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    
+    // Run once on mount
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
+      // Calculate offset to account for fixed navigation
+      const navHeight = 80; // Approximate height of navigation
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
         behavior: 'smooth'
       });
     }
   };
-  return <section id="home" className="hero-gradient min-h-screen flex items-center section-padding">
-      <div className="container-width">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
-              <h1 className="heading-xl">
-                {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
-              </h1>
-              <p className="body-large max-w-xl">
-                {currentLanguage === 'se' 
-                  ? 'En organisation som mår bra, levererar bra. Modern turnaround-metodik för hållbar organisationsförändring.'
-                  : 'An organization that feels good, delivers good. Modern turnaround methodology for sustainable organizational transformation.'
-                }
-              </p>
-              
-              {/* Call-to-Action Question - Clickable */}
-              <a 
-                href="#method"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('method');
-                }}
-                className="inline-block text-2xl font-semibold text-blue-700 hover:text-blue-900 transition-colors duration-300 cursor-pointer"
-              >
-                {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
-              </a>
-            </div>
-          </div>
 
-          {/* Right content - Portrait */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 bg-gray-100 rounded-2xl flex items-center justify-center border border-gray-200">
-                <span className="text-gray-400 text-lg">Anna Bansell Portrait</span>
-              </div>
-              
-              {/* Decorative background elements */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-100 rounded-full opacity-60 -z-10"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-100 rounded-full opacity-40 -z-10"></div>
+  const handleLanguageSelect = (language: 'se' | 'en') => {
+    setLanguage(language);
+    setIsLanguageDropdownOpen(false);
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isLanguageDropdownOpen && !target.closest('.language-selector')) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageDropdownOpen]);
+
+  return (
+    <section id="home" className="hero-section">
+      {/* Forest Background */}
+      <div className="hero-background"></div>
+      <div className="hero-overlay"></div>
+      <div className="hero-overlay-2"></div>
+      <div className="hero-overlay-3"></div>
+      
+      {/* Navigation */}
+      <div className="nav-logo">
+        <img src="/anna-bansell-logo.svg" alt="Anna Bansell" />
+      </div>
+      <div className="nav-container">
+        <div className="nav-logo-spacer"></div>
+        <nav className="nav-menu">
+          <a href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Hem' : 'Home'}
+          </a>
+          <a href="#vision" className={`nav-item ${activeSection === 'vision' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
+          </a>
+          <a href="#cases" className={`nav-item ${activeSection === 'cases' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
+          </a>
+          <a href="#method" className={`nav-item ${activeSection === 'method' ? 'active' : ''}`}>
+            {currentLanguage === 'se' ? 'Metod' : 'Method'}
+          </a>
+          <a href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
+            <img src={imgBasilPhoneSolid} alt="Phone" />
+            {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
+          </a>
+          <div className="language-selector">
+            <button 
+              onClick={toggleLanguageDropdown}
+              className="nav-item nav-item-button language-button"
+              type="button"
+              aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
+              aria-expanded={isLanguageDropdownOpen}
+              aria-haspopup="listbox"
+            >
+              <img src={imgFlowbiteGlobeOutline} alt="Globe" />
+              <span className="language-text">
+                {currentLanguage === 'se' ? 'Svenska' : 'English'}
+              </span>
+            </button>
+            <div 
+              className={`language-dropdown ${isLanguageDropdownOpen ? 'open' : ''}`}
+              role="listbox"
+              aria-label="Language options"
+            >
+              <button
+                onClick={() => handleLanguageSelect('se')}
+                className={`language-option ${currentLanguage === 'se' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'se'}
+                type="button"
+              >
+                Svenska
+              </button>
+              <button
+                onClick={() => handleLanguageSelect('en')}
+                className={`language-option ${currentLanguage === 'en' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'en'}
+                type="button"
+              >
+                English
+              </button>
             </div>
           </div>
+        </nav>
+      </div>
+      
+      {/* Spacer to push content to bottom */}
+      <div className="hero-spacer"></div>
+      
+      {/* Profile Picture - Positioned independently */}
+      <div className="hero-profile-container">
+        <img className="hero-profile" src={imgAnnaBansellHero} alt="Anna Bansell" />
+      </div>
+
+      {/* Hero Content */}
+      <div className="hero-content">
+        {/* Text Content */}
+        <div className="hero-text">
+          <h1 className="hero-title">
+            {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
+          </h1>
+          <p className="hero-description">
+            {currentLanguage === 'se' 
+              ? 'En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba och långsiktiga förändringar, samordna de gemensamma processerna och låta organisationen flyga! Som vi gör hemma i Småland!'
+              : 'An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!'
+            }
+          </p>
+          <button 
+            onClick={() => scrollToSection('method')}
+            className="hero-button"
+          >
+            {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
+          </button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
