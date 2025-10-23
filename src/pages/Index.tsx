@@ -7,8 +7,23 @@ import StructuresSection from '@/components/StructuresSection';
 import MethodSection from '@/components/MethodSection';
 import ServicesSection from '@/components/ServicesSection';
 import ContactSection from '@/components/ContactSection';
+import FigmaStartPage from '@/components/FigmaStartPage';
 
 const Index = () => {
+  const handleNavClick = (item: string, href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Show Figma implementation if URL contains "figma"
+  const showFigmaVersion = window.location.search.includes('figma');
+
+  if (showFigmaVersion) {
+    return <FigmaStartPage />;
+  }
+
   return (
     <div className="min-h-screen">
       <HeroSection />

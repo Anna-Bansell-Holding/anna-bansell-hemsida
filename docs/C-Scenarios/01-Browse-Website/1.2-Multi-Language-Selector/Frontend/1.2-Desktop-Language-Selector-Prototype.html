@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Language Selector Prototype</title>
+    <link rel="stylesheet" href="1.2-Desktop-Language-Selector-Prototype.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="nav-header-container">
+        <ul class="nav-header-list" id="navList">
+            <li class="nav-tab active" data-tab data-type="navigation" data-id="home">
+                <span>Hem</span>
+            </li>
+            <li class="nav-tab" data-tab data-type="navigation" data-id="turnarounds">
+                <span>TurnaRounds</span>
+            </li>
+            <li class="nav-tab" data-tab data-type="navigation" data-id="uppdrag">
+                <span>Uppdrag</span>
+            </li>
+            <li class="nav-tab" data-tab data-type="navigation" data-id="metod">
+                <span>Metod</span>
+            </li>
+            <li class="nav-tab contact-item" data-tab data-type="navigation" data-id="contact">
+                <div class="contact-content">
+                    <div class="icon-container">
+                        <img alt="Phone" class="icon" src="4414f79b693a91912b66bc111e83c7d9bbf80bc5.svg" />
+                    </div>
+                    <span>Contact</span>
+                </div>
+            </li>
+            <li class="nav-tab language-selector" data-tab data-type="language" data-id="language" id="languageSelector">
+                <div class="language-content">
+                    <div class="icon-container">
+                        <img alt="Language" class="icon" src="311bc73d8184e7d856d1a27092aa8b49f5437b4d.svg" />
+                    </div>
+                    <span class="current-language">English</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                
+                <!-- Language Dropdown -->
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="se">
+                        <div class="icon-container">
+                            <img alt="Swedish" class="icon" src="311bc73d8184e7d856d1a27092aa8b49f5437b4d.svg" />
+                        </div>
+                        <span>Svenska</span>
+                    </div>
+                    <div class="language-option" data-lang="en">
+                        <div class="icon-container">
+                            <img alt="English" class="icon" src="311bc73d8184e7d856d1a27092aa8b49f5437b4d.svg" />
+                        </div>
+                        <span>English</span>
+                    </div>
+                    <div class="language-option" data-lang="hr">
+                        <div class="icon-container">
+                            <img alt="Croatian" class="icon" src="311bc73d8184e7d856d1a27092aa8b49f5437b4d.svg" />
+                        </div>
+                        <span>Hrvatski</span>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Cursor Elements -->
+            <div class="nav-cursor" id="hoverCursor"></div>
+            <div class="nav-cursor-active" id="activeCursor"></div>
+        </ul>
+    </div>
+    
+    <script src="1.2-Desktop-Language-Selector-Prototype.js"></script>
+</body>
+</html>
