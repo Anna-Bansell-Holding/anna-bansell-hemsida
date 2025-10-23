@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { scrollToSection } from '@/lib/utils';
+import AnchorLink from './AnchorLink';
 
 // Figma assets
 const imgAnnaBansellHero = "/anna-bansell-hero.png";
@@ -62,7 +64,7 @@ const HeroSection = () => {
         if (element) {
           const { offsetTop } = element;
           // Check if we've scrolled past the top of this section
-          if (scrollPosition >= offsetTop - 100) { // 100px offset for better UX
+          if (scrollPosition >= offsetTop - 128) { // 100px offset for better UX
             setActiveSection(sections[i]);
             // Update URL hash without triggering page jump
             if (window.location.hash !== `#${sections[i]}`) {
@@ -99,19 +101,6 @@ const HeroSection = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Calculate offset to account for fixed navigation
-      const navHeight = 80; // Approximate height of navigation
-      const elementPosition = element.offsetTop - navHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   const handleLanguageSelect = (language: 'se' | 'en') => {
     setLanguage(language);
@@ -155,22 +144,22 @@ const HeroSection = () => {
       <div className="nav-container">
         <div className="nav-logo-spacer"></div>
         <nav className="nav-menu">
-          <a href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
+          <AnchorLink href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Hem' : 'Home'}
-          </a>
-          <a href="#vision" className={`nav-item ${activeSection === 'vision' ? 'active' : ''}`}>
+          </AnchorLink>
+          <AnchorLink href="#vision" className={`nav-item ${activeSection === 'vision' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
-          </a>
-          <a href="#cases" className={`nav-item ${activeSection === 'cases' ? 'active' : ''}`}>
+          </AnchorLink>
+          <AnchorLink href="#cases" className={`nav-item ${activeSection === 'cases' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
-          </a>
-          <a href="#method" className={`nav-item ${activeSection === 'method' ? 'active' : ''}`}>
+          </AnchorLink>
+          <AnchorLink href="#method" className={`nav-item ${activeSection === 'method' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Metod' : 'Method'}
-          </a>
-          <a href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
+          </AnchorLink>
+          <AnchorLink href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
             <img src={imgBasilPhoneSolid} alt="Phone" />
             {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
-          </a>
+          </AnchorLink>
           <div className="language-selector">
             <button 
               onClick={toggleLanguageDropdown}

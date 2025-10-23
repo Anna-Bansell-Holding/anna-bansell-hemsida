@@ -1,10 +1,9 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import AnchorLink from './AnchorLink';
 
 // Local assets - replaced Figma localhost URLs
-const imgWeuiArrowFilled = "/ico-info-check.svg";
 const imgFlowbiteCheckOutline = "/ico-info-check.svg";
-const imgVector2 = "/ico-info-start.svg";
 const imgGroup = "/ico-handshake.png";
 const imgFlowbiteCheckOutline1 = "/ico-info-start.svg";
 const imgGroup1 = "/ico-cup-of-coffee.png";
@@ -25,6 +24,10 @@ const VisionSection = () => {
       se: 'Nyckeln ligger i den informella strukturen',
       en: 'The key lies in the informal structure'
     },
+    readMore: {
+      se: 'Läs mer',
+      en: 'Read more'
+    },
     description: {
       se: 'Når förändringarna ända ner till de informella strukturerna? De flesta förändringar i företag sker genom att modifiera och styra om i den formella strukturen. Risken är då att gamla mönster kvarstår och inga större förändringar sker. För att få en beständig förändring behövs modet att se de faktiska faktorer som bromsar organisationen och ge kraft och utrymme åt de människor som tar företaget till en ny nivå.',
       en: 'Do changes reach all the way down to the informal structures? Most changes in companies occur by modifying and redirecting the formal structure. The risk is then that old patterns remain and no major changes occur. To achieve lasting change, we need the courage to see the actual factors that slow down the organization and empower and give space to the people who take the company to the next level.'
@@ -38,7 +41,8 @@ const VisionSection = () => {
         description: {
           se: 'Förtroendet inom gruppen stärks när alla känner och upplever att de behandlas lika.',
           en: 'Trust within the group is strengthened when everyone feels and experiences that they are treated equally.'
-        }
+        },
+        anchorLink: 'listen-to-people'
       },
       {
         title: {
@@ -48,7 +52,8 @@ const VisionSection = () => {
         description: {
           se: 'När vi fattar beslut som är långsiktigt hållbara och genomför dem med kraft skapas förtroende och trygghet i organisationen.',
           en: 'When we make long-term sustainable decisions and implement them with force, trust and security are created in the organization.'
-        }
+        },
+        anchorLink: 'quick-changes'
       },
       {
         title: {
@@ -58,7 +63,8 @@ const VisionSection = () => {
         description: {
           se: 'Se bortom det uppenbara och se potentialen i varje person utifrån arbetsmiljö och individens egna drivkrafter.',
           en: 'See beyond the obvious and see the potential in each person based on work environment and individual motivations.'
-        }
+        },
+        anchorLink: 'form-community'
       },
       {
         title: {
@@ -68,7 +74,8 @@ const VisionSection = () => {
         description: {
           se: 'När alla har tillgång till samma information samtidigt, kan vi bygga gemensamma värderingar och kraften kan frigöras för tillväxt.',
           en: 'When everyone has access to the same information simultaneously, we can build common values and power can be released for growth.'
-        }
+        },
+        anchorLink: 'raise-the-gaze'
       }
     ],
     results: [
@@ -150,8 +157,9 @@ const VisionSection = () => {
                       {content.principles[0].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
+                      <AnchorLink href={`#${content.principles[0].anchorLink}`} className="vision-read-more-text">
+                        {content.readMore[currentLanguage]}
+                      </AnchorLink>
                     </div>
                   </div>
                 </div>
@@ -165,8 +173,9 @@ const VisionSection = () => {
                       {content.principles[1].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
+                      <AnchorLink href={`#${content.principles[1].anchorLink}`} className="vision-read-more-text">
+                        {content.readMore[currentLanguage]}
+                      </AnchorLink>
                     </div>
                   </div>
                 </div>
@@ -182,8 +191,9 @@ const VisionSection = () => {
                       {content.principles[2].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
+                      <AnchorLink href={`#${content.principles[2].anchorLink}`} className="vision-read-more-text">
+                        {content.readMore[currentLanguage]}
+                      </AnchorLink>
                     </div>
                   </div>
                 </div>
@@ -197,8 +207,9 @@ const VisionSection = () => {
                       {content.principles[3].description[currentLanguage]}
                     </p>
                     <div className="vision-read-more">
-                      <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
+                      <AnchorLink href={`#${content.principles[3].anchorLink}`} className="vision-read-more-text">
+                        {content.readMore[currentLanguage]}
+                      </AnchorLink>
                     </div>
                   </div>
                 </div>

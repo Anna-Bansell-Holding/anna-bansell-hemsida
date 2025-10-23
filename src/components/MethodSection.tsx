@@ -34,6 +34,7 @@ const MethodSection = () => {
   const steps = [
     {
       id: 1,
+      anchor: "raise-the-gaze",
       icon: imgWeywgy,
       title: { 
         se: "Höja blicken", 
@@ -64,6 +65,7 @@ const MethodSection = () => {
     },
     {
       id: 2,
+      anchor: "listen-to-people",
       icon: imgAivXy7,
       title: { 
         se: "Lyssna in människorna", 
@@ -94,6 +96,7 @@ const MethodSection = () => {
     },
     {
       id: 3,
+      anchor: "quick-changes",
       icon: imgZDi38M,
       title: { 
         se: "Snabba självklara förändringar",
@@ -124,6 +127,7 @@ const MethodSection = () => {
     },
     {
       id: 4,
+      anchor: "form-community",
       icon: imgGroup,
       title: { 
         se: "Forma en gemenskap",
@@ -154,6 +158,7 @@ const MethodSection = () => {
     },
     {
       id: 5,
+      anchor: "common-processes",
       icon: imgNGXbfO,
       title: { 
         se: "Gemensamma processer", 
@@ -184,6 +189,7 @@ const MethodSection = () => {
     },
     {
       id: 6,
+      anchor: "sales-excellence",
       icon: imgGroup1,
       title: { 
         se: "Säljorganisation som levererar", 
@@ -214,6 +220,7 @@ const MethodSection = () => {
     },
     {
       id: 7,
+      anchor: "let-organization-fly",
       icon: imgRnpiwd,
       title: { 
         se: "Låt organisationen flyga", 
@@ -267,7 +274,7 @@ const MethodSection = () => {
         {/* Method Steps */}
         <div className="method-steps">
           {steps.map((step, index) => (
-            <div key={step.id} className="method-step">
+            <div key={step.id} id={step.anchor} className="method-step">
               <div className="method-step-content">
                 {/* Icon */}
                 <div className="method-step-icon">
