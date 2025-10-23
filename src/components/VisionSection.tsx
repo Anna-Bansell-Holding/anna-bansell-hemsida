@@ -2,9 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Local assets - replaced Figma localhost URLs
-const imgWeuiArrowFilled = "/ico-info-check.svg";
 const imgFlowbiteCheckOutline = "/ico-info-check.svg";
-const imgVector2 = "/ico-info-start.svg";
 const imgGroup = "/ico-handshake.png";
 const imgFlowbiteCheckOutline1 = "/ico-info-start.svg";
 const imgGroup1 = "/ico-cup-of-coffee.png";
@@ -151,7 +149,6 @@ const VisionSection = () => {
                     </p>
                     <div className="vision-read-more">
                       <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
                     </div>
                   </div>
                 </div>
@@ -166,7 +163,6 @@ const VisionSection = () => {
                     </p>
                     <div className="vision-read-more">
                       <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
                     </div>
                   </div>
                 </div>
@@ -183,7 +179,6 @@ const VisionSection = () => {
                     </p>
                     <div className="vision-read-more">
                       <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
                     </div>
                   </div>
                 </div>
@@ -198,7 +193,6 @@ const VisionSection = () => {
                     </p>
                     <div className="vision-read-more">
                       <span className="vision-read-more-text">Läs mer</span>
-                      <img src={imgWeuiArrowFilled} alt="Arrow" className="vision-arrow" />
                     </div>
                   </div>
                 </div>
