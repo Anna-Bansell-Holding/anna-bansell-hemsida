@@ -36,11 +36,11 @@ const MethodSection = () => {
       id: 1,
       anchor: "raise-the-gaze",
       icon: imgWeywgy,
-      title: { 
-        se: "Höja blicken", 
+      title: {
+        se: "Höja blicken",
         en: "Raise the Gaze"
       },
-      description: { 
+      description: {
         se: "Grunden för allt förändringsarbete är en tydlig riktning. Här formuleras en gemensam bild av vart vi ska. Tillsammans utforskar vi, tänker dynamiskt, skapar samsyn och mening för att slutligen identifiera nyckelfrågor och mål.",
         en: "The foundation for all change work is a clear direction. Here, a common vision of where we are going is formulated. Together we explore, think dynamically, create consensus and meaning to finally identify key issues and goals."
       },
@@ -67,11 +67,11 @@ const MethodSection = () => {
       id: 2,
       anchor: "listen-to-people",
       icon: imgAivXy7,
-      title: { 
-        se: "Lyssna in människorna", 
+      title: {
+        se: "Lyssna in människorna",
         en: "Listen to the people"
       },
-      description: { 
+      description: {
         se: "För att förstå vad som krävs för att lyckas behöver vi förstå nuläget – på riktigt och det görs genom djupgående analys av både hårda och mjuka signaler (t.ex. energi, engagemang, mobbning), gemensam information och insikt. Vi tydliggör också roller och ansvar.",
         en: "To understand what is required to succeed, we need to understand the current situation – for real, and this is done through in-depth analysis of both hard and soft signals (e.g. energy, engagement, bullying), shared information and insight. We also clarify roles and responsibilities."
       },
@@ -98,11 +98,11 @@ const MethodSection = () => {
       id: 3,
       anchor: "quick-changes",
       icon: imgZDi38M,
-      title: { 
+      title: {
         se: "Snabba självklara förändringar",
         en: "Quick obvious changes"
       },
-      description: { 
+      description: {
         se: "Förändring behöver bli synlig snabbt: Därför blir det både snabba och konkreta åtgärder och tydliga symbolhandlingar. Vi fokuserar på det som ger energi och vilja för att samtidigt kunna prioritera det som flyttar fram positionerna mot målet.",
         en: "Change needs to become visible quickly: Therefore there are both quick and concrete actions and clear symbolic acts. We focus on what gives energy and will to simultaneously prioritize what moves the positions toward the goal."
       },
@@ -129,11 +129,11 @@ const MethodSection = () => {
       id: 4,
       anchor: "form-community",
       icon: imgGroup,
-      title: { 
+      title: {
         se: "Forma en gemenskap",
         en: "Form a community"
       },
-      description: { 
+      description: {
         se: "Här sker det strategiska skiftet: Vi identifierar tillväxtpotential och bromsklossar för att kunna behålla de som bär energi och potential. Samlar insikter för att kunna forma konkreta åtgärder.",
         en: "Here the strategic shift occurs: We identify growth potential and obstacles to be able to retain those who carry energy and potential. We gather insights to be able to form concrete measures."
       },
@@ -160,8 +160,8 @@ const MethodSection = () => {
       id: 5,
       anchor: "common-processes",
       icon: imgNGXbfO,
-      title: { 
-        se: "Gemensamma processer", 
+      title: {
+        se: "Gemensamma processer",
         en: "Common processes"
       },
       description: {
@@ -191,8 +191,8 @@ const MethodSection = () => {
       id: 6,
       anchor: "sales-excellence",
       icon: imgGroup1,
-      title: { 
-        se: "Säljorganisation som levererar", 
+      title: {
+        se: "Säljorganisation som levererar",
         en: "Sales Organization Excellence"
       },
       description: {
@@ -222,8 +222,8 @@ const MethodSection = () => {
       id: 7,
       anchor: "let-organization-fly",
       icon: imgRnpiwd,
-      title: { 
-        se: "Låt organisationen flyga", 
+      title: {
+        se: "Låt organisationen flyga",
         en: "Let the organization fly"
       },
       description: {
@@ -265,7 +265,7 @@ const MethodSection = () => {
           </p>
           <h2 className="method-title">
             {content.title[currentLanguage]}
-        </h2>
+          </h2>
           <p className="method-description">
             {content.description[currentLanguage]}
           </p>
@@ -279,14 +279,14 @@ const MethodSection = () => {
                 {/* Icon */}
                 <div className="method-step-icon">
                   <img src={step.icon} alt={step.title[currentLanguage]} className="step-icon" />
-        </div>
+                </div>
 
                 {/* Main Content */}
                 <div className="method-step-main">
                   <div className="method-step-header">
                     <h3 className="method-step-title">
-                    {step.title[currentLanguage]}
-          </h3>
+                      {step.title[currentLanguage]}
+                    </h3>
                   </div>
                   <p className="method-step-description">
                     {step.description[currentLanguage]}
@@ -298,24 +298,24 @@ const MethodSection = () => {
                       <p className="method-expanded-text">
                         {step.expandedContent[currentLanguage]}
                       </p>
-                      </div>
+                    </div>
                   )}
-                      
+
                   {/* Action Link */}
                   <div className="method-step-action">
-                    <button 
+                    <button
                       onClick={() => toggleExpanded(step.id)}
                       className="method-action-link"
                     >
                       {expandedStep === step.id ? 'Close' : 'Läs mer'}
-                      <img 
-                        src={expandedStep === step.id ? imgWeuiArrowFilled1 : imgWeuiArrowFilled} 
-                        alt="Arrow" 
-                        className={`method-arrow ${expandedStep === step.id ? 'rotated-up' : 'rotated-down'}`} 
+                      <img
+                        src={expandedStep === step.id ? imgWeuiArrowFilled1 : imgWeuiArrowFilled}
+                        alt="Arrow"
+                        className={`method-arrow ${expandedStep === step.id ? 'rotated-up' : 'rotated-down'}`}
                       />
                     </button>
                   </div>
-            </div>
+                </div>
 
                 {/* Tips Column */}
                 <div className="method-step-tips">
@@ -324,14 +324,14 @@ const MethodSection = () => {
                     {step.tips.map((tip, tipIndex) => (
                       <li key={tipIndex} className="method-tip-item">
                         {tip[currentLanguage]}
-                        </li>
-                      ))}
-                    </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-              </div>
           ))}
-            </div>
+        </div>
       </div>
     </section>
   );
