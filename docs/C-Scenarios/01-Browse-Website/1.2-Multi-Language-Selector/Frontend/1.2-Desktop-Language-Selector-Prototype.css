@@ -1,0 +1,235 @@
+/* ===========================================
+   DESKTOP LANGUAGE SELECTOR PROTOTYPE
+   Styled according to Figma design
+   =========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* ===========================================
+   NAVIGATION MENU STYLES
+   =========================================== */
+
+.nav-header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.nav-header-list {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    min-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #22396a;
+    border-radius: 40px;
+    padding: 8px 10px;
+    overflow: visible;
+    list-style: none;
+}
+
+/* Navigation Group */
+.nav-tab[data-id="home"],
+.nav-tab[data-id="turnarounds"],
+.nav-tab[data-id="uppdrag"],
+.nav-tab[data-id="metod"],
+.nav-tab[data-id="contact"] {
+    /* Navigation items - no special styling needed */
+}
+
+/* Language Group */
+.nav-tab[data-id="language"] {
+    /* Margin will be set dynamically by JavaScript based on measured width */
+}
+
+.nav-tab {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #22396a;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.nav-tab:hover {
+    /* Background handled by JavaScript hover cursor */
+}
+
+.nav-tab.active {
+    background-color: #eb7100;
+    border: 1px solid #d93a00;
+    color: white;
+    font-weight: 700;
+    z-index: 20;
+}
+
+/* Contact and Language Items */
+.contact-item,
+.language-selector {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-content,
+.language-content {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    width: 100%;
+}
+
+.icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.icon {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    transition: filter 0.2s ease;
+}
+
+/* Make icons white when active/selected only */
+.nav-tab.active .icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Language Selector Specific Styles */
+.language-selector {
+    position: relative;
+    transition: width 0.3s ease-in-out;
+}
+
+.language-selector .dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.language-selector.expanded .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Language Dropdown - Horizontal Expansion Inside Navigation */
+.language-dropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f3f4f6;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.language-dropdown.show {
+    opacity: 1;
+    transform: scaleX(1);
+    pointer-events: auto;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #22396a;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.language-option:hover {
+    background-color: rgba(35, 57, 106, 0.1);
+}
+
+.language-option.selected {
+    background-color: #22396a;
+    color: white;
+}
+
+/* Cursor Styles */
+.nav-cursor {
+    position: absolute;
+    z-index: 12;
+    top: 8px;
+    height: calc(100% - 16px);
+    border-radius: 50px;
+    background-color: #f3f4f6;
+    opacity: 0;
+    left: 0px;
+    width: 0px;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.nav-cursor.show {
+    opacity: 1;
+}
+
+.nav-cursor-active {
+    position: absolute;
+    z-index: 12;
+    top: 8px;
+    height: calc(100% - 16px);
+    border-radius: 50px;
+    background-color: #eb7100;
+    pointer-events: none;
+    opacity: 0;
+    left: 0px;
+    width: 0px;
+    transition: opacity 0.2s ease;
+}
+
+.nav-cursor-active.show {
+    opacity: 1;
+}
