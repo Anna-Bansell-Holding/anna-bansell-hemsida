@@ -1814,27 +1814,41 @@ button.nav-item.active {
     display: flex;
   }
 
+  .hero-spacer {
+    display: none;
+  }
+
   .hero-content {
     position: relative;
     top: auto;
     left: auto;
     transform: none;
     width: 100%;
-    padding: 2rem;
+    padding: 12rem 2rem 0;
     justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .hero-text {
+    padding-bottom: 0;
   }
 
   .hero-profile-container {
+    order: 1;
+    flex-shrink: 1;
     position: relative;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
+    transform: none;
+    left: 0;
+    pointer-events: none;
   }
 
   .hero-profile {
-    width: min(45vw, 400px);
-    height: min(80vh, 500px);
+    position: relative;
+    left: 0;
+    aspect-ratio: 3/4;
+    width: auto;
+    height: min(50vh, 500px);
   }
 
   .hero-title {
@@ -2109,8 +2123,8 @@ button.nav-item.active {
   }
 
   .hero-profile {
-    width: min(45vw, 250px);
-    height: min(80vh, 350px);
+    width: 80%;
+    height: auto;
   }
 
   .vision-title {
