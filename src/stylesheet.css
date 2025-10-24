@@ -259,6 +259,7 @@ body {
 
 .nav-item:hover {
   background: rgba(235, 113, 0, 0.1);
+  color: var(--dark-blue);
 }
 
 .nav-item img {
