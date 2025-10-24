@@ -309,6 +309,7 @@ button.nav-item.active {
   position: relative;
   display: flex;
   align-items: center;
+  font-weight: 500;
   gap: 6px;
   transition: all 0.3s ease;
 }
