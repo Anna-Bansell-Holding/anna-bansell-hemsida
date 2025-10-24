@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import AnchorLink from '../AnchorLink';
 
 // Local assets downloaded from Figma
 const imgFa6BrandsSquareXTwitter = "/c54c24010f3176dedf5d0885af1f26212bd833f7.svg";
@@ -29,31 +30,31 @@ export const FooterFigma = () => {
 
   const aboutLinks = {
     se: [
-      "Hem",
-      "Turnaround", 
-      "Uppdrag",
-      "Metod"
+      { text: "Hem", href: "#home" },
+      { text: "Turnaround", href: "#vision" }, 
+      { text: "Uppdrag", href: "#cases" },
+      { text: "Metod", href: "#method" }
     ],
     en: [
-      "Home",
-      "Turnaround",
-      "Services", 
-      "Method"
+      { text: "Home", href: "#home" },
+      { text: "Turnaround", href: "#vision" },
+      { text: "Services", href: "#cases" }, 
+      { text: "Method", href: "#method" }
     ]
   };
 
   const contactLinks = {
     se: [
-      "Mentorskap",
-      "Interim-uppdrag",
-      "Föreläsningar",
-      "LinkedIn"
+      { text: "Mentorskap", href: "#mentoring" },
+      { text: "Interim-uppdrag", href: "#interim-assignments" },
+      { text: "Föreläsningar", href: "#speaking" },
+      { text: "LinkedIn", href: "https://www.linkedin.com/in/annabansell", external: true }
     ],
     en: [
-      "Mentoring",
-      "Interim Assignments", 
-      "Speaking",
-      "LinkedIn"
+      { text: "Mentoring", href: "#mentoring" },
+      { text: "Interim Assignments", href: "#interim-assignments" }, 
+      { text: "Speaking", href: "#speaking" },
+      { text: "LinkedIn", href: "https://www.linkedin.com/in/annabansell", external: true }
     ]
   };
 
@@ -88,7 +89,9 @@ export const FooterFigma = () => {
               </div>
               {aboutLinks[currentLanguage].map((link, index) => (
                 <div key={index} className="footer-link-item">
-                  <p className="footer-link-text">{link}</p>
+                  <AnchorLink href={link.href} className="footer-link-text">
+                    {link.text}
+                  </AnchorLink>
                 </div>
               ))}
             </div>
@@ -100,7 +103,20 @@ export const FooterFigma = () => {
               </div>
               {contactLinks[currentLanguage].map((link, index) => (
                 <div key={index} className="footer-link-item">
-                  <p className="footer-link-text">{link}</p>
+                  {link.external ? (
+                    <a 
+                      href={link.href} 
+                      className="footer-link-text"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      {link.text}
+                    </a>
+                  ) : (
+                    <AnchorLink href={link.href} className="footer-link-text">
+                      {link.text}
+                    </AnchorLink>
+                  )}
                 </div>
               ))}
             </div>

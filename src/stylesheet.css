@@ -1293,15 +1293,15 @@ button.nav-item.active {
 }
 
 .services-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .service-card {
-  width: 320px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1394,7 +1394,7 @@ button.nav-item.active {
 .services-button {
   background: var(--anna-orange);
   color: white;
-  border: 2px solid #d93a00;
+  border-width: 0;
   border-radius: 70px;
   padding: 20px 44px;
   width: 250px;
@@ -1455,6 +1455,8 @@ button.nav-item.active {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 64px;
   width: 100%;
   padding: 0 104px;
   box-sizing: border-box;
@@ -1466,7 +1468,6 @@ button.nav-item.active {
   gap: 12px;
   align-items: flex-start;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .footer-company-name {
@@ -1565,8 +1566,13 @@ button.nav-item.active {
   font-size: 17px;
   font-weight: 300;
   line-height: 1.7;
+  text-decoration: none;
   color: #484b4f;
   margin: 0;
+}
+
+.footer-link-text:hover {
+  text-decoration: underline;
 }
 
 .footer-copyright {
@@ -1609,6 +1615,7 @@ button.nav-item.active {
   .vision-content {
     grid-template-columns: 1.5fr 1fr;
   }
+
   .method-step-content {
     grid-template-columns: auto 1fr;
     grid-template-areas: "icon main" "tips tips";
@@ -1631,6 +1638,14 @@ button.nav-item.active {
   .vision-right {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    justify-content: center;
   }
 }
 
@@ -1708,6 +1723,7 @@ button.nav-item.active {
     grid-template-areas: "icon main" "tips tips";
     row-gap: 16px;
   }
+
   .method-step-tips {
     width: 100%;
   }
@@ -1892,6 +1908,11 @@ button.nav-item.active {
     height: 65px;
     font-size: 20px;
   }
+
+  .footer-content {
+    justify-content: start;
+    padding: 0 40px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1994,14 +2015,11 @@ button.nav-item.active {
   }
 
   .services-grid {
-    flex-direction: column;
     gap: 30px;
-    align-items: center;
   }
 
   .service-card {
     width: 100%;
-    max-width: 300px;
   }
 
   .service-icon-container {

@@ -19,7 +19,6 @@ const AnchorLink: React.FC<AnchorLinkProps> = ({
     
     // Extract section ID from href (remove # if present)
     const sectionId = href.startsWith('#') ? href.slice(1) : href;
-    
     // Call the scroll function
     scrollToSection(sectionId);
     
