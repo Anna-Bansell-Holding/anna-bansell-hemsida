@@ -28,6 +28,18 @@ const MethodSection = () => {
     description: {
       se: "En systematisk approach för hållbar organisationsförändring",
       en: "A systematic approach for sustainable organizational transformation"
+    },
+    readMore: {
+      se: "Läs mer",
+      en: "Read more"
+    },
+    close: {
+      se: "Stäng",
+      en: "Close"
+    },
+    thinkAbout: {
+      se: "Tänk på att:",
+      en: "Think about:"
     }
   };
 
@@ -307,7 +319,7 @@ const MethodSection = () => {
                       onClick={() => toggleExpanded(step.id)}
                       className="method-action-link"
                     >
-                      {expandedStep === step.id ? 'Close' : 'Läs mer'}
+                      {expandedStep === step.id ? content.close[currentLanguage] : content.readMore[currentLanguage]}
                       <img
                         src={expandedStep === step.id ? imgWeuiArrowFilled1 : imgWeuiArrowFilled}
                         alt="Arrow"
@@ -319,7 +331,7 @@ const MethodSection = () => {
 
                 {/* Tips Column */}
                 <div className="method-step-tips">
-                  <h4 className="method-tips-title">Tänk på att:</h4>
+                  <h4 className="method-tips-title">{content.thinkAbout[currentLanguage]}</h4>
                   <ul className="method-tips-list">
                     {step.tips.map((tip, tipIndex) => (
                       <li key={tipIndex} className="method-tip-item">
