@@ -4,9 +4,9 @@ import AnchorLink from './AnchorLink';
 
 // Local assets - replaced Figma localhost URLs
 const imgFlowbiteCheckOutline = "/ico-info-check.svg";
-const imgGroup = "/ico-handshake.png";
+const imgGroup = "/ico-handshake.svg";
 const imgFlowbiteCheckOutline1 = "/ico-info-start.svg";
-const imgGroup1 = "/ico-cup-of-coffee.png";
+const imgGroup1 = "/ico-cup-of-coffee.svg";
 
 const VisionSection = () => {
   const { currentLanguage } = useLanguage();
