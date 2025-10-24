@@ -38,7 +38,8 @@ const ServicesSection = () => {
       details: {
         se: "Perfekt när du behöver kontinuerlig stöttning genom hela förändringsresan.",
         en: "Perfect when you need continuous support throughout the entire change journey."
-      }
+      },
+      id: "mentoring"
     },
     {
       icon: imgGroup,
@@ -53,7 +54,8 @@ const ServicesSection = () => {
       details: {
         se: "Rätt val när du behöver snabba resultat och samtidigt utveckla ditt team.",
         en: "Right choice when you need rapid results while developing your team."
-      }
+      },
+      id: "interim-assignments"
     },
     {
       icon: img0,
@@ -68,7 +70,8 @@ const ServicesSection = () => {
       details: {
         se: "Ideal för konferenser, ledningsgrupper och utbildningsprogram som vill ha äkta innehåll.",
         en: "Ideal for conferences, management teams and training programs that want authentic content."
-      }
+      },
+      id: "speaking"
     }
   ];
 
@@ -102,7 +105,7 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
+            <div key={index} id={service.id} className="service-card">
               <div className="service-content">
                 <div className="service-header">
                   <div className="service-icon-container">

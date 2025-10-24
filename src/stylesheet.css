@@ -1292,15 +1292,15 @@ button.nav-item.active {
 }
 
 .services-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .service-card {
-  width: 320px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1393,7 +1393,7 @@ button.nav-item.active {
 .services-button {
   background: var(--anna-orange);
   color: white;
-  border: 2px solid #d93a00;
+  border-width: 0;
   border-radius: 70px;
   padding: 20px 44px;
   width: 250px;
@@ -1565,8 +1565,13 @@ button.nav-item.active {
   font-size: 17px;
   font-weight: 300;
   line-height: 1.7;
+  text-decoration: none;
   color: #484b4f;
   margin: 0;
+}
+
+.footer-link-text:hover {
+  text-decoration: underline;
 }
 
 .footer-copyright {
@@ -1632,6 +1637,10 @@ button.nav-item.active {
   .vision-right {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-content {
@@ -2005,14 +2014,11 @@ button.nav-item.active {
   }
 
   .services-grid {
-    flex-direction: column;
     gap: 30px;
-    align-items: center;
   }
 
   .service-card {
     width: 100%;
-    max-width: 300px;
   }
 
   .service-icon-container {

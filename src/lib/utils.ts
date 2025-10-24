@@ -7,11 +7,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
+
   if (element) {
     // Calculate offset to account for fixed navigation
     const navHeight = 128; // Approximate height of navigation
-    const elementPosition = element.offsetTop - navHeight;
-    
+
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY - navHeight;
+
     window.scrollTo({
       top: elementPosition,
       behavior: 'smooth'
