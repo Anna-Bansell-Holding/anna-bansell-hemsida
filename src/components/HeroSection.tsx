@@ -12,6 +12,7 @@ const HeroSection = () => {
   const { currentLanguage, setLanguage } = useLanguage();
   const [activeSection, setActiveSection] = React.useState('home');
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false);
+  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = React.useState(false);
 
   // Update active section based on URL hash
   React.useEffect(() => {
@@ -111,6 +112,10 @@ const HeroSection = () => {
     setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
   };
 
+  const toggleHamburgerMenu = () => {
+    setIsHamburgerMenuOpen(!isHamburgerMenuOpen);
+  };
+
   // Close dropdown when clicking outside
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -118,16 +123,19 @@ const HeroSection = () => {
       if (isLanguageDropdownOpen && !target.closest('.language-selector')) {
         setIsLanguageDropdownOpen(false);
       }
+      if (isHamburgerMenuOpen && !target.closest('.hamburger-menu')) {
+        setIsHamburgerMenuOpen(false);
+      }
     };
 
-    if (isLanguageDropdownOpen) {
+    if (isLanguageDropdownOpen || isHamburgerMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isLanguageDropdownOpen]);
+  }, [isLanguageDropdownOpen, isHamburgerMenuOpen]);
 
   return (
     <section id="home" className="hero-section">
@@ -143,7 +151,9 @@ const HeroSection = () => {
       </div>
       <div className="nav-container">
         <div className="nav-logo-spacer"></div>
-        <nav className="nav-menu">
+        
+        {/* Desktop Navigation */}
+        <nav className="nav-menu nav-menu-desktop">
           <AnchorLink href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
             {currentLanguage === 'se' ? 'Hem' : 'Home'}
           </AnchorLink>
@@ -197,6 +207,85 @@ const HeroSection = () => {
               >
                 English
               </button>
+            </div>
+          </div>
+        </nav>
+
+        {/* Mobile Navigation */}
+        <nav className="nav-menu nav-menu-mobile">
+          <AnchorLink href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
+            <img src={imgBasilPhoneSolid} alt="Phone" />
+            {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
+          </AnchorLink>
+          <div className="hamburger-menu">
+            <button 
+              onClick={toggleHamburgerMenu}
+              className="nav-item nav-item-button hamburger-button"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={isHamburgerMenuOpen}
+            >
+              <div className={`hamburger-icon ${isHamburgerMenuOpen ? 'open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+            <div 
+              className={`hamburger-dropdown ${isHamburgerMenuOpen ? 'open' : ''}`}
+              role="menu"
+              aria-label="Navigation menu"
+            >
+              <AnchorLink 
+                href="#home" 
+                className={`hamburger-option ${activeSection === 'home' ? 'active' : ''}`}
+                onClick={() => setIsHamburgerMenuOpen(false)}
+              >
+                {currentLanguage === 'se' ? 'Hem' : 'Home'}
+              </AnchorLink>
+              <AnchorLink 
+                href="#vision" 
+                className={`hamburger-option ${activeSection === 'vision' ? 'active' : ''}`}
+                onClick={() => setIsHamburgerMenuOpen(false)}
+              >
+                {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
+              </AnchorLink>
+              <AnchorLink 
+                href="#cases" 
+                className={`hamburger-option ${activeSection === 'cases' ? 'active' : ''}`}
+                onClick={() => setIsHamburgerMenuOpen(false)}
+              >
+                {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
+              </AnchorLink>
+              <AnchorLink 
+                href="#method" 
+                className={`hamburger-option ${activeSection === 'method' ? 'active' : ''}`}
+                onClick={() => setIsHamburgerMenuOpen(false)}
+              >
+                {currentLanguage === 'se' ? 'Metod' : 'Method'}
+              </AnchorLink>
+              <div className="hamburger-language-section">
+                <button
+                  onClick={() => {
+                    handleLanguageSelect('se');
+                    setIsHamburgerMenuOpen(false);
+                  }}
+                  className={`hamburger-language-option ${currentLanguage === 'se' ? 'selected' : ''}`}
+                  type="button"
+                >
+                  Svenska
+                </button>
+                <button
+                  onClick={() => {
+                    handleLanguageSelect('en');
+                    setIsHamburgerMenuOpen(false);
+                  }}
+                  className={`hamburger-language-option ${currentLanguage === 'en' ? 'selected' : ''}`}
+                  type="button"
+                >
+                  English
+                </button>
+              </div>
             </div>
           </div>
         </nav>
