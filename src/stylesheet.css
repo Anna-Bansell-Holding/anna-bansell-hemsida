@@ -143,6 +143,7 @@ body {
   line-height: clamp(24px, 4.86vw, 70px);
   font-weight: 400;
   margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .hero-description {
@@ -480,7 +481,8 @@ button.nav-item.active {
   transform: translateY(-10px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
-  min-width: 200px;
+  min-width: 250px;
+  width: max-content;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
@@ -1695,6 +1697,7 @@ button.nav-item.active {
   gap: 60px;
   align-items: flex-start;
   flex-shrink: 0;
+  width: 100%;
 }
 
 .footer-column {
@@ -1703,7 +1706,8 @@ button.nav-item.active {
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
-  width: 200px;
+  flex-grow: 1;
+  max-width: 200px;
   box-sizing: border-box;
 }
 
@@ -1845,9 +1849,13 @@ button.nav-item.active {
     align-items: center;
     flex-grow: 1;
   }
-  
+
   .hero-text {
     padding-bottom: 0;
+  }
+
+  .hero-button {
+    display: none;
   }
 
   .hero-profile-container {
@@ -2125,6 +2133,15 @@ button.nav-item.active {
 @media (max-width: 480px) {
   .nav-container {
     padding: 12px 15px;
+  }
+
+  .nav-logo-spacer {
+    max-width: calc(100% - 80px - 72px);
+  }
+
+  .nav-logo {
+    top: 12px;
+    max-width: calc(100% - 80px - 72px);
   }
 
   .hamburger-dropdown {

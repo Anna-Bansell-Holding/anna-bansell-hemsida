@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 
 interface LanguageContextType {
-  currentLanguage: 'se' | 'en';
-  setLanguage: (language: 'se' | 'en') => void;
+  currentLanguage: 'se' | 'en' | 'hr';
+  setLanguage: (language: 'se' | 'en' | 'hr') => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -12,14 +12,14 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<'se' | 'en'>('se');
+  const [currentLanguage, setCurrentLanguage] = useState<'se' | 'en' | 'hr'>('se');
 
   // Initialize language on mount
   useEffect(() => {
     const initializeLanguage = () => {
       // Check session storage first
       const storedLanguage = sessionStorage.getItem('preferredLanguage');
-      if (storedLanguage === 'se' || storedLanguage === 'en') {
+      if (storedLanguage === 'se' || storedLanguage === 'en' || storedLanguage === 'hr') {
         setCurrentLanguage(storedLanguage);
         return;
       }
@@ -34,7 +34,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     initializeLanguage();
   }, []);
 
-  const setLanguage = useCallback((language: 'se' | 'en') => {
+  const setLanguage = useCallback((language: 'se' | 'en' | 'hr') => {
     setCurrentLanguage(language);
     
     // Persist to session storage
@@ -43,7 +43,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     // Announce language change to screen readers
     const announcement = language === 'se' 
       ? 'Språk ändrat till svenska' 
-      : 'Language changed to English';
+      : language === 'en'
+      ? 'Language changed to English'
+      : 'Jezik promijenjen na hrvatski';
     
     // Create announcement for screen readers
     const announcer = document.createElement('div');

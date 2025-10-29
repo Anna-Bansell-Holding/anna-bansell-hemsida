@@ -14,11 +14,13 @@ const CasesSection = () => {
   const content = {
     subtitle: {
       se: "Tre case där metoden skapat värde",
-      en: "Three cases where the method created value"
+      en: "Three cases where the method created value",
+      hr: "Tri primjera gdje je metoda stvorila vrijednost"
     },
     title: {
       se: "Tre case där metoden skapat värde",
-      en: "Three cases where the method created value"
+      en: "Three cases where the method created value",
+      hr: "Tri primjera gdje je metoda stvorila vrijednost"
     }
   };
 
@@ -27,22 +29,26 @@ const CasesSection = () => {
       icon: imgGroup,
       title: {
         se: "Transformerad organisationskultur",
-        en: "Transformed organizational culture"
+        en: "Transformed organizational culture",
+        hr: "Transformirana organizacijska kultura"
       },
       description: {
         se: "Lyckad omstrukturering av 200-personers organisation med 75% förbättring av medarbetarengagemang inom 6 månader.",
-        en: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months."
+        en: "Successful restructuring of 200-person organization with 75% improvement in employee engagement within 6 months.",
+        hr: "Uspješno restrukturiranje organizacije sa 200 zaposlenika, pri čemu je anžiranost zaposlenika porasla za 75% u samo šest mjeseci."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline,
         quote: {
           se: "Anna hjälpte oss att skapa en helt ny dynamik i organisationen. Hennes metodiska approach gav oss verktyg som vi fortfarande använder idag.",
-          en: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today."
+          en: "Anna helped us create a completely new dynamic in the organization. Her methodical approach gave us tools that we still use today.",
+          hr: "Anna nam je pomogla stvoriti potpuno novu dinamiku unutar organizacije. Njezin metodičan pristup dao nam je alate koje i danas koristimo."
         },
         author: "Maria Lindström",
         position: {
           se: "VD, Växjö Energi",
-          en: "CEO, Växjö Energy"
+          en: "CEO, Växjö Energy",
+          hr: "Izvršna direktorica, Växjö Energi"
         }
       }
     },
@@ -51,22 +57,26 @@ const CasesSection = () => {
       iconRotation: "180deg",
       title: {
         se: "Effektiviserad försäljningsprocess",
-        en: "Streamlined sales process"
+        en: "Streamlined sales process",
+        hr: "Učinkovitiji prodajni process"
       },
       description: {
         se: "Utvecklade ny försäljningsstrategi som resulterade i 40% ökning av konverteringsgraden och förkortade säljcykeln med 60%.",
-        en: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%."
+        en: "Developed new sales strategy that resulted in 40% increase in conversion rate and shortened sales cycle by 60%.",
+        hr: "Razvili smo novu prodajnu strategiju koja je povećala stopu konverzije za 40 % i skratila prodajni ciklus za 60 %."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline1,
         quote: {
           se: "Annas fokus på både människor och processer gav oss genombrottet vi behövde. Resultaten talade för sig själva.",
-          en: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves."
+          en: "Anna's focus on both people and processes gave us the breakthrough we needed. The results spoke for themselves.",
+          hr: "Annina fokusiranost na ljude i procese donio nam je proboj koji nam je bio potreban. Rezultati govore sami za sebe."
         },
         author: "Lars Persson",
         position: {
           se: "Försäljningschef, Nordic Solutions",
-          en: "Sales Manager, Nordic Solutions"
+          en: "Sales Manager, Nordic Solutions",
+          hr: "Direktor prodaje, Nordic Solutions"
         }
       }
     },
@@ -75,22 +85,26 @@ const CasesSection = () => {
       iconRotation: "270deg",
       title: {
         se: "Accelererad digital transformation",
-        en: "Accelerated digital transformation"
+        en: "Accelerated digital transformation",
+        hr: "Ubrzana digitalna transformacija"
       },
       description: {
         se: "Ledde förändringsarbete som möjliggjorde snabb digitalisering av nyckelprocesser med 90% minskning av manuellt arbete.",
-        en: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work."
+        en: "Led change work that enabled rapid digitization of key processes with 90% reduction in manual work.",
+        hr: "Vodila je proces promjena koji je omogućio brzu digitalizaciju ključnih procesa te smanjio manuelni rad za 90 %."
       },
       testimonial: {
         image: imgFlowbiteCheckOutline2,
         quote: {
           se: "Anna förstod att teknisk förändring handlar om människor. Hon fick hela teamet att omfamna den digitala resan.",
-          en: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey."
+          en: "Anna understood that technical change is about people. She got the whole team to embrace the digital journey.",
+          hr: "Anna je razumjela da su tehnološke promjene prije svega pitanje ljudi. Potaknula je cijeli tim da prigrli digitalnu transformaciju."
         },
         author: "Elisabeth Andersson",
         position: {
           se: "CTO, Kalmar Innovation",
-          en: "CTO, Kalmar Innovation"
+          en: "CTO, Kalmar Innovation",
+          hr: "Tehnička direktorica, Kalmar Innovation"
         }
       }
     }
