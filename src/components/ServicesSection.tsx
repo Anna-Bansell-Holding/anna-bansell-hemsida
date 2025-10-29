@@ -24,7 +24,8 @@ const ServicesSection = () => {
       se: "Kontakta mig",
       en: "Contact me",
       hr: "Kontaktirajte me"
-    }
+    },
+    ctaLink: 'https://www.linkedin.com/in/annabansell/'
   };
 
   const services = [
@@ -144,12 +145,14 @@ const ServicesSection = () => {
 
         {/* CTA Button */}
         <div className="services-cta">
-          <button 
-            onClick={scrollToContact}
+          <a 
+            href={content.ctaLink}
             className="services-button"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {content.ctaButton[currentLanguage]}
-          </button>
+          </a>
         </div>
       </div>
     </section>

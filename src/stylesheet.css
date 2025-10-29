@@ -1580,6 +1580,7 @@ button.nav-item.active {
   justify-content: center;
   box-sizing: border-box;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .services-button:hover {
