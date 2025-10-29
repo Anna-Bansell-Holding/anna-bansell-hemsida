@@ -11,11 +11,13 @@ const SmalandSection = () => {
   const content = {
     title: {
       se: "Småland?",
-      en: "Småland?"
+      en: "Småland?",
+      hr: "Småland?"
     },
     description: {
       se: "Smålänningarna har förstått att framgång nås bäst genom ihärdighet, idogt arbete och disciplin. Vårda tid och resurser är en stabil bas för att få bästa möjliga utfall. Något som jag haft stor nytta av i mitt arbete med utvecklingsprocesser.",
-      en: "The people of Småland have understood that success is best achieved through persistence, diligent work and discipline. Caring for time and resources is a stable foundation for achieving the best possible outcome. Something I have found very useful in my work with development processes."
+      en: "The people of Småland have understood that success is best achieved through persistence, diligent work and discipline. Caring for time and resources is a stable foundation for achieving the best possible outcome. Something I have found very useful in my work with development processes.",
+      hr: "Ljudi iz Smålanda razumiju da se uspjeh najbolje postježe ustrajnošću, marljivim radom i disciplinom. Briga o vremenu i resursima stabilan je temelj za postizanje najboljih mogućih rezultata."
     }
   };
 
