@@ -14,6 +14,53 @@ const HeroSection = () => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false);
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = React.useState(false);
 
+  const content = {
+    navHome: {
+      se: "Hem",
+      en: "Home"
+    },
+    navTurnaround: {
+      se: "Turnaround",
+      en: "Turnaround"
+    },
+    navServices: {
+      se: "Uppdrag",
+      en: "Services"
+    },
+    navMethod: {
+      se: "Metod",
+      en: "Method"
+    },
+    navContact: {
+      se: "Kontakt",
+      en: "Contact"
+    },
+    languageSwedish: {
+      se: "Svenska",
+      en: "Svenska"
+    },
+    languageEnglish: {
+      se: "English",
+      en: "English"
+    },
+    languageSwitchLabel: {
+      se: "Växla till svenska",
+      en: "Switch to English"
+    },
+    heroTitle: {
+      se: "Framgångskultur på småländska",
+      en: "Success culture the Småland way"
+    },
+    heroDescription: {
+      se: "En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba och långsiktiga förändringar, samordna de gemensamma processerna och låta organisationen flyga! Som vi gör hemma i Småland!",
+      en: "An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!"
+    },
+    heroButton: {
+      se: "Är du redo för din turnaround?",
+      en: "Are you ready for your turnaround?"
+    }
+  };
+
   // Update active section based on URL hash
   React.useEffect(() => {
     const updateActiveSection = () => {
@@ -155,33 +202,33 @@ const HeroSection = () => {
         {/* Desktop Navigation */}
         <nav className="nav-menu nav-menu-desktop">
           <AnchorLink href="#home" className={`nav-item ${activeSection === 'home' ? 'active' : ''}`}>
-            {currentLanguage === 'se' ? 'Hem' : 'Home'}
+            {content.navHome[currentLanguage]}
           </AnchorLink>
           <AnchorLink href="#vision" className={`nav-item ${activeSection === 'vision' ? 'active' : ''}`}>
-            {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
+            {content.navTurnaround[currentLanguage]}
           </AnchorLink>
           <AnchorLink href="#cases" className={`nav-item ${activeSection === 'cases' ? 'active' : ''}`}>
-            {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
+            {content.navServices[currentLanguage]}
           </AnchorLink>
           <AnchorLink href="#method" className={`nav-item ${activeSection === 'method' ? 'active' : ''}`}>
-            {currentLanguage === 'se' ? 'Metod' : 'Method'}
+            {content.navMethod[currentLanguage]}
           </AnchorLink>
           <AnchorLink href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
             <img src={imgBasilPhoneSolid} alt="Phone" />
-            {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
+            {content.navContact[currentLanguage]}
           </AnchorLink>
           <div className="language-selector">
             <button 
               onClick={toggleLanguageDropdown}
               className="nav-item nav-item-button language-button"
               type="button"
-              aria-label={currentLanguage === 'se' ? 'Switch to English' : 'Växla till svenska'}
+              aria-label={content.languageSwitchLabel[currentLanguage]}
               aria-expanded={isLanguageDropdownOpen}
               aria-haspopup="listbox"
             >
               <img src={imgFlowbiteGlobeOutline} alt="Globe" />
               <span className="language-text">
-                {currentLanguage === 'se' ? 'Svenska' : 'English'}
+                {currentLanguage === 'se' ? content.languageSwedish.se : content.languageEnglish.en}
               </span>
             </button>
             <div 
@@ -196,7 +243,7 @@ const HeroSection = () => {
                 aria-selected={currentLanguage === 'se'}
                 type="button"
               >
-                Svenska
+                {content.languageSwedish.se}
               </button>
               <button
                 onClick={() => handleLanguageSelect('en')}
@@ -205,7 +252,7 @@ const HeroSection = () => {
                 aria-selected={currentLanguage === 'en'}
                 type="button"
               >
-                English
+                {content.languageEnglish.en}
               </button>
             </div>
           </div>
@@ -237,35 +284,35 @@ const HeroSection = () => {
                 className={`hamburger-option ${activeSection === 'home' ? 'active' : ''}`}
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
-                {currentLanguage === 'se' ? 'Hem' : 'Home'}
+                {content.navHome[currentLanguage]}
               </AnchorLink>
               <AnchorLink 
                 href="#vision" 
                 className={`hamburger-option ${activeSection === 'vision' ? 'active' : ''}`}
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
-                {currentLanguage === 'se' ? 'Turnaround' : 'Turnaround'}
+                {content.navTurnaround[currentLanguage]}
               </AnchorLink>
               <AnchorLink 
                 href="#cases" 
                 className={`hamburger-option ${activeSection === 'cases' ? 'active' : ''}`}
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
-                {currentLanguage === 'se' ? 'Uppdrag' : 'Services'}
+                {content.navServices[currentLanguage]}
               </AnchorLink>
               <AnchorLink 
                 href="#method" 
                 className={`hamburger-option ${activeSection === 'method' ? 'active' : ''}`}
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
-                {currentLanguage === 'se' ? 'Metod' : 'Method'}
+                {content.navMethod[currentLanguage]}
               </AnchorLink>
               <AnchorLink 
                 href="#contact" 
                 className={`hamburger-option ${activeSection === 'contact' ? 'active' : ''}`}
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
-                {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
+                {content.navContact[currentLanguage]}
               </AnchorLink>
               <div className="hamburger-language-section">
                 <button
@@ -276,7 +323,7 @@ const HeroSection = () => {
                   className={`hamburger-language-option ${currentLanguage === 'se' ? 'selected' : ''}`}
                   type="button"
                 >
-                  Svenska
+                  {content.languageSwedish.se}
                 </button>
                 <button
                   onClick={() => {
@@ -286,7 +333,7 @@ const HeroSection = () => {
                   className={`hamburger-language-option ${currentLanguage === 'en' ? 'selected' : ''}`}
                   type="button"
                 >
-                  English
+                  {content.languageEnglish.en}
                 </button>
               </div>
             </div>
@@ -307,19 +354,16 @@ const HeroSection = () => {
         {/* Text Content */}
         <div className="hero-text">
           <h1 className="hero-title">
-            {currentLanguage === 'se' ? 'Framgångskultur på småländska' : 'Success culture the Småland way'}
+            {content.heroTitle[currentLanguage]}
           </h1>
           <p className="hero-description">
-            {currentLanguage === 'se' 
-              ? 'En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba och långsiktiga förändringar, samordna de gemensamma processerna och låta organisationen flyga! Som vi gör hemma i Småland!'
-              : 'An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!'
-            }
+            {content.heroDescription[currentLanguage]}
           </p>
           <button 
             onClick={() => scrollToSection('method')}
             className="hero-button"
           >
-            {currentLanguage === 'se' ? 'Är du redo för din turnaround?' : 'Are you ready for your turnaround?'}
+            {content.heroButton[currentLanguage]}
           </button>
         </div>
       </div>
