@@ -13,9 +13,9 @@ const CasesSection = () => {
 
   const content = {
     subtitle: {
-      se: "Tre case där metoden skapat värde",
-      en: "Three cases where the method created value",
-      hr: "Tri primjera gdje je metoda stvorila vrijednost"
+      se: "Nöjda kunder",
+      en: "Case studies",
+      hr: "Studije slučaja"
     },
     title: {
       se: "Tre case där metoden skapat värde",
