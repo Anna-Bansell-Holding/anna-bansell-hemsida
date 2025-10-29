@@ -1695,6 +1695,7 @@ button.nav-item.active {
   display: flex;
   gap: 60px;
   align-items: flex-start;
+  justify-content: center;
   flex-shrink: 0;
   width: 100%;
 }
