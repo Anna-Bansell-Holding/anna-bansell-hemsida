@@ -12,19 +12,23 @@ export const FooterFigma = () => {
   const content = {
     description: {
       se: "Genuin framgångskultur på småländska. Organisationskonsult specialiserad på turnarounds och kulturell förändring.",
-      en: "Genuine success culture the Småland way. Organizational consultant specialized in turnarounds and cultural change."
+      en: "Genuine success culture the Småland way. Organizational consultant specialized in turnarounds and cultural change.",
+      hr: "Autentična kultura izvrsnosti na småländski način. Organizacijska konzultantica specijalizirana za poslovne preokrete i kulturne promjene."
     },
     about: {
       se: "Om mig",
-      en: "About"
+      en: "About",
+      hr: "O meni"
     },
     contact: {
       se: "Kontakt", 
-      en: "Contact"
+      en: "Contact",
+      hr: "Kontakt"
     },
     copyright: {
       se: "© 2024 Anna Bansell. Alla rättigheter förbehållna.",
-      en: "© 2024 Anna Bansell. All rights reserved."
+      en: "© 2024 Anna Bansell. All rights reserved.",
+      hr: "© 2024 Anna Bansell. Sva prava pridržana."
     }
   };
 
@@ -40,6 +44,12 @@ export const FooterFigma = () => {
       { text: "Turnaround", href: "#vision" },
       { text: "Services", href: "#cases" }, 
       { text: "Method", href: "#method" }
+    ],
+    hr: [
+      { text: "Početna", href: "#home" },
+      { text: "Poslovni preokret", href: "#vision" },
+      { text: "Usluge", href: "#cases" },
+      { text: "Metoda", href: "#method" }
     ]
   };
 
@@ -54,6 +64,12 @@ export const FooterFigma = () => {
       { text: "Mentoring", href: "#mentoring" },
       { text: "Interim Assignments", href: "#interim-assignments" }, 
       { text: "Speaking", href: "#speaking" },
+      { text: "LinkedIn", href: "https://www.linkedin.com/in/annabansell", external: true }
+    ],
+    hr: [
+      { text: "Mentorstvo", href: "#mentoring" },
+      { text: "Privremeni angažman", href: "#interim-assignments" },
+      { text: "Predavanja", href: "#speaking" },
       { text: "LinkedIn", href: "https://www.linkedin.com/in/annabansell", external: true }
     ]
   };

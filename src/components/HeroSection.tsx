@@ -17,47 +17,63 @@ const HeroSection = () => {
   const content = {
     navHome: {
       se: "Hem",
-      en: "Home"
+      en: "Home",
+      hr: "Početna"
     },
     navTurnaround: {
       se: "Turnaround",
-      en: "Turnaround"
+      en: "Turnaround",
+      hr: "Poslovni preokret"
     },
     navServices: {
       se: "Uppdrag",
-      en: "Services"
+      en: "Services",
+      hr: "Usluge"
     },
     navMethod: {
       se: "Metod",
-      en: "Method"
+      en: "Method",
+      hr: "Metoda"
     },
     navContact: {
       se: "Kontakt",
-      en: "Contact"
+      en: "Contact",
+      hr: "Kontakt"
     },
     languageSwedish: {
       se: "Svenska",
-      en: "Svenska"
+      en: "Svenska",
+      hr: "Svenska"
     },
     languageEnglish: {
       se: "English",
-      en: "English"
+      en: "English",
+      hr: "English"
+    },
+    languageCroatian: {
+      se: "Hrvatski",
+      en: "Croatian",
+      hr: "Hrvatski"
     },
     languageSwitchLabel: {
       se: "Växla till svenska",
-      en: "Switch to English"
+      en: "Switch to English",
+      hr: "Promijeni jezik"
     },
     heroTitle: {
       se: "Framgångskultur på småländska",
-      en: "Success culture the Småland way"
+      en: "Success culture the Småland way",
+      hr: "Kultura izvrsnosti na småländski način"
     },
     heroDescription: {
       se: "En organisation som mår bra, levererar bra. Är det dags att höja blicken, få fram snabba och långsiktiga förändringar, samordna de gemensamma processerna och låta organisationen flyga! Som vi gör hemma i Småland!",
-      en: "An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!"
+      en: "An organization that feels good, delivers good. Is it time to raise your sights, bring about rapid and long-term changes, coordinate common processes and let the organization soar! As we do at home in Småland!",
+      hr: "Tvrtka u kojoj se svi dobro osjećaju dobro i posluje. Vrijeme je da sagledate širu sliku, pokrenete brze i dugoročne promjene, uskladite zajedničke procese i oslobodite puni potencijal svoje organizacije. Baš onako kako mi to radimo u Smålandu."
     },
     heroButton: {
       se: "Är du redo för din turnaround?",
-      en: "Are you ready for your turnaround?"
+      en: "Are you ready for your turnaround?",
+      hr: "Jeste li spremni za svoj poslovni preokret?"
     }
   };
 
@@ -150,7 +166,7 @@ const HeroSection = () => {
   }, []);
 
 
-  const handleLanguageSelect = (language: 'se' | 'en') => {
+  const handleLanguageSelect = (language: 'se' | 'en' | 'hr') => {
     setLanguage(language);
     setIsLanguageDropdownOpen(false);
   };
@@ -228,7 +244,7 @@ const HeroSection = () => {
             >
               <img src={imgFlowbiteGlobeOutline} alt="Globe" />
               <span className="language-text">
-                {currentLanguage === 'se' ? content.languageSwedish.se : content.languageEnglish.en}
+                {currentLanguage === 'se' ? content.languageSwedish.se : currentLanguage === 'en' ? content.languageEnglish.en : content.languageCroatian.hr}
               </span>
             </button>
             <div 
@@ -253,6 +269,15 @@ const HeroSection = () => {
                 type="button"
               >
                 {content.languageEnglish.en}
+              </button>
+              <button
+                onClick={() => handleLanguageSelect('hr')}
+                className={`language-option ${currentLanguage === 'hr' ? 'selected' : ''}`}
+                role="option"
+                aria-selected={currentLanguage === 'hr'}
+                type="button"
+              >
+                {content.languageCroatian.hr}
               </button>
             </div>
           </div>
@@ -334,6 +359,16 @@ const HeroSection = () => {
                   type="button"
                 >
                   {content.languageEnglish.en}
+                </button>
+                <button
+                  onClick={() => {
+                    handleLanguageSelect('hr');
+                    setIsHamburgerMenuOpen(false);
+                  }}
+                  className={`hamburger-language-option ${currentLanguage === 'hr' ? 'selected' : ''}`}
+                  type="button"
+                >
+                  {content.languageCroatian.hr}
                 </button>
               </div>
             </div>
