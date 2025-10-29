@@ -1695,6 +1695,7 @@ button.nav-item.active {
   gap: 60px;
   align-items: flex-start;
   flex-shrink: 0;
+  width: 100%;
 }
 
 .footer-column {
@@ -1703,7 +1704,8 @@ button.nav-item.active {
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
-  width: 200px;
+  flex-grow: 1;
+  max-width: 200px;
   box-sizing: border-box;
 }
 
@@ -1845,7 +1847,7 @@ button.nav-item.active {
     align-items: center;
     flex-grow: 1;
   }
-  
+
   .hero-text {
     padding-bottom: 0;
   }
@@ -2125,6 +2127,15 @@ button.nav-item.active {
 @media (max-width: 480px) {
   .nav-container {
     padding: 12px 15px;
+  }
+
+  .nav-logo-spacer {
+    max-width: calc(100% - 80px - 72px);
+  }
+
+  .nav-logo {
+    top: 12px;
+    max-width: calc(100% - 80px - 72px);
   }
 
   .hamburger-dropdown {

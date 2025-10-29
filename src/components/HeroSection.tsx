@@ -213,10 +213,6 @@ const HeroSection = () => {
 
         {/* Mobile Navigation */}
         <nav className="nav-menu nav-menu-mobile">
-          <AnchorLink href="#contact" className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}>
-            <img src={imgBasilPhoneSolid} alt="Phone" />
-            {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
-          </AnchorLink>
           <div className="hamburger-menu">
             <button 
               onClick={toggleHamburgerMenu}
@@ -263,6 +259,13 @@ const HeroSection = () => {
                 onClick={() => setIsHamburgerMenuOpen(false)}
               >
                 {currentLanguage === 'se' ? 'Metod' : 'Method'}
+              </AnchorLink>
+              <AnchorLink 
+                href="#contact" 
+                className={`hamburger-option ${activeSection === 'contact' ? 'active' : ''}`}
+                onClick={() => setIsHamburgerMenuOpen(false)}
+              >
+                {currentLanguage === 'se' ? 'Kontakt' : 'Contact'}
               </AnchorLink>
               <div className="hamburger-language-section">
                 <button
