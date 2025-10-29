@@ -1854,6 +1854,10 @@ button.nav-item.active {
     padding-bottom: 0;
   }
 
+  .hero-button {
+    display: none;
+  }
+
   .hero-profile-container {
     order: 1;
     flex-shrink: 1;
